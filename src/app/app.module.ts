@@ -16,6 +16,8 @@ import { RestaurantPage } from "../pages/restaurant/restaurant";
 import { TeetimePage } from "../pages/teetime/teetime";
 import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { GaleriaPage } from "../pages/galeria/galeria";
+import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarcontrasena";
+
 
 //modales
 import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
@@ -43,7 +45,8 @@ import { HttpClientModule } from "@angular/common/http";
     ZonasociosPage,
     DetalleeventoPage,
     SugerenciaysaborPage,
-    GaleriaPage
+    GaleriaPage,
+    RecuperarcontrasenaPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import { HttpClientModule } from "@angular/common/http";
     ZonasociosPage,
     DetalleeventoPage,
     SugerenciaysaborPage,
-    GaleriaPage
+    GaleriaPage,
+    RecuperarcontrasenaPage
   ],
   providers: [
     StatusBar,

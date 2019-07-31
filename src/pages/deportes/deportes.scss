@@ -14,8 +14,8 @@ page-deportes {
   }
   .cardimgdeportes {
     width: 100% !important;
-    height: 250px !important;
-    max-height: 250px !important;
+    height: 200px !important;
+    max-height: 200px !important;
     background-image: linear-gradient(white 45%, transparent 70%);
   }
 
@@ -36,5 +36,10 @@ page-deportes {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
+  }
+  .sombra{
+    -webkit-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+    -moz-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+    box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
   }
 }

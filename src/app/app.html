@@ -1,18 +1,22 @@
 <ion-menu id="leftMenu" [content]="content" side="left" type="overlay">
   <ion-content>
     <div
-      style="height: 200px; text-align: center; background-image: url('../assets/imgs/fondoazul.png') !important;"
+      style="height: 100px; text-align: center; background-image: url('../assets/imgs/fondoazul.png') !important; position: relative;"
     >
+
+    <div style="position: absolute; left: 25%; top: 18%;">
       <img
-        src="../assets/imgs/logo.png"
-        alt=""
-        style="max-width: 100px; max-height: 100px; margin-top: 20px;"
-      />
-      <h2 style="color: white">Tennis Golf Club</h2>
+      src="../assets/imgs/logo.png"
+      alt=""
+      style="max-width: 100px; max-height: 100px; margin-top: 20px; "
+    />
+    <h4 style="color: #3e71c9;  margin-top: 5px;">Tennis Golf Club</h4>
     </div>
-    <ion-list>
+     
+    </div>
+    <ion-list  style="margin-top: 80px; border-bottom: 0px !important;">
       <button
-        style="font-size: 20px; border-bottom: 1px solid #3e71c9 "
+        style="font-size: 20px; border-bottom: 0px !important; "
         menuClose
         ion-item
         *ngFor="let p of pages"

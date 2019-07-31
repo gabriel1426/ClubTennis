@@ -1,5 +1,8 @@
 page-eventos {
+  .label-md {
+    margin: 13px 8px 18px 0;
 }
+
 
 .contenedor-principal {
   //background-color:color($colors,primary);
@@ -13,55 +16,11 @@ page-eventos {
 ion-label {
   white-space: normal !important;
 }
+
 ion-card {
   position: relative;
   text-align: center;
 
-  background: rgba(226, 226, 226, 0.71) !important;
-  background: -moz-linear-gradient(
-    top,
-    rgba(226, 226, 226, 0.71) 0%,
-    rgba(209, 209, 209, 0.86) 53%,
-    rgba(219, 219, 219, 0.93) 77%,
-    rgba(254, 254, 254, 1) 100%
-  ) !important;
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(226, 226, 226, 0.71)),
-    color-stop(53%, rgba(209, 209, 209, 0.86)),
-    color-stop(77%, rgba(219, 219, 219, 0.93)),
-    color-stop(100%, rgba(254, 254, 254, 1))
-  ) !important;
-  background: -webkit-linear-gradient(
-    top,
-    rgba(226, 226, 226, 0.71) 0%,
-    rgba(209, 209, 209, 0.86) 53%,
-    rgba(219, 219, 219, 0.93) 77%,
-    rgba(254, 254, 254, 1) 100%
-  ) !important;
-  background: -o-linear-gradient(
-    top,
-    rgba(226, 226, 226, 0.71) 0%,
-    rgba(209, 209, 209, 0.86) 53%,
-    rgba(219, 219, 219, 0.93) 77%,
-    rgba(254, 254, 254, 1) 100%
-  ) !important;
-  background: -ms-linear-gradient(
-    top,
-    rgba(226, 226, 226, 0.71) 0%,
-    rgba(209, 209, 209, 0.86) 53%,
-    rgba(219, 219, 219, 0.93) 77%,
-    rgba(254, 254, 254, 1) 100%
-  ) !important;
-  background: linear-gradient(
-    to bottom,
-    rgba(226, 226, 226, 0.71) 0%,
-    rgba(209, 209, 209, 0.86) 53%,
-    rgba(219, 219, 219, 0.93) 77%,
-    rgba(254, 254, 254, 1) 100%
-  ) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=0 ) !important;
 }
 .cardimg {
   width: 100% !important;
@@ -71,9 +30,11 @@ ion-card {
 }
 
 .card-title {
+ 
   position: absolute;
-  bottom: 0px;
-  font-size: 2em;
+  text-align: center;
+  bottom: 20px;
+  font-size: 1.5em;
   width: 100%;
   height: 60px;
   font-weight: bold;
@@ -88,98 +49,13 @@ ion-card {
   color: #fff;
 }
 
-.difuminado {
-  background: rgba(19, 19, 19, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(51, 48, 51, 1) 40%,
-    rgba(48, 44, 48, 1) 49%,
-    rgba(44, 44, 44, 1) 50%,
-    rgba(71, 71, 71, 1) 61%,
-    rgba(148, 148, 148, 1) 75%,
-    rgba(166, 166, 166, 1) 88%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(19, 19, 19, 1)),
-    color-stop(9%, rgba(28, 28, 28, 1)),
-    color-stop(24%, rgba(43, 43, 43, 1)),
-    color-stop(40%, rgba(51, 48, 51, 1)),
-    color-stop(49%, rgba(48, 44, 48, 1)),
-    color-stop(50%, rgba(44, 44, 44, 1)),
-    color-stop(61%, rgba(71, 71, 71, 1)),
-    color-stop(75%, rgba(148, 148, 148, 1)),
-    color-stop(88%, rgba(166, 166, 166, 1)),
-    color-stop(100%, rgba(255, 255, 255, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(51, 48, 51, 1) 40%,
-    rgba(48, 44, 48, 1) 49%,
-    rgba(44, 44, 44, 1) 50%,
-    rgba(71, 71, 71, 1) 61%,
-    rgba(148, 148, 148, 1) 75%,
-    rgba(166, 166, 166, 1) 88%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(51, 48, 51, 1) 40%,
-    rgba(48, 44, 48, 1) 49%,
-    rgba(44, 44, 44, 1) 50%,
-    rgba(71, 71, 71, 1) 61%,
-    rgba(148, 148, 148, 1) 75%,
-    rgba(166, 166, 166, 1) 88%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(51, 48, 51, 1) 40%,
-    rgba(48, 44, 48, 1) 49%,
-    rgba(44, 44, 44, 1) 50%,
-    rgba(71, 71, 71, 1) 61%,
-    rgba(148, 148, 148, 1) 75%,
-    rgba(166, 166, 166, 1) 88%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(19, 19, 19, 1) 0%,
-    rgba(28, 28, 28, 1) 9%,
-    rgba(43, 43, 43, 1) 24%,
-    rgba(51, 48, 51, 1) 40%,
-    rgba(48, 44, 48, 1) 49%,
-    rgba(44, 44, 44, 1) 50%,
-    rgba(71, 71, 71, 1) 61%,
-    rgba(148, 148, 148, 1) 75%,
-    rgba(166, 166, 166, 1) 88%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#ffffff', GradientType=0 );
-}
 
 .maximg {
   max-height: 200px;
   width: 100%;
 }
 
-.scroll-content {
-  padding-top: 0px !important;
-}
+
 .bar-header {
   border: 0px !important;
   border-bottom-color: transparent !important;
@@ -194,279 +70,12 @@ ion-card {
   height: 100px;
 }
 
-.timeline {
-  padding: 3em 2em 2em;
-  position: relative;
-  color: rgba(black, 0.7);
-  border-left: 2px solid red;
-}
 
-.marginBottom0 {
-  margin-bottom: 0;
-}
-
-.marginTop0 {
-  margin-top: 0;
-}
-
-.marginTop5 {
-  margin-top: 5px !important;
-}
-
-/* -------------------------------- 
-
-Modules - reusable parts of our design
-
--------------------------------- */
-
-.cd-container {
-  /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
-  width: 93%;
-  max-width: 1170px;
-  margin: 0 auto;
-}
-
-.cd-container::after {
-  /* clearfix */
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* -------------------------------- 
-
-Main components 
-
--------------------------------- */
-
-.timelineText {
-  color: black;
-}
-
-.timelineIcon {
-  font-size: 25px;
-  color: white;
-}
-
-.cd-author {
-  color: gray;
-}
-
-#cd-timeline {
-  position: relative;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  margin-left: 10px !important;
-}
-
-#cd-timeline::before {
-  content: "";
-  position: absolute;
-  top: 25%;
-  left: 13px;
-  height: 70%;
-  width: 2px;
-  background: #afdcf8;
-}
-
-.cd-timeline-block {
-  position: relative;
-}
-
-.cd-timeline-block:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.cd-timeline-block:first-child {
-  margin-top: 0;
-}
-
-.cd-timeline-block:last-child {
-  margin-bottom: 0;
-}
-
-.cd-timeline-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  //border-color: #4a87ee;
-  border-style: solid;
-  border-width: 2px;
-  padding-top: 5px;
-  background: white;
-  text-align: center;
-}
-
-.cd-timeline-icon i {
-  //color: #4a87ee;
-}
-
-.cd-timeline-picture {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-
-  border-style: solid;
-  border-width: 2px;
-  background: white;
-}
-
-.cd-timeline-picture img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  border-radius: 50%;
-}
-
-.cd-timeline-content {
-  position: relative;
-  margin-left: 40px;
-  background: white;
-  border-radius: 0.25em;
-  border-color: #bddfb3;
-  border-style: solid;
-  border-width: 2px;
-  margin-bottom: 10px;
-}
-
-.cd-timeline-content:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.cd-timeline-content h2 {
-  color: #303e49;
-}
-
-.cd-timeline-content p,
-.cd-timeline-content .cd-read-more,
-.cd-timeline-content .cd-date {
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-
-.cd-timeline-content .cd-read-more,
-.cd-timeline-content .cd-date {
-  display: inline-block;
-}
-
-.cd-timeline-content p {
-  margin: 1em 0;
-  line-height: 1.6;
-}
-
-.cd-timeline-content::before {
-  content: "";
-  position: absolute;
-  right: 100%;
-  height: 0;
-  width: 0;
-  border: 7px solid transparent;
-  border-right: 7px solid white;
-  border-right-color: inherit;
-}
-
-/*COLORS*/
-
-/*POSITIVE*/
-
-.positive {
-  border-color: #46a4da;
-}
-
-.positive i {
-  color: #46a4da;
-}
-
-/*CALM*/
-
-.calm {
-  border-color: #43cee6;
-}
-
-.calm i {
-  color: #43cee6;
-}
-
-/*BALANCED*/
-
-.balanced {
-  border-color: #66cc33;
-}
-
-.balanced i {
-  color: #66cc33;
-}
-
-/*ENERGIZED*/
-
-.energized {
-  border-color: #f0b840;
-}
-
-.energized i {
-  color: #f0b840;
-}
-
-/*ASSERTIVE*/
-
-.assertive {
-  border-color: #ef4e3a;
-}
-
-.assertive i {
-  color: #ef4e3a;
-}
-
-/*ROYAL*/
-
-.royal {
-  border-color: #8a6de9;
-}
-
-.royal i {
-  color: #8a6de9;
-}
-
-/*DARK*/
-
-.dark {
-  border-color: #444;
-}
-
-.dark i {
-  color: #444;
-}
 .card-md {
   margin: 0px !important;
   width: 100% !important;
 }
 
-@media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
-    font-size: 20px;
-    font-size: 1.25rem;
-  }
-  .cd-timeline-content p {
-    font-size: 16px;
-    font-size: 1rem;
-  }
-  .cd-timeline-content .cd-read-more,
-  .cd-timeline-content .cd-date {
-    font-size: 14px;
-    font-size: 0.875rem;
-  }
-}
 .icon-menu {
   width: 30px;
   height: 30px;
@@ -486,4 +95,9 @@ Main components
 }
 .fondonegroclaro {
   background: rgba(0, 0, 0, 0.418);
+}
+
+
+
+
 }

@@ -1,11 +1,22 @@
 page-restaurant {
   .fondorestaurant {
-    height: 350px !important;
+    height: 300px !important;
     max-height: 530px !important;
     background-image: url("../../assets/imgs/16245.jpg") !important;
   }
   ion-img {
     contain: inherit !important;
     background: transparent !important;
+  }
+  .sombra{
+    -webkit-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+    -moz-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+    box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+  }
+  .cardimgdeportes {
+    width: 100% !important;
+    height: 200px !important;
+    max-height: 200px !important;
+    background-image: linear-gradient(white 45%, transparent 70%);
   }
 }

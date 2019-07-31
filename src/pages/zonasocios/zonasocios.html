@@ -4,18 +4,15 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header
-  header-scroll-opacity
-  [scrollArea]="mycontent5"
-  [scrollAmount]="200"
->
-  <ion-navbar color="primary">
-    <button ion-button menuToggle="leftMenu">
-      <ion-icon name="menu"></ion-icon>
-    </button>
-  </ion-navbar>
-</ion-header>
-
+<ion-header >
+    <ion-toolbar style="text-align: center;">
+        <ion-title style=" margin-left: -40px;">Zona de socios</ion-title>
+      <button ion-button menuToggle="leftMenu" style="position: relative;">
+        <ion-icon name="menu" class=""></ion-icon>
+      </button>
+      
+    </ion-toolbar>
+  </ion-header>
 <ion-content no-padding #mycontent5 fullscreen class="contenedor-principal">
   <div style=" text-align: center;">
     <ion-img
@@ -24,10 +21,10 @@
     ></ion-img>
   </div>
 
-  <ion-grid style="margin-top: -60px;">
+  <ion-grid style="margin-top: -60px; padding: 0px !important;">
     <ion-row>
-      <ion-col col-12 style="padding-top: 10px">
-        <ion-card>
+      <ion-col col-12 style="padding: 0px !important;">
+        <ion-card class="sombra">
           <ion-item>
             <img
               style="max-height: 30px !important; max-width: 30px !important;"

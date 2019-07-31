@@ -3,7 +3,7 @@
     <ion-buttons>
       <button
         (click)="menuprincipal()"
-        class="boton"
+        class="btnsaltar"
         nstyle="font-family: MyriadPro;"
       >
         SALTAR <ion-icon name="ios-arrow-forward"></ion-icon>
@@ -11,38 +11,53 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding class="contenedor-principal">
-  <form [formGroup]="LoginForm" style="margin-bottom: 0px !important;">
-    <ion-grid>
-      <ion-row>
+<ion-content padding class="contenedor-principal-login">
+
+    <ion-row>
         <ion-col col-12>
           <img
-            src="assets/images/tennis/logo.png"
-            style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;"
+            src="../../assets/imgs/logo.png"
+            style="display: block; width: 35%; height: auto; margin-left: auto; margin-right: auto;"
           />
+          <h2
+          class="tecolor"
+          style="font-family: MyriadProBold; color:white; text-align: center;"
+        >
+          <strong>Tennis Golf Club</strong>
+        </h2>
         </ion-col>
       </ion-row>
+    
+
+      <div class="loginpart " style="position: relative;">
+
+          
+
+      
+  <form [formGroup]="LoginForm" style="margin-bottom: 0px !important;">
+    <ion-grid>
+        <ion-row>
+            <ion-col col-12>
+              <p
+                class=""
+                style=" color:#3e71c9;; text-align: center;"
+              >
+                <strong>INICIO DE SESIÓN</strong>
+              </p>
+            </ion-col>
+          </ion-row>
       <ion-row>
         <ion-col col-12>
-          <p
-            class="tecolor"
-            style="font-family: MyriadProBold; color:#fff; text-align: center;"
-          >
-            <strong>INICIO DE SESIÓN</strong>
-          </p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          <ion-list no-lines padding-top style="margin-bottom: 0px;">
+          
             <ion-item
-              class="iblack center"
+              class=" center"
               style="width:90%;padding-left: 8px;"
             >
-              <ion-label>
-                <img src="assets/images/user.png" style="width: 50%; "
+              <ion-label style="border-right: 2px solid #3e71c9;">
+                <img src="../../assets/imgs/user.png" style="width: 60%; "
               /></ion-label>
               <ion-input
+              style="margin-left: 10px;"
                 formControlName="Email"
                 type="text"
                 placeholder="Correo Electronico"
@@ -52,21 +67,24 @@
             </ion-item>
             <div style="height:10px;"></div>
             <ion-item
-              class="iblack center"
-              style="width:90%;padding-left: 8px;"
-            >
-              <ion-label>
-                <img src="assets/images/lock.png" style="width: 60%; "
-              /></ion-label>
-              <ion-input
-                formControlName="Password"
-                type="password"
-                placeholder="Contraseña"
-                [(ngModel)]="credentials.password"
-                required
-              ></ion-input>
-            </ion-item>
-          </ion-list>
+            class=" center"
+            style="width:90%;padding-left: 8px;"
+          >
+            <ion-label style="border-right: 2px solid #3e71c9;">
+              <img src="../../assets/imgs/user.png" style="width: 60%; "
+            /></ion-label>
+            <ion-input
+            style="margin-left: 10px;"
+              formControlName="Password"
+              type="password"
+              placeholder="Contraseña"
+              [(ngModel)]="credentials.password"
+              required
+            ></ion-input>
+          </ion-item>
+          
+           
+         
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -76,9 +94,10 @@
     <ion-row>
       <ion-col col-12 style="padding-top: 0px;">
         <button
-          class="botont center"
+        ion-button
+          class=" center"
           (click)="Login($event)"
-          style="font-family: MyriadProBold; width:80%; font-size: 18px !important;"
+          
         >
           Iniciar Sesión
         </button>
@@ -90,22 +109,25 @@
           ion-button
           block
           clear
-          style="font-family: MyriadPro; color:white; text-decoration: underline; font-size:18px !important;"
+          style=" color:#3e71c9;"
         >
           Olvidaste tú contraseña?
         </button>
       </ion-col>
-      <ion-col col-12 style="margin-top: 35px;">
-        <button
-          style="color:white ;"
-          ion-button
-          block
-          clear
-          (click)="abrirterminos()"
-        >
-          Ver términos y condiciones
-        </button>
-      </ion-col>
+    
     </ion-row>
   </ion-grid>
+</div>
+
+<ion-col col-12 style="margin-top: 35px;">
+    <button
+      style="color:white; ;"
+      ion-button
+      block
+      clear
+      (click)="abrirterminos()"
+    >
+      <b>Ver términos y condiciones</b>
+    </button>
+  </ion-col>
 </ion-content>

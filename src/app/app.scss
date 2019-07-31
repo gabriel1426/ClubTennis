@@ -15,5 +15,12 @@
 // automatically applied to the <body> element in the app.
 
 .toolbar-md-primary .toolbar-background-md {
-  background: transparent;
+  //background: transparent;
+}
+
+.toolbar-background {
+  background-color: #3e71c9;
+}
+.item-md.item-block .item-inner{
+  border-bottom: 0px !important; 
 }
