@@ -1,0 +1,11 @@
+page-restaurant {
+  .fondorestaurant {
+    height: 350px !important;
+    max-height: 530px !important;
+    background-image: url("../../assets/imgs/16245.jpg") !important;
+  }
+  ion-img {
+    contain: inherit !important;
+    background: transparent !important;
+  }
+}

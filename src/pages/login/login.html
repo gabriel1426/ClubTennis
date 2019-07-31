@@ -1,0 +1,111 @@
+<ion-header class="saltar">
+  <ion-navbar hideBackButton="true">
+    <ion-buttons>
+      <button
+        (click)="menuprincipal()"
+        class="boton"
+        nstyle="font-family: MyriadPro;"
+      >
+        SALTAR <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="contenedor-principal">
+  <form [formGroup]="LoginForm" style="margin-bottom: 0px !important;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <img
+            src="assets/images/tennis/logo.png"
+            style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;"
+          />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <p
+            class="tecolor"
+            style="font-family: MyriadProBold; color:#fff; text-align: center;"
+          >
+            <strong>INICIO DE SESIÓN</strong>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-list no-lines padding-top style="margin-bottom: 0px;">
+            <ion-item
+              class="iblack center"
+              style="width:90%;padding-left: 8px;"
+            >
+              <ion-label>
+                <img src="assets/images/user.png" style="width: 50%; "
+              /></ion-label>
+              <ion-input
+                formControlName="Email"
+                type="text"
+                placeholder="Correo Electronico"
+                [(ngModel)]="credentials.email"
+                required
+              ></ion-input>
+            </ion-item>
+            <div style="height:10px;"></div>
+            <ion-item
+              class="iblack center"
+              style="width:90%;padding-left: 8px;"
+            >
+              <ion-label>
+                <img src="assets/images/lock.png" style="width: 60%; "
+              /></ion-label>
+              <ion-input
+                formControlName="Password"
+                type="password"
+                placeholder="Contraseña"
+                [(ngModel)]="credentials.password"
+                required
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+  <ion-grid style="padding-top: 0px;">
+    <ion-row>
+      <ion-col col-12 style="padding-top: 0px;">
+        <button
+          class="botont center"
+          (click)="Login($event)"
+          style="font-family: MyriadProBold; width:80%; font-size: 18px !important;"
+        >
+          Iniciar Sesión
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button
+          (click)="forgotPasswordPage()"
+          ion-button
+          block
+          clear
+          style="font-family: MyriadPro; color:white; text-decoration: underline; font-size:18px !important;"
+        >
+          Olvidaste tú contraseña?
+        </button>
+      </ion-col>
+      <ion-col col-12 style="margin-top: 35px;">
+        <button
+          style="color:white ;"
+          ion-button
+          block
+          clear
+          (click)="abrirterminos()"
+        >
+          Ver términos y condiciones
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-menu id="leftMenu" [content]="content" side="left" type="overlay">
+  <ion-content>
+    <div
+      style="height: 200px; text-align: center; background-image: url('../assets/imgs/fondoazul.png') !important;"
+    >
+      <img
+        src="../assets/imgs/logo.png"
+        alt=""
+        style="max-width: 100px; max-height: 100px; margin-top: 20px;"
+      />
+      <h2 style="color: white">Tennis Golf Club</h2>
+    </div>
+    <ion-list>
+      <button
+        style="font-size: 20px; border-bottom: 1px solid #3e71c9 "
+        menuClose
+        ion-item
+        *ngFor="let p of pages"
+        (click)="openPage(p)"
+      >
+        <ion-icon name="{{ p.icon }}" color="primary"></ion-icon> {{ p.title }}
+      </button>
+    </ion-list>
+    <ion-footer style="text-align: center">
+      <button
+        menuClose
+        ion-item
+        style="text-align: center; background-image: url('../assets/imgs/fondoazul.png') !important; color:white;"
+      >
+        <ion-icon name="log-out" style="color: white;"></ion-icon> Cerrar Sesión
+      </button>
+    </ion-footer>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

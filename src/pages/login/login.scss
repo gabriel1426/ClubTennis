@@ -1,0 +1,87 @@
+page-login {
+  .text-input-md {
+    margin: 0px 0px !important;
+    height: 49px !important;
+  }
+  .label-md {
+    margin: 13px 0px 13px 0px !important;
+  }
+
+  .toolbar-background {
+    background: transparent;
+    border-style: none;
+  }
+  .toolbar::after,
+  .header-md::after {
+    background-image: none;
+  }
+
+  .tecolor {
+    font-size-adjust: 0.58;
+    color: #fff;
+    text-align: center;
+    font-family: MyriadPro;
+  }
+  //.scroll-content { display: table; width: 100%; height: 100%; }
+  .centerAlign {
+    display: table-cell;
+    vertical-align: middle;
+    border: #ff0000 1px solid;
+  }
+  //  .item{ border:$border-color 1px solid !important; margin-bottom:10px;}
+  .soy {
+    font-family: raspoutine_demibolditalic;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .sinfondo {
+    background: transparent;
+  }
+
+  .iblack {
+    background: -webkit-linear-gradient(bottom left, #ecf0f1, #ecf0f1);
+    background: -o-linear-gradient(bottom right, #ecf0f1, #ecf0f1);
+    background: -moz-linear-gradient(bottom right, #ecf0f1, #ecf0f1);
+    background: linear-gradient(to bottom right, #ecf0f1, #ecf0f1);
+    color: #220909;
+    font-family: MyriadPro;
+    border-radius: 7px;
+  }
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .fondouser {
+    background-image: url("../assets/images/tennis/fondo1.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .sol-credenciales {
+    margin-bottom: 0%;
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .credenciales {
+    margin-bottom: 0%;
+    display: block;
+  }
+  .saltar {
+    left: inherit;
+    text-align: right;
+  }
+  .boton {
+    background: #072259;
+    width: 30%;
+    height: 100%;
+  }
+}
