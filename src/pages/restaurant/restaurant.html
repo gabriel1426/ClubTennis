@@ -7,37 +7,29 @@
 <ion-header >
     <ion-toolbar style="text-align: center;">
         <ion-title style=" margin-left: -50px;">Restaurante</ion-title>
-      <button ion-button menuToggle="leftMenu" style="position: relative;">
+      <button ion-button menuToggle="leftMenu" >
         <ion-icon name="menu" class=""></ion-icon>
       </button>
       
     </ion-toolbar>
   </ion-header>
 
-<ion-content
-  
-  class="contenedor-principal"
->
-  <div class="fondorestaurant">
-    <div style="position: relative">
-      <ion-img
-        style=" margin: 0 auto; height: 300px !important; width: 100% !important;"
-        src="../../assets/imgs/16245.jpg"
-      ></ion-img>
-
-      <div style="position: absolute; bottom: 25%">
+<ion-content class="contenedor-principal "  >
+  <div >
+    
+      <div class="fondorestaurant">
         <ion-grid>
-          <ion-row style="margin-top: 40px; text-align: center">
+          <ion-row style="margin-top: 10px; text-align: center">
             <ion-col col-6>
               <ion-img
-                style="width: 80%; margin: 0 auto;"
+                style="width: 70%; margin: 0 auto;"
                 (click)="sugerenciaysaborModal()"
                 src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/logo_sabor_chef/logo-chef.png"
               ></ion-img>
             </ion-col>
             <ion-col col-6>
               <ion-img
-                style="width: 80%; margin: 0 auto;"
+                style="width: 70%; margin: 0 auto;"
                 (click)="sugerenciaysaborModal()"
                 src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/logo_sabor_chef/logo-gourmet.png"
               ></ion-img>
@@ -45,9 +37,9 @@
           </ion-row>
         </ion-grid>
       </div>
-    </div>
+    
   </div>
-  <ion-grid style="margin-top: -60px;">
+  <ion-grid style="margin-top: -50px;">
     <ion-row>
       <ion-col
         col-12

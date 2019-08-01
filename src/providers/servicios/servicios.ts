@@ -13,11 +13,13 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://252a5c46.ngrok.io/api/auth";
+  baseUrl: string = "http://346bd646.ngrok.io";
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
   }
 
+
+  ////// Metodo de sesion
   login(datos: any): Observable<any> {
     return this.http.post(
       this.baseUrl + "/login",
@@ -46,4 +48,18 @@ export class ServiciosProvider {
     window.localStorage.removeItem("token");
     return true;
   }
+
+  ///// Fin de los metodos de sesion
+
+
+  //////Consultar Eventos
+  consultaDeEventos(datos: any): Observable<any> {
+    return this.http.post(
+      this.baseUrl + "/api/v1/eventos",
+      { email: datos.correo, password: datos.clave },
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
+
 }

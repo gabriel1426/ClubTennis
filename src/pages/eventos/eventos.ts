@@ -24,11 +24,17 @@ export class EventosPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController
-  ) {}
+  ) {
+
+  }
+
+
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad EventosPage");
   }
+
+  
 
   abrirtdetalleevento() {
     this.navCtrl.push(DetalleeventoPage);
