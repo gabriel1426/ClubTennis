@@ -5,17 +5,16 @@
   Ionic pages and navigation.
 -->
 
-<ion-header >
+<ion-header>
   <ion-toolbar style="text-align: center;">
-      <ion-title style=" margin-left: -40px;">Tennis Golf Club</ion-title>
+    <ion-title style=" margin-left: -40px;">Tennis Golf Club</ion-title>
     <button ion-button menuToggle="leftMenu" style="position: relative;">
       <ion-icon name="menu" class=""></ion-icon>
     </button>
-    
   </ion-toolbar>
 </ion-header>
 
-<ion-content   class="contenedor-principal">
+<ion-content class="contenedor-principal">
   <div>
     <ion-slides pager="true" loop="false">
       <ion-slide (click)="abrirtdetalleevento()">
@@ -33,7 +32,7 @@
             class="cardimg"
             src="https://cdn.ciudad.com.ar/sites/default/files/nota/2018/07/27/eventos.jpg"
           />
-         
+
           <div class="card-title">São Paulo</div>
         </ion-card>
       </ion-slide>
@@ -43,7 +42,7 @@
             class="cardimg"
             src="https://files.merca20.com/uploads/2019/01/Event-marketing-Bigstock-1.jpg"
           />
-         
+
           <div class="card-title">São Paulo</div>
         </ion-card>
       </ion-slide>
@@ -51,41 +50,25 @@
   </div>
   <div style="margin-top: 10px;">
     <ion-item-group>
-      <ion-item-divider color="white" style="font-size: 18px; color: #3e71c9; text-align: center;"
+      <ion-item-divider
+        color="white"
+        style="font-size: 18px; color: #3e71c9; text-align: center;"
         >Últimos Eventos</ion-item-divider
       >
 
-      <ion-item (click)="abrirtdetalleevento()" style="margin-top: 5px;">
+      <ion-item
+        (click)="abrirtdetalleevento(item)"
+        style="margin-top: 5px;"
+        *ngFor="let item of eventos"
+      >
         <ion-thumbnail item-start>
           <img
             style="border-radius: 5px;"
-            src="http://www.mexicodestinos.com/blog/wp-content/uploads/2015/08/Ferias-y-Eventos-en-Septiembre-2015.jpg"
+            src="http://c545dca3.ngrok.io/{{ item.imagen_destacada }}"
           />
         </ion-thumbnail>
-        <h2>Ven y disfruta el dia de las madres</h2>
-        <p>Oct 14 • 1988</p>
-        <button ion-button clear item-end>Ver</button>
-      </ion-item>
-      <ion-item (click)="abrirtdetalleevento()">
-        <ion-thumbnail item-start>
-          <img
-            style="border-radius: 5px;"
-            src="https://cdn.ciudad.com.ar/sites/default/files/nota/2018/07/27/eventos.jpg"
-          />
-        </ion-thumbnail>
-        <h2>Ven y disfruta el dia de las madres</h2>
-        <p>Oct 14 • 1988</p>
-        <button ion-button clear item-end>Ver</button>
-      </ion-item>
-      <ion-item (click)="abrirtdetalleevento()">
-        <ion-thumbnail item-start>
-          <img
-            style="border-radius: 5px;"
-            src="https://files.merca20.com/uploads/2019/01/Event-marketing-Bigstock-1.jpg"
-          />
-        </ion-thumbnail>
-        <h2>Ven y disfruta el dia de las madres</h2>
-        <p>Oct 14 • 1988</p>
+        <h2>{{ item.nombre }}</h2>
+        <p>{{ item.fecha_inicio }}</p>
         <button ion-button clear item-end>Ver</button>
       </ion-item>
     </ion-item-group>
