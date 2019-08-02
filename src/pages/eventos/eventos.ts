@@ -21,7 +21,8 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
   templateUrl: "eventos.html"
 })
 export class EventosPage {
-  eventos: any = [];
+  public da;
+  public da2;
 
   constructor(
     public navCtrl: NavController,
@@ -29,6 +30,8 @@ export class EventosPage {
     public modalCtrl: ModalController,
     public proveedor: ServiciosProvider
   ) {
+    this.da = [];
+    this.da2 = [];
     this.consultarEventos();
   }
 
@@ -38,13 +41,21 @@ export class EventosPage {
 
   consultarEventos() {
     console.log("aqui");
-    this.proveedor.consultaDeEventos().subscribe(Response => {
-      console.log(Response);
-      console.log(Response.data.token);
-
-      if (Response.data.estatus == "ok") {
-        this.eventos = Response.data.data;
-        console.log(this.eventos);
+    this.proveedor.consultaDeEventos().subscribe(data => {
+      console.log(data);
+    
+      if (data.status == "ok") {
+        this.da = data.data;
+        this.da.forEach(element => {
+          if(element.prioridad_id==2){
+            this.da2.push(element);
+            console.log("abajo el tamaño de liked");
+            console.log(this.da.length);
+          }
+        })
+        console.log(this.da);
+        console.log( data.data);
+       
       }
     });
   }

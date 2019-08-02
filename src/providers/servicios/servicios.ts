@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://c545dca3.ngrok.io";
+  baseUrl: string = "http://3e9d820c.ngrok.io";
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
   }
@@ -21,8 +21,8 @@ export class ServiciosProvider {
   ////// Metodo de sesion
   login(datos: any): Observable<any> {
     return this.http.post(
-      this.baseUrl + "/login",
-      { email: datos.correo, password: datos.clave },
+      this.baseUrl + "/api/auth/login",
+      { email: datos.email, password: datos.password },
       { headers: { "Content-Type": "application/json" } }
     );
   }
@@ -56,4 +56,27 @@ export class ServiciosProvider {
       headers: { "Content-Type": "application/json" }
     });
   }
+
+   //////Consultar Deportes
+   consultaDeDeportes(): Observable<any> {
+    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+   //////Consultar Instalaciones
+   consultaDeDInstalaciones(): Observable<any> {
+    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+   //////Consultar Restaurantes
+   consultaDeRestaurantes(): Observable<any> {
+    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+ 
 }

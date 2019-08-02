@@ -1,4 +1,11 @@
 page-deportes {
+  .fondodeportes{
+    width: 100% !important;
+    height: 250px;
+    background-image: url("../../assets/imgs/15.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   ion-img {
     contain: inherit !important;
     background: transparent !important;

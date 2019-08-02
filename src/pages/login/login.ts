@@ -79,9 +79,8 @@ export class LoginPage {
       this.proveedor.login(this.credentials).subscribe(data => {
         console.log(data);
         console.log(data.token);
-        this.navCtrl.setRoot(EventosPage);
 
-        if (data.respuesta.estatus == "ok") {
+        if (data.status == "ok") {
           this.proveedor.guardarData(data.token);
           const toast = this.toastCtrl.create({
             message: "ingreso exitoso",
@@ -93,15 +92,22 @@ export class LoginPage {
         } else {
           this.credentials.password = "";
           const toast = this.toastCtrl.create({
-            message: "No se pudo completar el registro",
+            message: "Error Inesperado",
             duration: 2000
           });
           toast.present();
         }
+      }, Error=>{
+        console.log(Error);
+        let alert = this.alertController.create({
+          title: " Tennis Golf  Club",
+          subTitle: Error.error.message,
+          buttons: ["OK"]
+        });
+        alert.present();
       });
     }
 
-    this.navCtrl.setRoot(EventosPage);
   }
 
   menuprincipal() {
