@@ -2,10 +2,13 @@ page-restaurant {
   .fondorestaurant {
     width: 100% !important;
     height: 250px;
-    background-image: url("../../assets/imgs/3.png");
+    background-image: url("../../assets/imgs/1.png");
     background-repeat: no-repeat;
     background-size: cover;
     
+  }
+  .scroll-content {
+    padding-top: 0px !important;
   }
   ion-img {
     contain: inherit !important;
@@ -21,5 +24,14 @@ page-restaurant {
     height: 200px !important;
     max-height: 200px !important;
     background-image: linear-gradient(white 45%, transparent 70%);
+  }
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+  .header-md::after {
+    background: transparent !important;
   }
 }

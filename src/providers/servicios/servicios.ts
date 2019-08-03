@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://3e9d820c.ngrok.io";
+  baseUrl: string = "http://45963c93.ngrok.io";
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
   }
@@ -59,14 +59,14 @@ export class ServiciosProvider {
 
    //////Consultar Deportes
    consultaDeDeportes(): Observable<any> {
-    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+    return this.http.get(this.baseUrl + "/api/v1/disciplinas", {
       headers: { "Content-Type": "application/json" }
     });
   }
 
    //////Consultar Instalaciones
-   consultaDeDInstalaciones(): Observable<any> {
-    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+   consultaDeInstalaciones(): Observable<any> {
+    return this.http.get(this.baseUrl + "/api/v1/instalaciones", {
       headers: { "Content-Type": "application/json" }
     });
   }

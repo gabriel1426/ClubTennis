@@ -1,5 +1,53 @@
 page-eventos {
-  .label-md {
+
+  .scroll-content {
+    padding-top: 0px !important;
+  }
+  ion-slide.swiper-slide {
+    left: 2%;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets{
+  bottom: -4px !important;
+}
+   
+
+.cardimgdestacadas{
+  width: 100% !important;
+  height: 240px !important;
+  max-height: 350px !important;
+  background-image: linear-gradient(white 45%, transparent 70%);
+}
+.card-title-promocion{
+  position: absolute;
+  top: 6%;
+  font-size: 1.1em;
+  font-family: sans-serif;
+  width: 100%;
+  font-weight: bold;
+  text-align: left;
+  color: #fff;
+  padding-left:10px; 
+  
+}
+
+
+.card-subsubtitle-promocion{
+  position: absolute;
+  text-align: left;
+  bottom: 10%;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+  padding-left:50px; 
+  
+}
+
+
+
+
+.label-md {
     margin: 13px 8px 18px 0;
 }
 .fondoeventos {

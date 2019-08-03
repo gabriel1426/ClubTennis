@@ -3,6 +3,9 @@ page-instalaciones {
     contain: inherit !important;
     background: transparent !important;
   }
+  .scroll-content {
+    padding-top: 0px !important;
+  }
   .sombra{
     -webkit-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
     -moz-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
@@ -13,5 +16,14 @@ page-instalaciones {
     height: 200px !important;
     max-height: 200px !important;
     background-image: linear-gradient(white 45%, transparent 70%);
+  }
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+  .header-md::after {
+    background: transparent !important;
   }
 }

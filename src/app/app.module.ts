@@ -24,7 +24,7 @@ import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
 import { SugerenciaysaborPage } from "../pages/sugerenciaysabor/sugerenciaysabor";
 
 import { IonHeaderScrollOpacityModule } from "ion-header-scroll-opacity";
-import { IonicHeaderParallaxModule } from "ionic-header-parallax";
+
 
 //Privider and service
 import { ServiciosProvider } from "../providers/servicios/servicios";
@@ -46,13 +46,13 @@ import { HttpClientModule } from "@angular/common/http";
     DetalleeventoPage,
     SugerenciaysaborPage,
     GaleriaPage,
-    RecuperarcontrasenaPage
+    RecuperarcontrasenaPage,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonHeaderScrollOpacityModule,
-    IonicHeaderParallaxModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

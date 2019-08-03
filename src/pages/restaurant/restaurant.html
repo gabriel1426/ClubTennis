@@ -4,30 +4,42 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header >
-    <ion-toolbar style="text-align: center;">
-        <ion-title style=" margin-left: -50px;">Restaurante</ion-title>
-      <button ion-button menuToggle="leftMenu" >
-        <ion-icon name="menu" class=""></ion-icon>
-      </button>
-      
-    </ion-toolbar>
+<ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
+    <ion-navbar color="primary">
+        <button ion-button menuToggle="leftMenu" style="position: relative;">
+          <ion-icon name="menu" class=""></ion-icon>
+        </button>
+    </ion-navbar>
   </ion-header>
-
-<ion-content class="contenedor-principal "  >
+   
+  <ion-content no-padding #mycontent fullscreen >
   <div >
     
-      <div class="fondorestaurant">
+      <div class="">
+          <ion-row style="background-image: url('../../assets/imgs/1.png'); height: 280px;">
+            <ion-col col-12 >
+              <img
+                src="../../assets/imgs/logo.png"
+                style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top: 60px;"
+              />
+              <h2
+              class="tecolor"
+              style="font-family: MyriadProBold; color:white; text-align: center;"
+            >
+              <strong>Restaurante</strong>
+            </h2>
+            </ion-col>
+          </ion-row>
         <ion-grid>
           <ion-row style="margin-top: 10px; text-align: center">
-            <ion-col col-6>
+            <ion-col col-6 style="margin-top: -80px;">
               <ion-img
                 style="width: 70%; margin: 0 auto;"
                 (click)="sugerenciaysaborModal()"
                 src="http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/logo_sabor_chef/logo-chef.png"
               ></ion-img>
             </ion-col>
-            <ion-col col-6>
+            <ion-col col-6 style="margin-top: -80px;">
               <ion-img
                 style="width: 70%; margin: 0 auto;"
                 (click)="sugerenciaysaborModal()"
@@ -39,7 +51,7 @@
       </div>
     
   </div>
-  <ion-grid style="margin-top: -50px;">
+  <ion-grid >
     <ion-row>
       <ion-col
         col-12
