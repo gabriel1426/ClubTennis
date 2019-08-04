@@ -5,33 +5,43 @@
   Ionic pages and navigation.
 -->
 <ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
-    <ion-navbar color="primary">
-        <button ion-button menuToggle="leftMenu" style="position: relative;">
-          <ion-icon name="menu" class=""></ion-icon>
-        </button>
-    </ion-navbar>
-  </ion-header>
-   
-  <ion-content no-padding #mycontent fullscreen >
-      <ion-row style="background-image: url('../../assets/imgs/1.png'); height: 280px;">
-        <ion-col col-12>
-          <img
-            src="../../assets/imgs/logo.png"
-            style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top: 60px;"
-          />
-          <h2
-          class="tecolor"
-          style="font-family: MyriadProBold; color:white; text-align: center;"
-        >
-          <strong>Deportes</strong>
-        </h2>
-        </ion-col>
-      </ion-row>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle="leftMenu" style="position: relative;">
+      <ion-icon name="menu" class=""></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding #mycontent fullscreen>
+  <ion-row
+    style="background-image: url('../../assets/imgs/1.png'); height: 280px;"
+  >
+    <ion-col col-12>
+      <img
+        src="../../assets/imgs/logo.png"
+        style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top: 60px;"
+      />
+      <h2
+        class="tecolor"
+        style="font-family: MyriadProBold; color:white; text-align: center;"
+      >
+        <strong>Deportes</strong>
+      </h2>
+    </ion-col>
+  </ion-row>
 
   <ion-grid style="margin-top: -60px; padding:0px !important">
     <ion-row>
-      <ion-col col-12 style="padding:0px !important" *ngFor="let item of deportes">
-        <ion-card (click)="abrirtdetalleevento()" style="border-radius: 5px;" class="sombra">
+      <ion-col
+        col-12
+        style="padding:0px !important"
+        *ngFor="let item of deportes"
+      >
+        <ion-card
+          (click)="abrirDetalle(item)"
+          style="border-radius: 5px;"
+          class="sombra"
+        >
           <ion-item>
             <img
               style="max-height: 30px !important; max-width: 30px !important;"
@@ -39,12 +49,15 @@
               item-left
             />
             <h2>
-              <b>{{ item.titulo }}</b>
+              <b>{{ item.nombre }}</b>
             </h2>
             <ion-icon name="send" color="primary" item-right></ion-icon>
           </ion-item>
 
-          <ion-img class="cardimgdeportes" src="{{ item.url }}"></ion-img>
+          <ion-img
+            class="cardimgdeportes"
+            src="{{ url }}/{{ item.imagen_destacada }}"
+          ></ion-img>
         </ion-card>
       </ion-col>
     </ion-row>

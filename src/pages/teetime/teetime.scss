@@ -1,3 +1,27 @@
 page-teetime {
+  .scroll-content {
+    padding-top: 0px !important;
+  }
+  .contenedor {
+    background-image: url("http://administrativo.tennisgolfclub.com.co/imagenes/imagenes_app/app_teetime3.png");
+    -webkit-background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
+    background-position: center;
+  }
+  .button-md {
+    text-transform: none !important;
+  }
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+  .header-md::after {
+    background: transparent !important;
+  }
 }

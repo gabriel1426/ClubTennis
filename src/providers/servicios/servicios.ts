@@ -13,10 +13,25 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://45963c93.ngrok.io";
+  baseUrl: string = "http://1e040a3f.ngrok.io";
+  public restaurante;
+  public deportes;
+  public salon;
+  public spa;
+  public zonas;
+  public otros;
 
+  getUrlBase(): String {
+    return this.baseUrl;
+  }
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
+    this.restaurante = [];
+    this.deportes = [];
+    this.salon = [];
+    this.spa = [];
+    this.zonas = [];
+    this.otros = [];
   }
 
   ////// Metodo de sesion
@@ -26,6 +41,39 @@ export class ServiciosProvider {
       { email: datos.email, password: datos.password },
       { headers: { "Content-Type": "application/json" } }
     );
+  }
+
+  listarInstalaciones() {
+    this.http
+      .get(this.baseUrl + "/api/v1/tipoInstalacion", {
+        headers: { "Content-Type": "application/json" }
+      })
+      .subscribe(data => {
+        if (data["status"] == "ok") {
+          console.log("Si entro");
+          data["data"].forEach(element => {
+            if (element.id == 1) {
+              this.zonas = element.instalacions;
+              console.log(this.zonas);
+            } else if (element.id == 2) {
+              this.salon = element.instalacions;
+              console.log(this.salon);
+            } else if (element.id == 3) {
+              this.deportes = element.instalacions;
+              console.log(this.deportes);
+            } else if (element.id == 4) {
+              this.otros = element.instalacions;
+              console.log(this.otros);
+            } else if (element.id == 5) {
+              this.spa = element.instalacions;
+              console.log(this.spa);
+            } else {
+              this.restaurante = element.instalacions;
+              console.log(this.restaurante);
+            }
+          });
+        }
+      });
   }
 
   /////////////Metodos para guardar y obtener los datos almacenados en la memoria del cell
@@ -58,24 +106,33 @@ export class ServiciosProvider {
     });
   }
 
+  //////Consultar Salones
+  consultaDeSalones(): any {
+    return this.salon;
+  }
+
   //////Consultar Deportes
-  consultaDeDeportes(): Observable<any> {
-    return this.http.get(this.baseUrl + "/api/v1/disciplinas", {
-      headers: { "Content-Type": "application/json" }
-    });
+  consultaDeDeportes(): any {
+    return this.deportes;
   }
 
-  //////Consultar Instalaciones
-  consultaDeInstalaciones(): Observable<any> {
-    return this.http.get(this.baseUrl + "/api/v1/instalaciones", {
-      headers: { "Content-Type": "application/json" }
-    });
+  //////Consultar spa
+  consultaDeSpa(): any {
+    return this.spa;
   }
 
-  //////Consultar Restaurantes
-  consultaDeRestaurantes(): Observable<any> {
-    return this.http.get(this.baseUrl + "/api/v1/eventos", {
-      headers: { "Content-Type": "application/json" }
-    });
+  //////Consultar spa
+  getconsultaDeZonaRecreativa(): any {
+    return this.zonas;
+  }
+
+  //////Consultar restaurantes
+  getconsultaDeRestaurantes(): any {
+    return this.restaurante;
+  }
+
+  //////Consultar spa
+  consultaDeOtro(): any {
+    return this.otros;
   }
 }

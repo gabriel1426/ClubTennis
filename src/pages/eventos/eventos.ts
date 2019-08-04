@@ -23,6 +23,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class EventosPage {
   public da;
   public da2;
+  public url;
 
   constructor(
     public navCtrl: NavController,
@@ -32,7 +33,9 @@ export class EventosPage {
   ) {
     this.da = [];
     this.da2 = [];
+
     this.consultarEventos();
+    this.proveedor.listarInstalaciones();
   }
 
   ionViewDidLoad() {
@@ -40,24 +43,22 @@ export class EventosPage {
   }
 
   consultarEventos() {
+    this.url = this.proveedor.getUrlBase();
     console.log("aqui");
     this.proveedor.consultaDeEventos().subscribe(data => {
-    
       if (data.status == "ok") {
         this.da = data.data;
         this.da.forEach(element => {
-          if(element.prioridad_id==2){
+          if (element.prioridad_id == 2) {
             this.da2.push(element);
-            
           }
-        })
-       
+        });
       }
     });
   }
 
   abrirtdetalleevento(evento) {
     //console.log(evento);
-    this.navCtrl.push(DetalleeventoPage,evento);
+    this.navCtrl.push(DetalleeventoPage, evento);
   }
 }

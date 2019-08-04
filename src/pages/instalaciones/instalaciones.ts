@@ -15,34 +15,16 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 })
 export class InstalacionesPage {
   public da;
- 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public proveedor: ServiciosProvider) {
-
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public proveedor: ServiciosProvider
+  ) {
     this.da = [];
-
-    this.consultarInstalaciones();
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad InstalacionesPage");
   }
-
-  
-  consultarInstalaciones() {
-    console.log("aqui");
-    this.proveedor.consultaDeInstalaciones().subscribe(data => {
-      console.log(data);
-    
-      if (data.status == "ok") {
-        this.da = data.data;
-        this.da.forEach(element => {
-        
-        })
-        console.log(this.da);
-       
-      }
-    });
-  }
-
 }

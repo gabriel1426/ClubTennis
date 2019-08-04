@@ -15,7 +15,7 @@
 
 <ion-content no-padding #mycontent fullscreen>
   <ion-row
-    style="background-image: url('../../assets/imgs/1.png'); height: 280px;"
+    style="background-image: url('../../assets/imgs/1.png'); height: 280px;  width: 100%; background-repeat: no-repeat; background-size: cover;"
   >
     <ion-col col-12>
       <img
@@ -57,7 +57,7 @@
 
             <img
               class="cardimgdestacadas"
-              src="http://45963c93.ngrok.io/{{ item.imagen_destacada }}"
+              src="{{ url }}/{{ item.imagen_destacada }}"
             />
           </ion-card>
         </ion-slide>
@@ -82,7 +82,7 @@
         <ion-thumbnail item-start>
           <img
             style="border-radius: 5px;"
-            src="http://45963c93.ngrok.io/{{ item.imagen_destacada }}"
+            src="{{ url }}/{{ item.imagen_destacada }}"
           />
         </ion-thumbnail>
         <h2>{{ item.nombre }}</h2>

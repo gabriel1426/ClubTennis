@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { TeetimePage } from "../teetime/teetime";
 
 /**
  * Generated class for the ZonasociosPage page.
@@ -10,16 +11,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-zonasocios',
-  templateUrl: 'zonasocios.html',
+  selector: "page-zonasocios",
+  templateUrl: "zonasocios.html"
 })
 export class ZonasociosPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ZonasociosPage');
+    console.log("ionViewDidLoad ZonasociosPage");
   }
 
+  teeTime() {
+    //console.log(evento);
+    this.navCtrl.push(TeetimePage);
+  }
 }
