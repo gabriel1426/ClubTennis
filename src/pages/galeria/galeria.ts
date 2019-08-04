@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'galeria.html',
 })
 export class GaleriaPage {
-
+  data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.data = navParams.data;
+    console.log(this.data)
   }
 
   ionViewDidLoad() {

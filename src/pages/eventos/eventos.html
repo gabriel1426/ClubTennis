@@ -5,28 +5,67 @@
   Ionic pages and navigation.
 -->
 
-<ion-header parallax imageUrl="../../assets/imgs/1.png" titleColor="black">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Parallax Header
-    </ion-title>
-  </ion-toolbar>
+<ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
+  <ion-navbar color="primary">
+    <button ion-button menuToggle="leftMenu" style="position: relative;">
+      <ion-icon name="menu" class=""></ion-icon>
+    </button>
+  </ion-navbar>
 </ion-header>
 
-<ion-content class="contenedor-principal">
-  <div>
-    <ion-slides pager="true" loop="false">
-      <ion-slide (click)="abrirtdetalleevento()" *ngFor="let item of da2">
-        <ion-card>
-          <img
-            class="cardimg"
-            src="http://3e9d820c.ngrok.io/{{ item.imagen_destacada }}"
-          />
-          <div class="card-title">{{ item.nombre }}</div>
-        </ion-card>
-      </ion-slide>
+<ion-content no-padding #mycontent fullscreen>
+  <ion-row
+    style="background-image: url('../../assets/imgs/1.png'); height: 280px;"
+  >
+    <ion-col col-12>
+      <img
+        src="../../assets/imgs/logo.png"
+        style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top: 60px;"
+      />
+      <h2
+        class="tecolor"
+        style="font-family: MyriadProBold; color:white; text-align: center;"
+      >
+        <strong>Eventos</strong>
+      </h2>
+    </ion-col>
+  </ion-row>
+  <div style="margin-top: -80px;">
+    <ion-slides
+      class="image-slider"
+      slidesPerView="1.1"
+      pager="true"
+      style="height: 350px;"
+    >
+      <div *ngFor="let item of da">
+        <ion-slide style="padding: 10px;">
+          <ion-card
+            (click)="abrirtdetalleevento(item)"
+            style="border-radius: 5px;"
+            class="sombra"
+          >
+            <ion-item>
+              <img
+                style="max-height: 30px !important; max-width: 30px !important;"
+                src="../../assets/imgs/logo.png"
+                item-left
+              />
+              <h2 style="margin-top: 9px;">
+                <b>{{ item.nombre }}</b>
+              </h2>
+            </ion-item>
+
+            <img
+              class="cardimgdestacadas"
+              src="http://45963c93.ngrok.io/{{ item.imagen_destacada }}"
+            />
+          </ion-card>
+        </ion-slide>
+      </div>
     </ion-slides>
   </div>
+
+  <div></div>
   <div style="margin-top: 10px;">
     <ion-item-group>
       <ion-item-divider
@@ -43,7 +82,7 @@
         <ion-thumbnail item-start>
           <img
             style="border-radius: 5px;"
-            src="http://dd242a57.ngrok.io/{{ item.imagen_destacada }}"
+            src="http://45963c93.ngrok.io/{{ item.imagen_destacada }}"
           />
         </ion-thumbnail>
         <h2>{{ item.nombre }}</h2>

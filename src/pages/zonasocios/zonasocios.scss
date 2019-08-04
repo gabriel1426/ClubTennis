@@ -3,39 +3,13 @@ page-zonasocios {
     contain: inherit !important;
     background: transparent !important;
   }
-
-  .transparente {
-    background-color: transparent !important;
+  .scroll-content {
+    padding-top: 0px !important;
   }
 
   ion-card {
     position: relative;
     text-align: center;
-  }
-  .cardimgdeportes {
-    width: 100% !important;
-    height: 250px !important;
-    max-height: 250px !important;
-    background-image: linear-gradient(white 45%, transparent 70%);
-  }
-
-  .card-titledportes {
-    position: absolute;
-    bottom: 0px;
-    font-size: 2em;
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-
-    font-weight: bold;
-    color: #fff;
-    background: rgba(2, 2, 2, 0.281);
-  }
-
-  .spantitle {
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
   }
   .sombra{
     -webkit-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
@@ -47,5 +21,14 @@ page-zonasocios {
     height: 200px !important;
     max-height: 200px !important;
     background-image: linear-gradient(white 45%, transparent 70%);
+  }
+  .bar-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+  }
+  .header-md::after {
+    background: transparent !important;
   }
 }

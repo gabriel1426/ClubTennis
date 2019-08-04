@@ -5,18 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header >
-    <ion-toolbar style="text-align: center;">
-        <ion-title style=" margin-left: -60px;"></ion-title>
-      <button ion-button menuToggle="leftMenu" style="position: relative;">
-        <ion-icon name="menu" class=""></ion-icon>
-      </button>
+    <ion-navbar style="text-align: center;">
+       
       
-    </ion-toolbar>
+    </ion-navbar>
   </ion-header>
 <ion-content  class="detalleevento">
   <div style="text-align: center; ">
-    <div style="position: relative;" (click)="abrirgaleria()">
-      <img class="maximgdetalle" src="{{data.url}}" />
+    <div style="position: relative;" (click)="abrirgaleria(data.imagenes_eventos)">
+      <img class="maximgdetalle" src="http://45963c93.ngrok.io/{{data.imagen_destacada}}" />
       <div style="position: absolute; bottom: 0px;  width: 100%;" class="">
         <ion-item style="background: transparent !important">
           <img
@@ -35,21 +32,21 @@
     <ion-item style="background: transparent !important">
       <div>
         <p style="color:rgb(109, 106, 106); font-size: 16px;">
-          <ion-icon name="calendar" item-start></ion-icon>{{ data.horario }}
+          <ion-icon name="calendar" item-start></ion-icon>{{ data.fecha_inicio }}
         </p>
       </div>
-      <p item-end style="color:#3e71c9; font-size: 16px">
-        <ion-icon name="star" item-start></ion-icon>{{ data.tag }}
+      <p item-end style="color:#3e71c9; font-size: 16px; text-transform: capitalize;">
+        <ion-icon name="star" item-start></ion-icon>{{ data.tipo_evento.tipo }}
       </p>
     </ion-item>
     <div style="text-align: center;">
       <h1 style="color: #3e71c9;">
-        <b>{{ data.titulo }}</b>
+        <b>{{ data.nombre }}</b>
       </h1>
     </div>
     <hr />
 
-    <p style="text-align: justify; color: gray; font-size: 15px;">
+    <p style="text-align: justify; color: gray; font-size: 15px; margin-bottom: 15px;">
       {{ data.descripcion }}
     </p>
   </div>
