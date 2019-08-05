@@ -30,15 +30,48 @@
       </h2>
     </ion-col>
   </ion-row>
-  <div style="margin-top: -80px;">
-    <ion-slides
-      class="image-slider"
-      slidesPerView="1.1"
-      pager="true"
-      style="height: 350px;"
-    >
-      <div *ngFor="let item of da">
-        <ion-slide style="padding: 10px;">
+  <div *ngIf="!skeletor">
+    <div *ngIf="longitud != 0; else other_content">
+      <div *ngIf="longitudda2 != 1; else unevento" style="margin-top: -80px;">
+        <ion-slides
+          class="image-slider"
+          slidesPerView="1.1"
+          pager="true"
+          style="height: 350px;"
+        >
+          <div *ngFor="let item of da2">
+            <ion-slide style="padding: 10px;">
+              <ion-card
+                (click)="abrirtdetalleevento(item)"
+                style="border-radius: 5px;"
+                class="sombra"
+              >
+                <ion-item>
+                  <img
+                    style="max-height: 30px !important; max-width: 30px !important;"
+                    src="../../assets/imgs/logo.png"
+                    item-left
+                  />
+                  <h2 style="margin-top: 9px;">
+                    <b>{{ item.nombre }}</b>
+                  </h2>
+                </ion-item>
+
+                <img
+                  class="cardimgdestacadas"
+                  src="{{ url }}/{{ item.imagen_destacada }}"
+                />
+              </ion-card>
+            </ion-slide>
+          </div>
+        </ion-slides>
+      </div>
+
+      <ng-template #unevento>
+        <div
+          *ngFor="let item of da2"
+          style="margin-top: -50px; margin-left: 10px; margin-right: 10px;"
+        >
           <ion-card
             (click)="abrirtdetalleevento(item)"
             style="border-radius: 5px;"
@@ -60,35 +93,52 @@
               src="{{ url }}/{{ item.imagen_destacada }}"
             />
           </ion-card>
-        </ion-slide>
+        </div>
+      </ng-template>
+
+      <div style="margin-top: 10px;">
+        <ion-item-group>
+          <ion-item-divider
+            color="white"
+            style="font-size: 18px; color: #3e71c9; text-align: center;"
+            >Últimos Eventos
+          </ion-item-divider>
+          <ion-item
+            (click)="abrirtdetalleevento(item)"
+            style="margin-top: 5px;"
+            *ngFor="let item of da"
+          >
+            <ion-thumbnail item-start>
+              <img
+                style="border-radius: 5px;"
+                src="{{ url }}/{{ item.imagen_destacada }}"
+              />
+            </ion-thumbnail>
+            <h2>{{ item.nombre }}</h2>
+            <p>{{ item.fecha_inicio }}</p>
+            <button ion-button clear item-end>Ver</button>
+          </ion-item>
+        </ion-item-group>
       </div>
-    </ion-slides>
+    </div>
+    <ng-template #other_content>
+      <div style="text-align: center;">
+        <img
+          src="../../assets/imgs/sinresultados.png"
+          style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
+        />
+        <H2>Sin Resultados</H2>
+      </div>
+    </ng-template>
   </div>
-
-  <div></div>
-  <div style="margin-top: 10px;">
-    <ion-item-group>
-      <ion-item-divider
-        color="white"
-        style="font-size: 18px; color: #3e71c9; text-align: center;"
-        >Últimos Eventos</ion-item-divider
-      >
-
-      <ion-item
-        (click)="abrirtdetalleevento(item)"
-        style="margin-top: 5px;"
-        *ngFor="let item of da"
-      >
-        <ion-thumbnail item-start>
-          <img
-            style="border-radius: 5px;"
-            src="{{ url }}/{{ item.imagen_destacada }}"
-          />
-        </ion-thumbnail>
-        <h2>{{ item.nombre }}</h2>
-        <p>{{ item.fecha_inicio }}</p>
-        <button ion-button clear item-end>Ver</button>
-      </ion-item>
-    </ion-item-group>
+  <div *ngIf="skeletor">
+    <div  class="elementToFadeInAndOut fakeItem1"></div>
+    <ion-item *ngFor="let fake of fakeUsers" class="elementToFadeInAndOut fakeItem">
+      <ion-thumbnail item-start style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;">
+        
+      </ion-thumbnail>
+      <h2></h2>
+      <p></p>
+    </ion-item>
   </div>
 </ion-content>

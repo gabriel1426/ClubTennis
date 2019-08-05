@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://1e040a3f.ngrok.io";
+  baseUrl: string = "http://3744fa1.ngrok.io";
   public restaurante;
   public deportes;
   public salon;
@@ -21,17 +21,11 @@ export class ServiciosProvider {
   public zonas;
   public otros;
 
-  getUrlBase(): String {
+  public getUrlBase(): String {
     return this.baseUrl;
   }
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
-    this.restaurante = [];
-    this.deportes = [];
-    this.salon = [];
-    this.spa = [];
-    this.zonas = [];
-    this.otros = [];
   }
 
   ////// Metodo de sesion

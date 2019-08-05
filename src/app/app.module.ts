@@ -17,7 +17,7 @@ import { TeetimePage } from "../pages/teetime/teetime";
 import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { GaleriaPage } from "../pages/galeria/galeria";
 import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarcontrasena";
-
+import { DetalleinstalacionPage } from "../pages/detalleinstalacion/detalleinstalacion";
 
 //modales
 import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
@@ -25,10 +25,15 @@ import { SugerenciaysaborPage } from "../pages/sugerenciaysabor/sugerenciaysabor
 
 import { IonHeaderScrollOpacityModule } from "ion-header-scroll-opacity";
 
-
 //Privider and service
 import { ServiciosProvider } from "../providers/servicios/servicios";
 import { HttpClientModule } from "@angular/common/http";
+
+//plugins
+import { InAppBrowser } from "@ionic-native/in-app-browser";
+
+// Animations css
+import { AnimationService, AnimatesDirective } from "css-animator";
 
 @NgModule({
   declarations: [
@@ -47,7 +52,8 @@ import { HttpClientModule } from "@angular/common/http";
     SugerenciaysaborPage,
     GaleriaPage,
     RecuperarcontrasenaPage,
-    
+    DetalleinstalacionPage,
+    AnimatesDirective
   ],
   imports: [
     BrowserModule,
@@ -71,13 +77,16 @@ import { HttpClientModule } from "@angular/common/http";
     DetalleeventoPage,
     SugerenciaysaborPage,
     GaleriaPage,
-    RecuperarcontrasenaPage
+    RecuperarcontrasenaPage,
+    DetalleinstalacionPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    ServiciosProvider
+    ServiciosProvider,
+    AnimationService,
+    InAppBrowser
   ]
 })
 export class AppModule {}

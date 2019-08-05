@@ -30,36 +30,60 @@
     </ion-col>
   </ion-row>
 
-  <ion-grid style="margin-top: -60px; padding:0px !important">
-    <ion-row>
-      <ion-col
-        col-12
-        style="padding:0px !important"
-        *ngFor="let item of deportes"
-      >
-        <ion-card
-          (click)="abrirDetalle(item)"
-          style="border-radius: 5px;"
-          class="sombra"
+  <div *ngIf="!skeletor">
+    <ion-grid
+      style="margin-top: -60px; padding:0px !important"
+      *ngIf="longitud != 0; else other_content"
+    >
+      <ion-row>
+        <ion-col
+          col-12
+          style="padding:0px !important"
+          *ngFor="let item of deportes"
         >
-          <ion-item>
-            <img
-              style="max-height: 30px !important; max-width: 30px !important;"
-              src="../../assets/imgs/logo.png"
-              item-left
-            />
-            <h2>
-              <b>{{ item.nombre }}</b>
-            </h2>
-            <ion-icon name="send" color="primary" item-right></ion-icon>
-          </ion-item>
+          <ion-card
+            (click)="abrirDetalle(item)"
+            style="border-radius: 5px;"
+            class="sombra"
+          >
+            <ion-item>
+              <img
+                style="max-height: 30px !important; max-width: 30px !important;"
+                src="../../assets/imgs/logo.png"
+                item-left
+              />
+              <h2>
+                <b>{{ item.nombre }}</b>
+              </h2>
+              <ion-icon name="send" color="primary" item-right></ion-icon>
+            </ion-item>
 
-          <ion-img
-            class="cardimgdeportes"
-            src="{{ url }}/{{ item.imagen_destacada }}"
-          ></ion-img>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+            <ion-img
+              class="cardimgdeportes"
+              src="{{ url }}/{{ item.imagen_destacada }}"
+            ></ion-img>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ng-template #other_content>
+      <div style="text-align: center;">
+        <img
+          src="../../assets/imgs/sinresultados.png"
+          style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
+        />
+        <H2>Sin Resultados</H2>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="skeletor">
+    <div class="elementToFadeInAndOut fakeItem1"></div>
+    <ion-item *ngFor="let fake of fakeUsers" class="elementToFadeInAndOut fakeItem">
+      <ion-thumbnail item-start style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;">
+  
+      </ion-thumbnail>
+      <h2></h2>
+      <p></p>
+    </ion-item>
+  </div>
 </ion-content>

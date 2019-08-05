@@ -13,10 +13,7 @@
       style="position: relative;"
       (click)="abrirgaleria(data.imagenes_eventos)"
     >
-      <img
-        class="maximgdetalle"
-        src="{{url}}/{{ data.imagen_destacada }}"
-      />
+      <img class="maximgdetalle" src="{{ url }}/{{ data.imagen_destacada }}" />
       <div style="position: absolute; bottom: 0px;  width: 100%;" class="">
         <ion-item style="background: transparent !important">
           <img
@@ -35,15 +32,14 @@
     <ion-item style="background: transparent !important">
       <div>
         <p style="color:rgb(109, 106, 106); font-size: 16px;">
-          <ion-icon name="calendar" item-start></ion-icon
-          >{{ data.fecha_inicio }}
+          <ion-icon name="calendar" item-start></ion-icon>
         </p>
       </div>
       <p
         item-end
         style="color:#3e71c9; font-size: 16px; text-transform: capitalize;"
       >
-        <ion-icon name="star" item-start></ion-icon>{{ data.tipo_evento.tipo }}
+        <ion-icon name="star" item-start></ion-icon>
       </p>
     </ion-item>
     <div style="text-align: center;">

@@ -5,7 +5,6 @@ page-restaurant {
     background-image: url("../../assets/imgs/1.png");
     background-repeat: no-repeat;
     background-size: cover;
-    
   }
   .scroll-content {
     padding-top: 0px !important;
@@ -14,10 +13,10 @@ page-restaurant {
     contain: inherit !important;
     background: transparent !important;
   }
-  .sombra{
-    -webkit-box-shadow: -8px -7px 48px -21px rgba(0,0,0,0.75);
-    -moz-box-shadow: -8px -7px 48px -21px rgba(0,0,0,0.75);
-    box-shadow: -8px -7px 48px -21px rgba(0,0,0,0.75);
+  .sombra {
+    -webkit-box-shadow: -8px -7px 48px -21px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -8px -7px 48px -21px rgba(0, 0, 0, 0.75);
+    box-shadow: -8px -7px 48px -21px rgba(0, 0, 0, 0.75);
   }
   .cardimgdeportes {
     width: 100% !important;
@@ -33,5 +32,33 @@ page-restaurant {
   }
   .header-md::after {
     background: transparent !important;
+  }
+  .elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear 1 forwards;
+    animation: fadeinout 2s linear 1 forwards;
+    animation-iteration-count: 10000;
+  }
+
+  @-webkit-keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
   }
 }

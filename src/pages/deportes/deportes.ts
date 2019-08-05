@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
-import { DetalleeventoPage } from "../detalleevento/detalleevento";
+import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion";
 
 /**
  * Generated class for the DeportesPage page.
@@ -18,6 +18,9 @@ import { DetalleeventoPage } from "../detalleevento/detalleevento";
 export class DeportesPage {
   public deportes;
   public url;
+  public longitud;
+  public skeletor = true;
+  public fakeUsers: Array<any> = new Array(2);
 
   constructor(
     public navCtrl: NavController,
@@ -25,15 +28,22 @@ export class DeportesPage {
     public proveedor: ServiciosProvider
   ) {
     this.deportes = this.proveedor.consultaDeDeportes();
-    this.url = this.proveedor.getUrlBase();
+
+    if (typeof this.deportes !== "undefined") {
+      this.longitud = this.deportes.length;
+      this.url = this.proveedor.getUrlBase();
+      this.skeletor = false;
+    } else {
+      this.skeletor = true;
+    }
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad DeportesPage");
   }
 
-  abrirDetalle() {
+  abrirDetalle(item) {
     //console.log(evento);
-    this.navCtrl.push(DetalleeventoPage, evento);
+    this.navCtrl.push(DetalleinstalacionPage, item);
   }
 }

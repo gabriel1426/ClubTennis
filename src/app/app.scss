@@ -14,11 +14,11 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-@font-face{
+@font-face {
   font-family: Slabo;
-  src : url('../assets/fonts/fuente.woff2')
+  src: url("../assets/fonts/fuente.woff2");
 }
-*{
+* {
   font-family: Slabo;
 }
 
@@ -29,6 +29,37 @@
 .toolbar-background {
   background-color: #3e71c9;
 }
-.item-md.item-block .item-inner{
-  border-bottom: 0px !important; 
+.item-md.item-block .item-inner {
+  border-bottom: 0px !important;
+}
+.fakeItem1 {
+  margin: 10px;
+  background-color: lightgrey;
+  opacity: 0.5;
+  height: 200px;
+  border-radius: 8px;
+}
+.fakeItem {
+  h2,
+  h3,
+  p {
+    background-color: lightgrey;
+    opacity: 0.5;
+    height: 1em;
+    margin-top: 10px;
+  }
+
+  h2 {
+    width: 50%;
+    border-radius: 4px;
+  }
+
+  h3 {
+    width: 70%;
+  }
+
+  p {
+    width: 80%;
+    border-radius: 4px;
+  }
 }

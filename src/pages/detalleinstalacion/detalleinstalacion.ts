@@ -9,7 +9,7 @@ import { GaleriaPage } from "../galeria/galeria";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 /**
- * Generated class for the DetalleeventoPage page.
+ * Generated class for the DetalleinstalacionPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -17,10 +17,10 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 @IonicPage()
 @Component({
-  selector: "page-detalleevento",
-  templateUrl: "detalleevento.html"
+  selector: "page-detalleinstalacion",
+  templateUrl: "detalleinstalacion.html"
 })
-export class DetalleeventoPage {
+export class DetalleinstalacionPage {
   data: any;
   public url;
   constructor(
@@ -30,13 +30,14 @@ export class DetalleeventoPage {
     public proveedor: ServiciosProvider
   ) {
     this.data = navParams.data;
-    this.url = this.proveedor.getUrlBase();
+    this.url = proveedor.getUrlBase();
+  }
+
+  abrirgaleria(galeria) {
+    this.navCtrl.push(GaleriaPage, galeria);
   }
 
   ionViewDidLoad() {
-    console.log("ionViewDidLoad DetalleeventoPage");
-  }
-  abrirgaleria(galeria) {
-    this.navCtrl.push(GaleriaPage, galeria);
+    console.log("ionViewDidLoad DetalleinstalacionPage");
   }
 }

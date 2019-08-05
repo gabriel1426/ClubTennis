@@ -6,10 +6,10 @@ page-instalaciones {
   .scroll-content {
     padding-top: 0px !important;
   }
-  .sombra{
-    -webkit-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
-    -moz-box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
-    box-shadow: 6px 7px 23px -14px rgba(0,0,0,1);
+  .sombra {
+    -webkit-box-shadow: 6px 7px 23px -14px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 6px 7px 23px -14px rgba(0, 0, 0, 1);
+    box-shadow: 6px 7px 23px -14px rgba(0, 0, 0, 1);
   }
   .cardimgdeportes {
     width: 100% !important;
@@ -25,5 +25,36 @@ page-instalaciones {
   }
   .header-md::after {
     background: transparent !important;
+  }
+  ion-slide.swiper-slide {
+    left: 2%;
+  }
+  .elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear 1 forwards;
+    animation: fadeinout 2s linear 1 forwards;
+    animation-iteration-count: 10000;
+  }
+
+  @-webkit-keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
   }
 }

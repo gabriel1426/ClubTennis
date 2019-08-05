@@ -5,9 +5,9 @@ import {
   NavParams,
   ModalController
 } from "ionic-angular";
-
 import { SugerenciaysaborPage } from "../sugerenciaysabor/sugerenciaysabor";
-import { DetalleeventoPage } from "../detalleevento/detalleevento";
+import { ServiciosProvider } from "../../providers/servicios/servicios";
+import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion";
 
 /**
  * Generated class for the RestaurantPage page.
@@ -22,38 +22,26 @@ import { DetalleeventoPage } from "../detalleevento/detalleevento";
   templateUrl: "restaurant.html"
 })
 export class RestaurantPage {
-  restaurantes = [
-    {
-      url:
-        "http://administrativo.tennisgolfclub.com.co//pages//tables//img//abc4c250a007b35434a22a497e64e5fc.jpg",
-      titulo: "Taberna Club"
-    },
-    {
-      url:
-        "http://administrativo.tennisgolfclub.com.co//imagenes//IMG_2570-1024x683.jpg",
-      titulo: "Cafeteria"
-    },
-    {
-      url:
-        "http://administrativo.tennisgolfclub.com.co//pages//tables//img//369ac7e400dfc8290c0efd8b252dbd9f.jpg",
-      titulo: "Restaurante Hoyo 19"
-    },
-    {
-      url:
-        "http://administrativo.tennisgolfclub.com.co//pages//tables//img//e329f9e82ceff3e0724a5cd0c5450802.jpg",
-      titulo: "Restaurante Club"
-    },
-    {
-      url:
-        "http://administrativo.tennisgolfclub.com.co//pages//tables//img//bcbf1f4b3f51ae4b4195d8f07991e78a.jpg",
-      titulo: "Pizzería Club Tennis"
-    }
-  ];
+  public url;
+  public restaurantes;
+  public longitud;
+  public skeletor = true;
+  public fakeUsers: Array<any> = new Array(2);
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController
-  ) {}
+    public modalCtrl: ModalController,
+    public proveedor: ServiciosProvider
+  ) {
+    this.restaurantes = this.proveedor.getconsultaDeRestaurantes();
+    if (typeof this.restaurantes !== "undefined") {
+      this.longitud = this.restaurantes.length;
+      this.url = this.proveedor.getUrlBase();
+      this.skeletor = false;
+    } else {
+      this.skeletor = true;
+    }
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad RestaurantPage");
@@ -63,7 +51,8 @@ export class RestaurantPage {
     let modal1 = this.modalCtrl.create(SugerenciaysaborPage);
     modal1.present();
   }
-  abrirtdetalleevento() {
-    this.navCtrl.push(DetalleeventoPage);
+  abrirDetalle(item) {
+    //console.log(evento);
+    this.navCtrl.push(DetalleinstalacionPage, item);
   }
 }

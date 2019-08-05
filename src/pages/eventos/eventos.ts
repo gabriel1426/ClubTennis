@@ -23,7 +23,12 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class EventosPage {
   public da;
   public da2;
+  public da3;
   public url;
+  public longitud;
+  public longitudda2;
+  public skeletor = true;
+  public fakeUsers: Array<any> = new Array(2);
 
   constructor(
     public navCtrl: NavController,
@@ -33,6 +38,7 @@ export class EventosPage {
   ) {
     this.da = [];
     this.da2 = [];
+    this.da3 = [];
 
     this.consultarEventos();
     this.proveedor.listarInstalaciones();
@@ -51,8 +57,11 @@ export class EventosPage {
         this.da.forEach(element => {
           if (element.prioridad_id == 2) {
             this.da2.push(element);
+            this.longitudda2 = this.da2.length;
           }
         });
+        this.longitud = this.da.length;
+        this.skeletor = false;
       }
     });
   }
