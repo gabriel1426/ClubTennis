@@ -19,7 +19,7 @@
     <ion-col col-12>
       <img
         src="../../assets/imgs/logo.png"
-        style="display: block; width: 25%; height: auto; margin-left: auto; margin-right: auto; margin-top: 60px;"
+        style="display: block; width: 100px; height: 100px; margin-left: auto; margin-right: auto; margin-top: 45px;"
       />
       <h2
         class="tecolor"
@@ -44,7 +44,7 @@
             </h2>
           </ion-item>
           <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
-            <ion-list style="background: white;">
+            
               <ion-item style="margin-left: 5px; margin-right: 5px;">
                 <ion-label style="color:#3e71c9" floating>Asunto:</ion-label>
                 <ion-input formControlName="asunto" type="text"></ion-input>
@@ -83,7 +83,7 @@
                   Campo requerido
                 </p>
               </ion-item>
-            </ion-list>
+            
             <div padding style="BACKGROUND: white;">
               <button
                 ion-button

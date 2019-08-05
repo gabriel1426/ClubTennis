@@ -23,6 +23,8 @@ export class InstalacionesPage {
   public longitudspa;
   public skeletor = true;
   public fakeUsers: Array<any> = new Array(2);
+  public banderaglobal = false;
+
 
   constructor(
     public navCtrl: NavController,
@@ -34,9 +36,13 @@ export class InstalacionesPage {
     this.spa = this.proveedor.consultaDeSpa();
     if (typeof this.salones !== "undefined") {
       this.longitudsalones = this.salones.length;
+      console.log(this.longitudsalones+"longitud")
       this.longitudzonas = this.spa.length;
       this.longitudspa = this.zonas.length;
       this.skeletor = false;
+      if(this.longitudsalones==0 && this.longitudzonas==0 &&  this.longitudspa==0 ){
+        this.banderaglobal=true;
+      }
     } else {
       this.skeletor = true;
     }

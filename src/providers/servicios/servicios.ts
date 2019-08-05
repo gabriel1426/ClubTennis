@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://3744fa1.ngrok.io";
+  baseUrl: string = "http://dbbe2f63.ngrok.io";
   public restaurante;
   public deportes;
   public salon;
