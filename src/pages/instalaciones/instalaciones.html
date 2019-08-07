@@ -29,234 +29,232 @@
       </h2>
     </ion-col>
   </ion-row>
-<div *ngIf="!skeletor">
-  <ion-grid
-    *ngIf="longitudsalones != 0"
-    style="margin-top: -60px !important; padding: 0px !important;"
-  >
-    <ion-row *ngIf="longitudsalones != 1; else unsalon">
-      <ion-col col-12 style="padding: 0px !important;">
-        <div style="margin-top: -80px;">
-          <ion-slides
-            class="image-slider"
-            slidesPerView="1.1"
-            pager="true"
-            style="height: 350px;"
-          >
-            <div *ngFor="let item of salones">
-              <ion-slide style="padding: 10px;">
-                <ion-card
-                  (click)="abrirDetalle(item)"
-                  style="border-radius: 5px;"
-                  class="sombra"
-                >
-                  <ion-item>
-                    <img
-                      style="max-height: 30px !important; max-width: 30px !important;"
-                      src="../../assets/imgs/logo.png"
-                      item-left
-                    />
-                    <h2 style="margin-top: 9px;">
-                      <b>{{ item.nombre }}</b>
-                    </h2>
-                  </ion-item>
-
+  <div *ngIf="!skeletor">
+    <div
+      *ngIf="longitudsalones != 0"
+      style="margin-top: -60px !important; padding: 0px !important;"
+    >
+      <div *ngIf="longitudsalones != 1; else unsalon">
+        <ion-slides
+          class="image-slider"
+          slidesPerView="1.1"
+          pager="true"
+          style="height: 350px;"
+        >
+          <div *ngFor="let item of salones">
+            <ion-slide>
+              <ion-card
+                (click)="abrirDetalle(item)"
+                style="border-radius: 5px;"
+                class="sombra"
+              >
+                <ion-item>
                   <img
-                    class="cardimgdestacadas"
-                    src="{{ url }}/{{ item.imagen_destacada }}"
+                    style="max-height: 30px !important; max-width: 30px !important;"
+                    src="../../assets/imgs/logo.png"
+                    item-left
                   />
-                </ion-card>
-              </ion-slide>
-            </div>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ng-template #unsalon>
-      <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
-        <div *ngFor="let item of salones">
-          <ion-card
-            (click)="abrirDetalle(item)"
-            style="border-radius: 5px;"
-            class="sombra"
-          >
-            <ion-item>
-              <img
-                style="max-height: 30px !important; max-width: 30px !important;"
-                src="../../assets/imgs/logo.png"
-                item-left
-              />
-              <h2 style="margin-top: 9px;">
-                <b>{{ item.nombre }}</b>
-              </h2>
-            </ion-item>
+                  <h2 style="margin-top: 9px;">
+                    <b>{{ item.nombre }}</b>
+                  </h2>
+                </ion-item>
 
-            <img
-              class="cardimgdestacadas"
-              src="{{ url }}/{{ item.imagen_destacada }}"
-            />
-          </ion-card>
-        </div>
+                <img
+                  class="cardimgdestacadas"
+                  src="{{ url }}/{{ item.imagen_destacada }}"
+                />
+              </ion-card>
+            </ion-slide>
+          </div>
+        </ion-slides>
       </div>
-    </ng-template>
-  </ion-grid>
-  <ion-grid
-    *ngIf="longitudzonas != 0"
-    style="margin-top: -60px !important; padding: 0px !important;"
-  >
-    <ion-row *ngIf="longitudzonas != 1; else unazona">
-      <ion-col col-12 style="padding: 0px !important;">
-        <div style="margin-top: -80px;">
-          <ion-slides
-            class="image-slider"
-            slidesPerView="1.1"
-            pager="true"
-            style="height: 350px;"
-          >
-            <div *ngFor="let item of zonas">
-              <ion-slide style="padding: 10px;">
-                <ion-card
-                  (click)="abrirDetalle(item)"
-                  style="border-radius: 5px;"
-                  class="sombra"
-                >
-                  <ion-item>
-                    <img
-                      style="max-height: 30px !important; max-width: 30px !important;"
-                      src="../../assets/imgs/logo.png"
-                      item-left
-                    />
-                    <h2 style="margin-top: 9px;">
-                      <b>{{ item.nombre }}</b>
-                    </h2>
-                  </ion-item>
+      <ng-template #unsalon>
+        <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+          <div *ngFor="let item of salones">
+            <ion-card
+              (click)="abrirDetalle(item)"
+              style="border-radius: 5px;"
+              class="sombra"
+            >
+              <ion-item>
+                <img
+                  style="max-height: 30px !important; max-width: 30px !important;"
+                  src="../../assets/imgs/logo.png"
+                  item-left
+                />
+                <h2 style="margin-top: 9px;">
+                  <b>{{ item.nombre }}</b>
+                </h2>
+              </ion-item>
 
+              <img
+                class="cardimgdestacadas"
+                src="{{ url }}/{{ item.imagen_destacada }}"
+              />
+            </ion-card>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div
+      *ngIf="longitudzonas != 0"
+      style="margin-top: -40px !important; padding: 0px !important;"
+    >
+      <div *ngIf="longitudzonas != 1; else unazona">
+        <ion-slides
+          class="image-slider"
+          slidesPerView="1.1"
+          pager="true"
+          style="height: 350px;"
+        >
+          <div *ngFor="let item of zonas">
+            <ion-slide>
+              <ion-card
+                (click)="abrirDetalle(item)"
+                style="border-radius: 5px;"
+                class="sombra"
+              >
+                <ion-item>
                   <img
-                    class="cardimgdestacadas"
-                    src="{{ url }}/{{ item.imagen_destacada }}"
+                    style="max-height: 30px !important; max-width: 30px !important;"
+                    src="../../assets/imgs/logo.png"
+                    item-left
                   />
-                </ion-card>
-              </ion-slide>
-            </div>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ng-template #unazona>
-      <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
-        <div *ngFor="let item of zonas">
-          <ion-card
-            (click)="abrirDetalle(item)"
-            style="border-radius: 5px;"
-            class="sombra"
-          >
-            <ion-item>
-              <img
-                style="max-height: 30px !important; max-width: 30px !important;"
-                src="../../assets/imgs/logo.png"
-                item-left
-              />
-              <h2 style="margin-top: 9px;">
-                <b>{{ item.nombre }}</b>
-              </h2>
-            </ion-item>
+                  <h2 style="margin-top: 9px;">
+                    <b>{{ item.nombre }}</b>
+                  </h2>
+                </ion-item>
 
-            <img
-              class="cardimgdestacadas"
-              src="{{ url }}/{{ item.imagen_destacada }}"
-            />
-          </ion-card>
-        </div>
+                <img
+                  class="cardimgdestacadas"
+                  src="{{ url }}/{{ item.imagen_destacada }}"
+                />
+              </ion-card>
+            </ion-slide>
+          </div>
+        </ion-slides>
       </div>
-    </ng-template>
-  </ion-grid>
-  <ion-grid
-    *ngIf="longitudspa != 0"
-    style="margin-top: -60px !important; padding: 0px !important;"
-  >
-    <ion-row *ngIf="longitudspa != 1; else unspa">
-      <ion-col col-12 style="padding: 0px !important;">
-        <div style="margin-top: -80px;">
-          <ion-slides
-            class="image-slider"
-            slidesPerView="1.1"
-            pager="true"
-            style="height: 350px;"
-          >
-            <div *ngFor="let item of spa">
-              <ion-slide style="padding: 10px;">
-                <ion-card
-                  (click)="abrirDetalle(item)"
-                  style="border-radius: 5px;"
-                  class="sombra"
-                >
-                  <ion-item>
+
+      <ng-template #unazona>
+        <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+          <div *ngFor="let item of zonas">
+            <ion-card
+              (click)="abrirDetalle(item)"
+              style="border-radius: 5px;"
+              class="sombra"
+            >
+              <ion-item>
+                <img
+                  style="max-height: 30px !important; max-width: 30px !important;"
+                  src="../../assets/imgs/logo.png"
+                  item-left
+                />
+                <h2 style="margin-top: 9px;">
+                  <b>{{ item.nombre }}</b>
+                </h2>
+              </ion-item>
+
+              <img
+                class="cardimgdestacadas"
+                src="{{ url }}/{{ item.imagen_destacada }}"
+              />
+            </ion-card>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <ion-grid
+      *ngIf="longitudspa != 0"
+      style="margin-top: -40px !important; padding: 0px !important;"
+    >
+      <ion-row *ngIf="longitudspa != 1; else unspa">
+        <ion-col col-12 style="padding: 0px !important;">
+          <div>
+            <ion-slides
+              class="image-slider"
+              slidesPerView="1.1"
+              pager="true"
+              style="height: 350px;"
+            >
+              <div *ngFor="let item of spa">
+                <ion-slide>
+                  <ion-card
+                    (click)="abrirDetalle(item)"
+                    style="border-radius: 5px;"
+                    class="sombra"
+                  >
+                    <ion-item>
+                      <img
+                        style="max-height: 30px !important; max-width: 30px !important;"
+                        src="../../assets/imgs/logo.png"
+                        item-left
+                      />
+                      <h2 style="margin-top: 9px;">
+                        <b>{{ item.nombre }}</b>
+                      </h2>
+                    </ion-item>
+
                     <img
-                      style="max-height: 30px !important; max-width: 30px !important;"
-                      src="../../assets/imgs/logo.png"
-                      item-left
+                      class="cardimgdestacadas"
+                      src="{{ url }}/{{ item.imagen_destacada }}"
                     />
-                    <h2 style="margin-top: 9px;">
-                      <b>{{ item.nombre }}</b>
-                    </h2>
-                  </ion-item>
+                  </ion-card>
+                </ion-slide>
+              </div>
+            </ion-slides>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ng-template #unspa>
+        <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+          <div *ngFor="let item of spa">
+            <ion-card
+              (click)="abrirDetalle(item)"
+              style="border-radius: 5px;"
+              class="sombra"
+            >
+              <ion-item>
+                <img
+                  style="max-height: 30px !important; max-width: 30px !important;"
+                  src="../../assets/imgs/logo.png"
+                  item-left
+                />
+                <h2 style="margin-top: 9px;">
+                  <b>{{ item.nombre }}</b>
+                </h2>
+              </ion-item>
 
-                  <img
-                    class="cardimgdestacadas"
-                    src="{{ url }}/{{ item.imagen_destacada }}"
-                  />
-                </ion-card>
-              </ion-slide>
-            </div>
-          </ion-slides>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ng-template #unspa>
-      <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
-        <div *ngFor="let item of spa">
-          <ion-card
-            (click)="abrirDetalle(item)"
-            style="border-radius: 5px;"
-            class="sombra"
-          >
-            <ion-item>
               <img
-                style="max-height: 30px !important; max-width: 30px !important;"
-                src="../../assets/imgs/logo.png"
-                item-left
+                class="cardimgdestacadas"
+                src="{{ url }}/{{ item.imagen_destacada }}"
               />
-              <h2 style="margin-top: 9px;">
-                <b>{{ item.nombre }}</b>
-              </h2>
-            </ion-item>
-
-            <img
-              class="cardimgdestacadas"
-              src="{{ url }}/{{ item.imagen_destacada }}"
-            />
-          </ion-card>
+            </ion-card>
+          </div>
         </div>
-      </div>
-    </ng-template>
-  </ion-grid>
-  <div *ngIf="longitudsalones == 0 && longitudzonas == 0 && longitudspa == 0">
-    <div style="text-align: center;" style="margin-top: 50px;">
-      <img
-        src="../../assets/imgs/sinresultados.png"
-        style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
-      />
-      <div style="text-align: center;">
-        <h2>Sin Resultados</h2>
+      </ng-template>
+    </ion-grid>
+    <div *ngIf="longitudsalones == 0 && longitudzonas == 0 && longitudspa == 0">
+      <div style="text-align: center;" style="margin-top: 50px;">
+        <img
+          src="../../assets/imgs/sinresultados.png"
+          style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
+        />
+        <div style="text-align: center;">
+          <h2>Sin Resultados</h2>
+        </div>
       </div>
     </div>
   </div>
-  </div>
   <div *ngIf="skeletor">
     <div class="elementToFadeInAndOut fakeItem1"></div>
-    <ion-item *ngFor="let fake of fakeUsers" class="elementToFadeInAndOut fakeItem">
-      <ion-thumbnail item-start style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;">
-  
+    <ion-item
+      *ngFor="let fake of fakeUsers"
+      class="elementToFadeInAndOut fakeItem"
+    >
+      <ion-thumbnail
+        item-start
+        style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;"
+      >
       </ion-thumbnail>
       <h2></h2>
       <p></p>

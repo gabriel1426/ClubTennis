@@ -18,6 +18,7 @@ export class InstalacionesPage {
   public salones;
   public spa;
   public zonas;
+  public url;
   public longitudsalones;
   public longitudzonas;
   public longitudspa;
@@ -33,6 +34,7 @@ export class InstalacionesPage {
     this.zonas = this.proveedor.getconsultaDeZonaRecreativa();
     this.spa = this.proveedor.consultaDeSpa();
     if (typeof this.salones !== "undefined") {
+      this.url = this.proveedor.getUrlBase();
       this.longitudsalones = this.salones.length;
       this.longitudzonas = this.spa.length;
       this.longitudspa = this.zonas.length;

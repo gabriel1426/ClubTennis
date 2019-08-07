@@ -4,19 +4,21 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar style="text-align: center;"> </ion-navbar>
+<ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
+  <ion-navbar color="primary">
+    <button ion-button menuToggle="leftMenu" style="position: relative;">
+      <ion-icon name="menu" class=""></ion-icon>
+    </button>
+  </ion-navbar>
 </ion-header>
-<ion-content class="detalleevento">
+
+<ion-content no-padding #mycontent fullscreen class="detalleevento">
   <div style="text-align: center; ">
     <div
       style="position: relative;"
       (click)="abrirgaleria(data.imagenes_eventos)"
     >
-      <img
-        class="maximgdetalle"
-        src="{{url}}/{{ data.imagen_destacada }}"
-      />
+      <img class="maximgdetalle" src="{{ url }}/{{ data.imagen_destacada }}" />
       <div style="position: absolute; bottom: 0px;  width: 100%;" class="">
         <ion-item style="background: transparent !important">
           <img
