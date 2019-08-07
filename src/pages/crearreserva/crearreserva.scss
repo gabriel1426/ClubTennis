@@ -1,0 +1,19 @@
+page-crearreserva {
+
+    .scroll-content {
+        padding-top: 0px !important;
+      }
+      .bar-header {
+        border: 0px !important;
+        border-bottom-color: transparent !important;
+        background-image: none !important;
+        border-bottom: none !important;
+      }
+      .header-md::after {
+        background: transparent !important;
+      }
+      .button-md {
+        text-transform: none !important;
+      }
+
+}

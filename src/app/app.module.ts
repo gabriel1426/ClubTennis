@@ -18,6 +18,7 @@ import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { GaleriaPage } from "../pages/galeria/galeria";
 import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarcontrasena";
 import { DetalleinstalacionPage } from "../pages/detalleinstalacion/detalleinstalacion";
+import { CrearreservaPage } from '../pages/crearreserva/crearreserva';
 
 //modales
 import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
@@ -53,6 +54,7 @@ import { AnimationService, AnimatesDirective } from "css-animator";
     GaleriaPage,
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
+    CrearreservaPage,
     AnimatesDirective
   ],
   imports: [
@@ -78,7 +80,8 @@ import { AnimationService, AnimatesDirective } from "css-animator";
     SugerenciaysaborPage,
     GaleriaPage,
     RecuperarcontrasenaPage,
-    DetalleinstalacionPage
+    DetalleinstalacionPage,
+    CrearreservaPage
   ],
   providers: [
     StatusBar,

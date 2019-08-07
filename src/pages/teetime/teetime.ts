@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CrearreservaPage } from '../crearreserva/crearreserva';
+
 
 /**
  * Generated class for the TeetimePage page.
@@ -15,11 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TeetimePage {
 
+  public skeletor = true;
+  public fakeUsers: Array<any> = new Array(2);
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TeetimePage');
+  }
+
+  solicitarReserva() {
+    this.navCtrl.push(CrearreservaPage);
   }
 
 }
