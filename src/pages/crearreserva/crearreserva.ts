@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 /**
  * Generated class for the CrearreservaPage page.
@@ -23,7 +24,8 @@ export class CrearreservaPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public proveedor: ServiciosProvider
   ) {
     this.resultados = true;
     this.myForm = this.fb.group({
@@ -50,5 +52,24 @@ export class CrearreservaPage {
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad CrearreservaPage");
+  }
+
+  saveData() {
+
+    let jugador1=false;
+    let jugador2=false;
+    let jugador3=false;
+    
+   
+    this.proveedor.obtenerGolfista(this.myForm).subscribe(data => {
+      if (data.status == "ok") {
+      jugador1=true;
+      }
+    });
+
+    if(jugador1 && jugador2 && jugador3){
+
+    }
+
   }
 }
