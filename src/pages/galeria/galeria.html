@@ -9,13 +9,10 @@
 </ion-header>
 
 <ion-content no-padding style="background: black; height: 100%;">
-  <ion-slides pager="true" loop="false" zoom >
-    <ion-slide  *ngFor="let item of data">
+  <ion-slides pager="true" loop="false" zoom>
+    <ion-slide *ngFor="let item of data">
       <div class="swiper-zoom-container">
-        <img
-          class="maximg"
-          src="http://45963c93.ngrok.io/{{item.url}}"
-        />
+        <img class="maximg" src="{{ url }}/{{ item.url }}" />
       </div>
     </ion-slide>
   </ion-slides>

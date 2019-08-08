@@ -18,7 +18,7 @@ import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { GaleriaPage } from "../pages/galeria/galeria";
 import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarcontrasena";
 import { DetalleinstalacionPage } from "../pages/detalleinstalacion/detalleinstalacion";
-import { CrearreservaPage } from '../pages/crearreserva/crearreserva';
+import { CrearreservaPage } from "../pages/crearreserva/crearreserva";
 
 //modales
 import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
@@ -32,9 +32,6 @@ import { HttpClientModule } from "@angular/common/http";
 
 //plugins
 import { InAppBrowser } from "@ionic-native/in-app-browser";
-
-// Animations css
-import { AnimationService, AnimatesDirective } from "css-animator";
 
 @NgModule({
   declarations: [
@@ -54,8 +51,7 @@ import { AnimationService, AnimatesDirective } from "css-animator";
     GaleriaPage,
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
-    CrearreservaPage,
-    AnimatesDirective
+    CrearreservaPage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +84,6 @@ import { AnimationService, AnimatesDirective } from "css-animator";
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     ServiciosProvider,
-    AnimationService,
     InAppBrowser
   ]
 })

@@ -233,29 +233,18 @@
         </div>
       </ng-template>
     </ion-grid>
-    <div *ngIf="longitudsalones == 0 && longitudzonas == 0 && longitudspa == 0">
-      <div style="text-align: center;" style="margin-top: 50px;">
-        <img
-          src="../../assets/imgs/sinresultados.png"
-          style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
-        />
-        <div style="text-align: center;">
-          <h2>Sin Resultados</h2>
-        </div>
-      </div>
-    </ng-template>
-  </ion-grid>
-  <div *ngIf="banderaglobal">
-    <div style="text-align: center;" style="margin-top: 50px;">
+  </div>
+
+  <div *ngIf="banderaglobal" style="margin-top:50px;">
+    <div style="text-align: center;">
       <img
-        src="../../assets/imgs/sinresultados.png"
-        style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
+        src="../../assets/imgs/sinresultados (1).jpg"
+        style="display: block;  margin-left: auto; margin-right: auto; margin-top: 0px;"
       />
-      <div style="text-align: center;">
-        <h2>Sin Resultados</h2>
-      </div>
+      <H2 style="margin-top:-15px;">Sin Resultados</H2>
     </div>
   </div>
+
   <div *ngIf="skeletor">
     <div class="elementToFadeInAndOut fakeItem1"></div>
     <ion-item

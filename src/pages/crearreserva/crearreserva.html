@@ -5,14 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
-    <ion-navbar color="primary">
-      <button ion-button menuToggle="leftMenu" style="position: relative;">
-        <ion-icon name="menu" class=""></ion-icon>
-      </button>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content no-padding #mycontent fullscreen>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle="leftMenu" style="position: relative;">
+      <ion-icon name="menu" class=""></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding #mycontent fullscreen>
+  <ion-grid style="padding: 0px !important;">
     <ion-row
       style="background-image: url('../../assets/imgs/1.png'); height: 280px;"
     >
@@ -21,27 +22,142 @@
           class="tecolor"
           style="font-family: MyriadProBold; color:white; text-align: center;"
         >
-          <strong>Reservacion</strong>
+          <strong>Reservación</strong>
         </h2>
         <ion-grid>
-      
-            <ion-row>
-            <ion-col col-12> 
-                
-                  <ion-item>
-                <ion-icon  name="md-calendar" item-start></ion-icon>
-             
-                <ion-datetime placeholder="Selecciona la Fecha de Reserva"  [(ngModel)]="fechaturno"  display-format="MMM D, YYYY"  [min]="today" ngDefaultControl></ion-datetime>
-               
+          <ion-row>
+            <ion-col col-12>
+              <ion-item>
+                <ion-icon name="md-calendar" item-start></ion-icon>
+
+                <ion-datetime
+                  placeholder="Selecciona la Fecha de Reserva"
+                  [(ngModel)]="fechaturno"
+                  display-format="MMM D, YYYY"
+                  [min]="today"
+                  ngDefaultControl
+                ></ion-datetime>
               </ion-item>
-          
             </ion-col>
           </ion-row>
         </ion-grid>
-        <button ion-button color="secondary" style="text-align: center;" (click)="solicitarReserva()" style="margin-top: 15px;">
-            Solicitar Recerva
-          </button>
+        <button
+          ion-button
+          color="secondary"
+          style="text-align: center;"
+          (click)="solicitarReserva()"
+          style="margin-top: 15px;"
+        >
+          Solicitar Recerva
+        </button>
       </ion-col>
     </ion-row>
+  </ion-grid>
+  <div>
+    <div *ngIf="resultados; else other_content">
+      <ion-grid style="margin-top: -60px;">
+        <ion-row>
+          <ion-col col-12 style="padding-top: 10px">
+            <ion-card style="border-radius: 5px;" class="sombra">
+              <ion-item>
+                <img
+                  style="max-height: 30px !important; max-width: 30px !important;"
+                  src="../../assets/imgs/logo.png"
+                  item-left
+                />
+                <h2>
+                  <b>Formulario de registro</b>
+                </h2>
+              </ion-item>
+              <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+                <ion-item style="margin-left: 5px; margin-right: 5px;">
+                  <ion-label style="color:#3e71c9" floating
+                    >Jugador 1:</ion-label
+                  >
+                  <ion-input formControlName="jugador1" type="text"></ion-input>
+                </ion-item>
+                <ion-item
+                  *ngIf="
+                    myForm.get('jugador1').errors &&
+                    myForm.get('jugador1').dirty
+                  "
+                >
+                  <p
+                    color="danger"
+                    ion-text
+                    *ngIf="myForm.get('jugador1').hasError('required')"
+                  >
+                    Campo requerido
+                  </p>
+                </ion-item>
 
+                <ion-item style="margin-left: 5px; margin-right: 5px;">
+                  <ion-label style="color:#3e71c9" floating
+                    >Jugador 2:</ion-label
+                  >
+                  <ion-input formControlName="jugador2" type="text"></ion-input>
+                </ion-item>
+                <ion-item
+                  *ngIf="
+                    myForm.get('jugador2').errors &&
+                    myForm.get('jugador2').dirty
+                  "
+                >
+                  <p
+                    color="danger"
+                    ion-text
+                    *ngIf="myForm.get('jugador2').hasError('required')"
+                  >
+                    Campo requerido
+                  </p>
+                </ion-item>
+
+                <ion-item style="margin-left: 5px; margin-right: 5px;">
+                  <ion-label style="color:#3e71c9" floating
+                    >Jugador 3:</ion-label
+                  >
+                  <ion-input formControlName="jugador3" type="text"></ion-input>
+                </ion-item>
+                <ion-item
+                  *ngIf="
+                    myForm.get('jugador3').errors &&
+                    myForm.get('jugador3').dirty
+                  "
+                >
+                  <p
+                    color="danger"
+                    ion-text
+                    *ngIf="myForm.get('jugador3').hasError('required')"
+                  >
+                    Campo requerido
+                  </p>
+                </ion-item>
+
+                <div padding style="BACKGROUND: white;">
+                  <button
+                    ion-button
+                    color="secondary"
+                    block
+                    type="submit"
+                    [disabled]="myForm.invalid"
+                  >
+                    Enviar
+                  </button>
+                </div>
+              </form>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ng-template #other_content>
+      <div style="text-align: center; margin-top:60px;">
+        <img
+          src="../../assets/imgs/sinresultados (1).jpg"
+          style="display: block;  margin-left: auto; margin-right: auto; margin-top: 0px;"
+        />
+        <H2 style="margin-top:-15px;">Sin Resultados</H2>
+      </div>
+    </ng-template>
+  </div>
 </ion-content>

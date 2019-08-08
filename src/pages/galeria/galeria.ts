@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 /**
  * Generated class for the GaleriaPage page.
@@ -10,18 +11,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-galeria',
-  templateUrl: 'galeria.html',
+  selector: "page-galeria",
+  templateUrl: "galeria.html"
 })
 export class GaleriaPage {
   data: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public url;
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public proveedor: ServiciosProvider
+  ) {
+    this.url = this.proveedor.getUrlBase();
     this.data = navParams.data;
-    console.log(this.data)
+
+    console.log(this.data);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GaleriaPage');
+    console.log("ionViewDidLoad GaleriaPage");
   }
-
 }

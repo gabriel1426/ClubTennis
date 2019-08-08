@@ -50,7 +50,7 @@ export class EventosPage {
 
   consultarEventos() {
     this.url = this.proveedor.getUrlBase();
-    console.log("aqui");
+
     this.proveedor.consultaDeEventos().subscribe(data => {
       if (data.status == "ok") {
         this.da = data.data;

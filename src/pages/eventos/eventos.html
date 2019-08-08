@@ -122,20 +122,25 @@
       </div>
     </div>
     <ng-template #other_content>
-      <div style="text-align: center;">
+      <div style="margin-top:50px; text-align: center;">
         <img
-          src="../../assets/imgs/sinresultados.png"
-          style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 0px;"
+          src="../../assets/imgs/sinresultados (1).jpg"
+          style="display: block;  margin-left: auto; margin-right: auto; margin-top: 0px;"
         />
-        <H2>Sin Resultados</H2>
+        <H2 style="margin-top:-15px;">Sin Resultados</H2>
       </div>
     </ng-template>
   </div>
   <div *ngIf="skeletor">
-    <div  class="elementToFadeInAndOut fakeItem1"></div>
-    <ion-item *ngFor="let fake of fakeUsers" class="elementToFadeInAndOut fakeItem">
-      <ion-thumbnail item-start style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;">
-        
+    <div class="elementToFadeInAndOut fakeItem1"></div>
+    <ion-item
+      *ngFor="let fake of fakeUsers"
+      class="elementToFadeInAndOut fakeItem"
+    >
+      <ion-thumbnail
+        item-start
+        style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;"
+      >
       </ion-thumbnail>
       <h2></h2>
       <p></p>
