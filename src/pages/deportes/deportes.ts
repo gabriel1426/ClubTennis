@@ -35,7 +35,16 @@ export class DeportesPage {
       this.skeletor = false;
     } else {
       this.skeletor = true;
+      this.esperarInstalaciones();
     }
+  }
+
+  esperarInstalaciones() {
+    setTimeout(() => {
+      console.log("timeout");
+      this.longitud = 0;
+      this.skeletor = false;
+    }, 5000);
   }
 
   ionViewDidLoad() {

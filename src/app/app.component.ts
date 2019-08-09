@@ -18,7 +18,7 @@ import { ToastController } from "ionic-angular";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage: any = EventosPage;
+  rootPage: any = LoginPage;
   backPressed = false;
   pages: Array<{ title: string; component: any; icon: string }>;
   // luisjordan.net - Declaramos una nueva variable para controlar el texto mostrado

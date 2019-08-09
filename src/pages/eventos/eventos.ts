@@ -44,6 +44,14 @@ export class EventosPage {
     this.proveedor.listarInstalaciones();
   }
 
+  esperarInstalaciones() {
+    setTimeout(() => {
+      console.log("timeout");
+      this.longitud = 0;
+      this.skeletor = false;
+    }, 5000);
+  }
+
   ionViewDidLoad() {
     console.log("ionViewDidLoad EventosPage");
   }
@@ -51,19 +59,27 @@ export class EventosPage {
   consultarEventos() {
     this.url = this.proveedor.getUrlBase();
 
-    this.proveedor.consultaDeEventos().subscribe(data => {
-      if (data.status == "ok") {
-        this.da = data.data;
-        this.da.forEach(element => {
-          if (element.prioridad_id == 2) {
-            this.da2.push(element);
-            this.longitudda2 = this.da2.length;
-          }
-        });
-        this.longitud = this.da.length;
-        this.skeletor = false;
+    this.proveedor.consultaDeEventos().subscribe(
+      data => {
+        if (data.status == "ok") {
+          this.da = data.data;
+          this.da.forEach(element => {
+            if (element.prioridad_id == 2) {
+              this.da2.push(element);
+              this.longitudda2 = this.da2.length;
+            }
+          });
+          this.longitud = this.da.length;
+          this.skeletor = false;
+        } else {
+          this.esperarInstalaciones();
+        }
+      },
+      Error => {
+        console.log(Error);
+        this.esperarInstalaciones();
       }
-    });
+    );
   }
 
   abrirtdetalleevento(evento) {

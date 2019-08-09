@@ -13,23 +13,30 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://3bbfdb3e.ngrok.io";
+  baseUrl: string = "http://7ae53386.ngrok.io";
 
-  public restaurante = [];
-  public deportes = [];
-  public salon = [];
-  public spa = [];
-  public zonas = [];
-  public otros = [];
+  public restaurante;
+  public deportes;
+  public salon;
+  public spa;
+  public zonas;
+  public otros;
 
   public getUrlBase(): String {
-    return this.baseUrl;
+    return "ae";
   }
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
   }
 
- 
+  ////// Metodo de sesion
+  login(datos: any): Observable<any> {
+    return this.http.post(
+      this.baseUrl + "/api/auth/login",
+      { email: datos.email, password: datos.password },
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
 
   listarInstalaciones() {
     this.http
@@ -124,11 +131,11 @@ export class ServiciosProvider {
     return this.otros;
   }
 
-   ////// Metodo que pregunta si el codigo pertenece a un golfista
-   obtenerGolfista(codigo: any): Observable<any> {
+  ////// Metodo que pregunta si el codigo pertenece a un golfista
+  obtenerGolfista(codigo: any): Observable<any> {
     return this.http.post(
       this.baseUrl + "v1/jugadores/obtenerGolfista",
-      { codigo_golfista: "{codigos: [jugador1,jugador2,jugador3]}",},
+      { codigo_golfista: "{codigos: [jugador1,jugador2,jugador3]}" },
       { headers: { "Content-Type": "application/json" } }
     );
   }

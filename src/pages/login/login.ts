@@ -70,44 +70,44 @@ export class LoginPage {
       alert.present();
     } else {
       let loader = this.loadingController.create({
-        content: "Iniciando Sesion...",
-        duration: 3000
+        content: "Iniciando Sesion..."
       });
 
       loader.present();
+
       console.log("aqui");
-      this.proveedor.login(this.credentials).subscribe(data => {
-        console.log(data);
-        console.log(data.token);
+      this.proveedor.login(this.credentials).subscribe(
+        data => {
+          console.log(data);
+          console.log(data.data.access_token);
 
-        if (data.status == "ok") {
-          this.proveedor.guardarData(data.token);
-          const toast = this.toastCtrl.create({
-            message: "ingreso exitoso",
-            duration: 2000
-          });
-          toast.present();
+          if (data.status == "ok") {
+            this.proveedor.guardarData(data.data.access_token);
 
-          this.navCtrl.setRoot(EventosPage);
-        } else {
-          this.credentials.password = "";
-          const toast = this.toastCtrl.create({
-            message: "Error Inesperado",
-            duration: 2000
+            loader.dismiss();
+            this.navCtrl.setRoot(EventosPage);
+          } else {
+            this.credentials.password = "";
+            loader.dismiss();
+            const toast = this.toastCtrl.create({
+              message: "Error Inesperado",
+              duration: 2000
+            });
+            toast.present();
+          }
+        },
+        Error => {
+          console.log(Error);
+          loader.dismiss();
+          let alert = this.alertController.create({
+            title: " Tennis Golf  Club",
+            subTitle: Error.error.message,
+            buttons: ["OK"]
           });
-          toast.present();
+          alert.present();
         }
-      }, Error=>{
-        console.log(Error);
-        let alert = this.alertController.create({
-          title: " Tennis Golf  Club",
-          subTitle: Error.error.message,
-          buttons: ["OK"]
-        });
-        alert.present();
-      });
+      );
     }
-
   }
 
   menuprincipal() {
@@ -119,6 +119,6 @@ export class LoginPage {
   }
 
   forgotPasswordPage() {
-     this.navCtrl.push(RecuperarcontrasenaPage);
+    this.navCtrl.push(RecuperarcontrasenaPage);
   }
 }
