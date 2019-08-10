@@ -18,11 +18,12 @@ import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { GaleriaPage } from "../pages/galeria/galeria";
 import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarcontrasena";
 import { DetalleinstalacionPage } from "../pages/detalleinstalacion/detalleinstalacion";
+import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
 import { CrearreservaPage } from "../pages/crearreserva/crearreserva";
 
 //modales
-import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
 import { SugerenciaysaborPage } from "../pages/sugerenciaysabor/sugerenciaysabor";
+import { TerminosPage } from '../pages/terminos/terminos';
 
 import { IonHeaderScrollOpacityModule } from "ion-header-scroll-opacity";
 
@@ -51,7 +52,8 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     GaleriaPage,
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
-    CrearreservaPage
+    CrearreservaPage,
+    TerminosPage
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     GaleriaPage,
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
-    CrearreservaPage
+    CrearreservaPage,
+    TerminosPage
   ],
   providers: [
     StatusBar,

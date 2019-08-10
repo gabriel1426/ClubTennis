@@ -17,7 +17,7 @@
     <ion-row
       style="background-image: url('../../assets/imgs/1.png'); height: 280px;"
     >
-      <ion-col col-12 style="text-align: center; margin-top: 30px;">
+      <ion-col col-12 style="text-align: center; margin-top: 50px;">
         <h2
           class="tecolor"
           style="font-family: MyriadProBold; color:white; text-align: center;"
@@ -29,27 +29,15 @@
             <ion-col col-12>
               <ion-item>
                 <ion-icon name="md-calendar" item-start></ion-icon>
-
-                <ion-datetime
-                  placeholder="Selecciona la Fecha de Reserva"
-                  [(ngModel)]="fechaturno"
-                  display-format="MMM D, YYYY"
-                  [min]="today"
-                  ngDefaultControl
-                ></ion-datetime>
+                <ion-label>Fechas Disponibles</ion-label>
+                <ion-select [(ngModel)]="fecha" placeholder="Selecciona la Fecha a Reservar" (ionChange)="turnosHora()" okText="OK" cancelText="CANCELAR">
+                  <ion-option *ngFor="let item of turnos" [value] = "item.fecha" >{{item.fecha}}</ion-option>
+                </ion-select>
               </ion-item>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <button
-          ion-button
-          color="secondary"
-          style="text-align: center;"
-          (click)="solicitarReserva()"
-          style="margin-top: 15px;"
-        >
-          Solicitar Recerva
-        </button>
+       
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -141,7 +129,7 @@
                     type="submit"
                     [disabled]="myForm.invalid"
                   >
-                    Enviar
+                  Solicitar Recerva
                   </button>
                 </div>
               </form>

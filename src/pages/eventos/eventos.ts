@@ -3,7 +3,8 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  ModalController
+  ModalController,
+  MenuController
 } from "ionic-angular";
 import { DetalleeventoPage } from "../detalleevento/detalleevento";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
@@ -34,8 +35,10 @@ export class EventosPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public modalCtrl: ModalController,
-    public proveedor: ServiciosProvider
+    public proveedor: ServiciosProvider,
+    private menu: MenuController
   ) {
+    this.menu.enable(true);
     this.da = [];
     this.da2 = [];
     this.da3 = [];

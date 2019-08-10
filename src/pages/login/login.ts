@@ -6,7 +6,8 @@ import {
   LoadingController,
   AlertController,
   ToastController,
-  ModalController
+  ModalController,
+  MenuController
 } from "ionic-angular";
 
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -14,6 +15,7 @@ import { User } from "../../classes/User";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 import { EventosPage } from "../eventos/eventos";
 import { RecuperarcontrasenaPage } from "../recuperarcontrasena/recuperarcontrasena";
+import { TerminosPage } from '../terminos/terminos';
 
 /**
  * Generated class for the LoginPage page.
@@ -41,8 +43,10 @@ export class LoginPage {
     public navCtrl: NavController,
     public proveedor: ServiciosProvider,
     private loadingController: LoadingController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private menu: MenuController
   ) {
+    this.menu.enable(false);
     this.LoginForm = formBuilder.group({
       Email: [
         "",
@@ -56,8 +60,8 @@ export class LoginPage {
   }
 
   abrirterminos() {
-    //let profileModal = this.modalCtrl.create(ModalpoliticasPage);
-    // profileModal.present();
+    let profileModal = this.modalCtrl.create(TerminosPage);
+   profileModal.present();
   }
 
   Login(event) {
@@ -111,7 +115,7 @@ export class LoginPage {
   }
 
   menuprincipal() {
-    //this.navCtrl.push(MenuprincipalPage);
+    this.navCtrl.setRoot(EventosPage);
   }
 
   ionViewDidLoad() {

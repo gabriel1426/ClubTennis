@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient,HttpHeaders  } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  baseUrl: string = "http://7ae53386.ngrok.io";
+  public baseUrl: string = "http://54fb8ea7.ngrok.io";
 
   public restaurante;
   public deportes;
@@ -23,7 +23,7 @@ export class ServiciosProvider {
   public otros;
 
   public getUrlBase(): String {
-    return "ae";
+    return this.baseUrl;
   }
   constructor(public http: HttpClient) {
     console.log("Hello ServiciosProvider Provider");
@@ -75,6 +75,11 @@ export class ServiciosProvider {
   //Almacena los datos del usuario
   public guardarData(token: string) {
     window.localStorage.setItem("token", token);
+    this.getToken();
+  }
+
+  getToken(){
+   return window.localStorage.getItem("token");
   }
 
   //Metodo que valida que haya un registro de usuario
@@ -130,6 +135,18 @@ export class ServiciosProvider {
   consultaDeOtro(): any {
     return this.otros;
   }
+
+   ////// Metodo utilizado para solicitar las fechas dispobibles en el tee-time
+   obtenerFechas(): Observable<any> {
+    //const headeres = new HttpHeaders({'Authorization':this.getToken+""});
+    let token=this.getToken();
+    return this.http.get(
+     
+      this.baseUrl + "/api/v1/tee-time/obtenerDiasDisponibles",
+      { headers: { "Authorization": token+"","Content-Type": "application/json" } }
+    );
+  }
+
 
   ////// Metodo que pregunta si el codigo pertenece a un golfista
   obtenerGolfista(codigo: any): Observable<any> {

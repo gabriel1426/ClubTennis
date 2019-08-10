@@ -14,6 +14,7 @@
     </div>
      
     </div>
+    <div *ngIf="logeado">
     <ion-list  style="margin-top: 80px; border-bottom: 0px !important;">
       <button
         style="font-size: 20px; border-bottom: 0px !important; "
@@ -27,6 +28,7 @@
     </ion-list>
     <ion-footer style="text-align: center">
       <button
+      (click)="salir()"
         menuClose
         ion-item
         style="text-align: center; background-image: url('../assets/imgs/fondoazul.png') !important; color:white;"
@@ -34,6 +36,21 @@
         <ion-icon name="log-out" style="color: white;"></ion-icon> Cerrar Sesión
       </button>
     </ion-footer>
+    </div>
+    <div *ngIf="!logeado">
+      <ion-list  style="margin-top: 80px; border-bottom: 0px !important;">
+        <button
+          style="font-size: 20px; border-bottom: 0px !important; "
+          menuClose
+          ion-item
+          *ngFor="let p of pagest"
+          (click)="openPage(p)"
+        >
+          <ion-icon name="{{ p.icon }}" color="primary"></ion-icon> {{ p.title }}
+        </button>
+      </ion-list>
+    </div>
+
   </ion-content>
 </ion-menu>
 

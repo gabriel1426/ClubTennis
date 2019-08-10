@@ -20,7 +20,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
   backPressed = false;
+  public logeado :any;
   pages: Array<{ title: string; component: any; icon: string }>;
+  pagest: Array<{ title: string; component: any; icon: string }>;
   // luisjordan.net - Declaramos una nueva variable para controlar el texto mostrado
   text: string = "";
 
@@ -59,7 +61,29 @@ export class MyApp {
         { title: "Pago en linea", icon: "card", component: PagoPage },
         { title: "Pqrs", icon: "mail", component: PqrsPage }
       ];
+      this.pagest = [
+        { title: "Iniciar Sesión", icon: "user", component: LoginPage },
+        { title: "Eventos", icon: "calendar", component: EventosPage },
+        { title: "Restaurante", icon: "restaurant", component: RestaurantPage },
+        {
+          title: "Instalaciones",
+          icon: "cube",
+          component: InstalacionesPage
+        },
+        { title: "Deportes", icon: "football", component: DeportesPage },
+        
+       
+      ];
     });
+      // Verificación de logeo
+      if(localStorage["token"] == null || localStorage["token"] == undefined){
+        
+       
+  }
+  else{
+    this.logeado = true;
+   
+  }
     platform.registerBackButtonAction(() => {
       // Catches the active view
       let nav = this.app.getActiveNavs()[0];
@@ -69,27 +93,32 @@ export class MyApp {
         if (nav.canGoBack()) {
           nav.pop();
         } else {
-          const alert = this.alertCtrl.create({
-            title: "¿Seguro que deseas salir?",
-            buttons: [
-              {
-                text: "No",
-                role: "cancel",
-                handler: () => {
-                  this.nav.setRoot("HomePage");
-                  console.log("** Saída do App Cancelada! **");
+          if(this.logeado==true){
+            const alert = this.alertCtrl.create({
+              title: "¿Seguro que deseas salir?",
+              buttons: [
+                {
+                  text: "No",
+                  role: "cancel",
+                  handler: () => {
+                    this.nav.setRoot("HomePage");
+                    console.log("** Saída do App Cancelada! **");
+                  }
+                },
+                {
+                  text: "Si, salir ahora",
+                  handler: () => {
+                    //this.logout();
+                    platform.exitApp();
+                  }
                 }
-              },
-              {
-                text: "Si, salir ahora",
-                handler: () => {
-                  //this.logout();
-                  platform.exitApp();
-                }
-              }
-            ]
-          });
-          alert.present();
+              ]
+            });
+            alert.present();
+          }else {
+            this.nav.setRoot(LoginPage);
+          }
+          
         }
       } else if (
         activeView.name === "RestaurantPage" ||
@@ -107,9 +136,16 @@ export class MyApp {
       }
     });
   }
+
+  salir(){
+    window.localStorage.removeItem("token");
+    window.localStorage.removeItem("user");
+    this.nav.setRoot(LoginPage);
+  }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
+    
     this.nav.setRoot(page.component);
   }
 
