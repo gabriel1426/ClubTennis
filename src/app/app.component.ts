@@ -12,6 +12,7 @@ import { PqrsPage } from "../pages/pqrs/pqrs";
 import { RestaurantPage } from "../pages/restaurant/restaurant";
 import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { ToastController } from "ionic-angular";
+import { ServiciosProvider } from "../providers/servicios/servicios";
 
 @Component({
   templateUrl: "app.html"
@@ -20,7 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = LoginPage;
   backPressed = false;
-  public logeado :any;
+  public logeado: any;
   pages: Array<{ title: string; component: any; icon: string }>;
   pagest: Array<{ title: string; component: any; icon: string }>;
   // luisjordan.net - Declaramos una nueva variable para controlar el texto mostrado
@@ -30,6 +31,7 @@ export class MyApp {
     public app: App,
     platform: Platform,
     statusBar: StatusBar,
+    public proveedor: ServiciosProvider,
     public splashScreen: SplashScreen,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController
@@ -62,7 +64,7 @@ export class MyApp {
         { title: "Pqrs", icon: "mail", component: PqrsPage }
       ];
       this.pagest = [
-        { title: "Iniciar Sesión", icon: "user", component: LoginPage },
+        { title: "Iniciar Sesión", icon: "person", component: LoginPage },
         { title: "Eventos", icon: "calendar", component: EventosPage },
         { title: "Restaurante", icon: "restaurant", component: RestaurantPage },
         {
@@ -70,20 +72,16 @@ export class MyApp {
           icon: "cube",
           component: InstalacionesPage
         },
-        { title: "Deportes", icon: "football", component: DeportesPage },
-        
-       
+        { title: "Deportes", icon: "football", component: DeportesPage }
       ];
     });
-      // Verificación de logeo
-      if(localStorage["token"] == null || localStorage["token"] == undefined){
-        
-       
-  }
-  else{
-    this.logeado = true;
-   
-  }
+    // Verificación de logeo
+    if (localStorage["token"] == null || localStorage["token"] == undefined) {
+      console.log("No aqui");
+    } else {
+      this.logeado = true;
+      console.log("Entre aqui");
+    }
     platform.registerBackButtonAction(() => {
       // Catches the active view
       let nav = this.app.getActiveNavs()[0];
@@ -93,7 +91,7 @@ export class MyApp {
         if (nav.canGoBack()) {
           nav.pop();
         } else {
-          if(this.logeado==true){
+          if (this.logeado == true) {
             const alert = this.alertCtrl.create({
               title: "¿Seguro que deseas salir?",
               buttons: [
@@ -115,10 +113,9 @@ export class MyApp {
               ]
             });
             alert.present();
-          }else {
+          } else {
             this.nav.setRoot(LoginPage);
           }
-          
         }
       } else if (
         activeView.name === "RestaurantPage" ||
@@ -129,6 +126,9 @@ export class MyApp {
         activeView.name === "PqrsPage"
       ) {
         this.nav.setRoot(EventosPage);
+      } else if (activeView.name === "TeetimePage") {
+        console.log("Entre aqui al tee time");
+        this.nav.setRoot(ZonasociosPage);
       } else {
         if (nav.canGoBack()) {
           nav.pop();
@@ -137,15 +137,52 @@ export class MyApp {
     });
   }
 
-  salir(){
-    window.localStorage.removeItem("token");
-    window.localStorage.removeItem("user");
-    this.nav.setRoot(LoginPage);
+  ngAfterViewInit() {
+    this.nav.viewDidEnter.subscribe(data => {
+      console.log("ladsdahdkahdkasdksahdka");
+      var view = data.component.name;
+
+      if (
+        view != "LoginPage" &&
+        view != "TerminosPage" &&
+        view != "RecuperarcontrasenaPage"
+      ) {
+        // VERIFICACIÓN DE LOGEO
+        if (
+          localStorage["token"] == null ||
+          localStorage["token"] == undefined
+        ) {
+          this.logeado = false;
+          console.log("No Estas logeado");
+          //this.nav.setRoot(IntroductionPage);
+        } else {
+          console.log("Estas logeado");
+          this.logeado = true;
+        }
+      } else {
+        this.logeado = false;
+      }
+    });
+
+    // VERIFICACIÓN DE LOGEO
+    if (localStorage["token"] == null || localStorage["token"] == undefined) {
+      this.nav.setRoot(LoginPage);
+    } else {
+      this.logeado = true;
+      this.nav.setRoot(EventosPage);
+    }
+  }
+
+  salir() {
+    if (this.proveedor.logout()) {
+      this.logeado = false;
+      this.nav.setRoot(LoginPage);
+    }
   }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    
+
     this.nav.setRoot(page.component);
   }
 

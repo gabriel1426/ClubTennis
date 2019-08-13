@@ -23,7 +23,7 @@ import { CrearreservaPage } from "../pages/crearreserva/crearreserva";
 
 //modales
 import { SugerenciaysaborPage } from "../pages/sugerenciaysabor/sugerenciaysabor";
-import { TerminosPage } from '../pages/terminos/terminos';
+import { TerminosPage } from "../pages/terminos/terminos";
 
 import { IonHeaderScrollOpacityModule } from "ion-header-scroll-opacity";
 

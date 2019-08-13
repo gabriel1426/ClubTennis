@@ -1,15 +1,16 @@
 page-login {
-  
-  .contenedor-principal-login{
-    background-image: url("../../assets/imgs/1.png");
-    background-size: cover;
-    
+  .text-input {
+    text-transform: lowercase !important;
   }
 
-  .loginpart{
+  .contenedor-principal-login {
+    background-image: url("../../assets/imgs/1.png");
+    background-size: cover;
+  }
+
+  .loginpart {
     background: white;
     border-radius: 10px;
-    
   }
 
   .cd-timeline-picture {
@@ -23,22 +24,22 @@ page-login {
     border-style: solid;
     border-width: 2px;
     background: white;
-}
-.dark {
-  border-color: white;
-}
+  }
+  .dark {
+    border-color: white;
+  }
 
-.button-md{
-  text-transform: none !important;
-}
-.btnsaltar{
-  color: white;
-  border-radius: 50px;
- background: transparent !important;
-}
-.item-md.item-block .item-inner{
-  border-bottom: 1px solid #3e71c9 !important;
-}
+  .button-md {
+    text-transform: none !important;
+  }
+  .btnsaltar {
+    color: white;
+    border-radius: 50px;
+    background: transparent !important;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: 1px solid #3e71c9 !important;
+  }
 
   .text-input-md {
     margin: 0px 0px !important;
@@ -127,9 +128,9 @@ page-login {
   }
 }
 
-.alert-title{
+.alert-title {
   text-align: center !important;
 }
-.alert-sub-title{
+.alert-sub-title {
   margin: 10px 0 0 !important;
 }

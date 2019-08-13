@@ -13,41 +13,146 @@
 </ion-header>
 
 <ion-content no-padding #mycontent fullscreen class="">
-  
-    <ion-row style="background-image: url('../../assets/imgs/1.png'); height: 280px; width: 100%;" >
-      <ion-col col-12 style="text-align: center;">
-        <img
-          src="../../assets/imgs/logo.png"
-          style="display: block; width: 100px; height: 100px; margin-left: auto; margin-right: auto; margin-top: 40px;"
-        />
-        <h2
-          class="tecolor"
-          style="font-family: MyriadProBold; color:white; text-align: center;"
+  <ion-row
+    style="background-image: url('../../assets/imgs/03.png'); background-repeat: no-repeat; height: 280px; width: 100%; background-size: cover;"
+  >
+    <ion-col col-12 style="text-align: center;">
+      <img
+        src="../../assets/imgs/logo.png"
+        style="display: block; width: 100px; height: 100px; margin-left: auto; margin-right: auto; margin-top: 20px;"
+      />
+      <h2
+        class="tecolor"
+        style="font-family: MyriadProBold; color:white; text-align: center;"
+      >
+        <strong>Tee-Time</strong>
+      </h2>
+      <button
+        ion-button
+        color="primary"
+        style="text-align: center;"
+        (click)="solicitarReserva()"
+      >
+        Solicitar Recerva
+      </button>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="!skeletor">
+    <ion-grid
+      style="margin-top: -20px; padding:0px !important"
+      *ngIf="longitud != 0; else other_content"
+    >
+      <ion-row>
+        <ion-col
+          col-12
+          style="padding:0px !important"
+          *ngFor="let item of data"
         >
-          <strong>Tee-Time</strong>
-        </h2>
-        <button ion-button color="primary" style="text-align: center;" (click)="solicitarReserva()">
-          Solicitar Recerva
-        </button>
-      </ion-col>
-    </ion-row>
-    <div *ngIf="!skeletor">
-    <div style="text-align: center;">
+          <ion-card style="border-radius: 5px;" class="sombra">
+            <ion-item>
+              <img
+                style="max-height: 30px !important; max-width: 30px !important;"
+                src="../../assets/imgs/logo.png"
+                item-left
+              />
+              <h2>
+                <b>Reservada por {{ item.jugador1.nombres }}</b>
+              </h2>
+              <ion-icon
+                *ngIf="item.estado == 'RESERVADO'"
+                name="trash"
+                color="danger"
+                item-right
+              ></ion-icon>
+            </ion-item>
+
+            <ion-item>
+              <ion-row>
+                <ion-col style="text-align: center;">
+                  <h3>
+                    <ion-icon name="calendar" item-start style="color:#3e71c9;">
+                    </ion-icon
+                    >Fecha: {{ item.fecha }}
+                  </h3>
+                </ion-col>
+                <ion-col style="text-align: center;">
+                  <h3>
+                    <ion-icon
+                      name="time"
+                      item-start
+                      style="color:#3e71c9;"
+                    ></ion-icon
+                    >Hora: {{ item.hora }}
+                  </h3>
+                </ion-col>
+              </ion-row>
+              <div style="text-align: center;">
+                <h3 style="color:#3e71c9; font-size: 16px; ">
+                  Jugadores
+                </h3>
+
+                <hr />
+                <h3>
+                  <ion-icon
+                    name="checkbox"
+                    item-start
+                    style="color:#3e71c9;"
+                  ></ion-icon
+                  >{{ item.jugador1.nombres }}
+                </h3>
+                <h3>
+                  <ion-icon
+                    name="checkbox"
+                    item-start
+                    style="color:#3e71c9;"
+                  ></ion-icon
+                  >{{ item.jugador2.nombres }}
+                </h3>
+                <h3>
+                  <ion-icon
+                    name="checkbox"
+                    item-start
+                    style="color:#3e71c9;"
+                  ></ion-icon
+                  >{{ item.jugador3.nombres }}
+                </h3>
+                <h3 *ngIf="item.jugador3 != null">
+                  <ion-icon
+                    name="checkbox"
+                    item-start
+                    style="color:#3e71c9;"
+                  ></ion-icon>
+                  Cristian Gabriel Contreras
+                </h3>
+              </div>
+            </ion-item>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ng-template #other_content>
       <img
         src="../../assets/imgs/sinresultados.png"
-        style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 50px;" />
+        style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 50px;"
+      />
       <H2>Sin Resultados</H2>
-    </div>
+    </ng-template>
   </div>
 
   <div *ngIf="skeletor">
-      <div class="elementToFadeInAndOut fakeItem1"></div>
-      <ion-item *ngFor="let fake of fakeUsers" class="elementToFadeInAndOut fakeItem">
-        <ion-thumbnail item-start style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;">
-    
-        </ion-thumbnail>
-        <h2></h2>
-        <p></p>
-      </ion-item>
-    </div>
+    <div class="elementToFadeInAndOut fakeItem1"></div>
+    <ion-item
+      *ngFor="let fake of fakeUsers"
+      class="elementToFadeInAndOut fakeItem"
+    >
+      <ion-thumbnail
+        item-start
+        style="width: 80px; height: 80px;  background-color: lightgrey; border-radius: 4px;"
+      >
+      </ion-thumbnail>
+      <h2></h2>
+      <p></p>
+    </ion-item>
+  </div>
 </ion-content>

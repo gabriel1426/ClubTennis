@@ -49,7 +49,6 @@ export class EventosPage {
 
   esperarInstalaciones() {
     setTimeout(() => {
-      console.log("timeout");
       this.longitud = 0;
       this.skeletor = false;
     }, 5000);
@@ -79,14 +78,12 @@ export class EventosPage {
         }
       },
       Error => {
-        console.log(Error);
         this.esperarInstalaciones();
       }
     );
   }
 
   abrirtdetalleevento(evento) {
-    //console.log(evento);
     this.navCtrl.push(DetalleeventoPage, evento);
   }
 }

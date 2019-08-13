@@ -15,7 +15,7 @@ import { User } from "../../classes/User";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 import { EventosPage } from "../eventos/eventos";
 import { RecuperarcontrasenaPage } from "../recuperarcontrasena/recuperarcontrasena";
-import { TerminosPage } from '../terminos/terminos';
+import { TerminosPage } from "../terminos/terminos";
 
 /**
  * Generated class for the LoginPage page.
@@ -61,7 +61,7 @@ export class LoginPage {
 
   abrirterminos() {
     let profileModal = this.modalCtrl.create(TerminosPage);
-   profileModal.present();
+    profileModal.present();
   }
 
   Login(event) {
@@ -74,12 +74,13 @@ export class LoginPage {
       alert.present();
     } else {
       let loader = this.loadingController.create({
-        content: "Iniciando Sesion..."
+        content: "Iniciando Sesión..."
       });
 
       loader.present();
 
       console.log("aqui");
+      this.credentials.email = this.credentials.email.trim();
       this.proveedor.login(this.credentials).subscribe(
         data => {
           console.log(data);
@@ -87,11 +88,11 @@ export class LoginPage {
 
           if (data.status == "ok") {
             this.proveedor.guardarData(data.data.access_token);
+            this.proveedor.datosUsuario();
 
             loader.dismiss();
             this.navCtrl.setRoot(EventosPage);
           } else {
-            this.credentials.password = "";
             loader.dismiss();
             const toast = this.toastCtrl.create({
               message: "Error Inesperado",
@@ -101,14 +102,25 @@ export class LoginPage {
           }
         },
         Error => {
-          console.log(Error);
-          loader.dismiss();
-          let alert = this.alertController.create({
-            title: " Tennis Golf  Club",
-            subTitle: Error.error.message,
-            buttons: ["OK"]
-          });
-          alert.present();
+          console.log(Error.error.message);
+          if (typeof Error.error.message !== "undefined") {
+            loader.dismiss();
+            this.credentials.password = "";
+            let alert = this.alertController.create({
+              title: " Tennis Golf  Club",
+              subTitle: Error.error.message,
+              buttons: ["OK"]
+            });
+            alert.present();
+          } else {
+            loader.dismiss();
+            let alert = this.alertController.create({
+              title: " Tennis Golf  Club",
+              subTitle: "Fallo en la conexión",
+              buttons: ["OK"]
+            });
+            alert.present();
+          }
         }
       );
     }
