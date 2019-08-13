@@ -56,8 +56,12 @@ export class RestaurantPage {
     console.log("ionViewDidLoad RestaurantPage");
   }
 
-  sugerenciaysaborModal() {
-    let modal1 = this.modalCtrl.create(SugerenciaysaborPage);
+  sugerenciaModal() {
+    let modal1 = this.modalCtrl.create(SugerenciaysaborPage,{"tipo":"sugerencia"});
+    modal1.present();
+  }
+  saborModal() {
+    let modal1 = this.modalCtrl.create(SugerenciaysaborPage, {"tipo":"sabor"});
     modal1.present();
   }
   abrirDetalle(item) {

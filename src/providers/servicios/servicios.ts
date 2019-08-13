@@ -14,7 +14,7 @@ import { Console } from "@angular/core/src/console";
 */
 @Injectable()
 export class ServiciosProvider {
-  public baseUrl: string = "http://a8726ec9.ngrok.io";
+  public baseUrl: string = "http://4acb1960.ngrok.io";
 
   public restaurante;
   public deportes;

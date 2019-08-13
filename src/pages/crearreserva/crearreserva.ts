@@ -261,7 +261,7 @@ export class CrearreservaPage {
               data => {
                 if (data.status == "ok") {
                   loader.dismiss();
-                  this.navCtrl.push(TeetimePage);
+                  this.navCtrl.setRoot(TeetimePage);
                 } else {
                   loader.dismiss();
                   let alert = this.alertController.create({

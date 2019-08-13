@@ -14,7 +14,7 @@
 
 <ion-content no-padding #mycontent fullscreen class="">
   <ion-row
-    style="background-image: url('../../assets/imgs/03.png'); background-repeat: no-repeat; height: 280px; width: 100%; background-size: cover;"
+    style="background-image: url('../../assets/imgs/2.jpg'); background-repeat: no-repeat; height: 280px; width: 100%; background-size: cover;"
   >
     <ion-col col-12 style="text-align: center;">
       <img
@@ -59,7 +59,7 @@
                 <b>Reservada por {{ item.jugador1.nombres }}</b>
               </h2>
               <ion-icon
-                *ngIf="item.estado == 'RESERVADO'"
+                *ngIf="item.estado == 'APROBADO'"
                 name="trash"
                 color="danger"
                 item-right

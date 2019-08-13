@@ -19,11 +19,21 @@ import {
   templateUrl: "sugerenciaysabor.html"
 })
 export class SugerenciaysaborPage {
+  public data;
   constructor(
     public viewCtrl: ViewController,
     public navCtrl: NavController,
     public navParams: NavParams
-  ) {}
+  ) {
+  
+    this.data = navParams.data;
+    
+    if(this.data.tipo=="sugerencia"){
+
+    }else{
+
+    }
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad SugerenciaysaborPage");

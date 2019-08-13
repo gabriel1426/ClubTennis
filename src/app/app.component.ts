@@ -11,6 +11,7 @@ import { PagoPage } from "../pages/pago/pago";
 import { PqrsPage } from "../pages/pqrs/pqrs";
 import { RestaurantPage } from "../pages/restaurant/restaurant";
 import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
+import { TeetimePage } from "../pages/teetime/teetime";
 import { ToastController } from "ionic-angular";
 import { ServiciosProvider } from "../providers/servicios/servicios";
 
@@ -56,9 +57,9 @@ export class MyApp {
         },
         { title: "Deportes", icon: "football", component: DeportesPage },
         {
-          title: "Zona de socios",
+          title: "Tee-Time",
           icon: "ribbon",
-          component: ZonasociosPage
+          component: TeetimePage
         },
         { title: "Pago en linea", icon: "card", component: PagoPage },
         { title: "Pqrs", icon: "mail", component: PqrsPage }
@@ -121,14 +122,11 @@ export class MyApp {
         activeView.name === "RestaurantPage" ||
         activeView.name === "InstalacionesPage" ||
         activeView.name === "DeportesPage" ||
-        activeView.name === "ZonasociosPage" ||
+        activeView.name === "TeetimePage" ||
         activeView.name === "PagoPage" ||
         activeView.name === "PqrsPage"
       ) {
         this.nav.setRoot(EventosPage);
-      } else if (activeView.name === "TeetimePage") {
-        console.log("Entre aqui al tee time");
-        this.nav.setRoot(ZonasociosPage);
       } else {
         if (nav.canGoBack()) {
           nav.pop();
