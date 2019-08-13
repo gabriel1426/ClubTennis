@@ -10,7 +10,6 @@ import { LoginPage } from "../pages/login/login";
 import { PagoPage } from "../pages/pago/pago";
 import { PqrsPage } from "../pages/pqrs/pqrs";
 import { RestaurantPage } from "../pages/restaurant/restaurant";
-import { ZonasociosPage } from "../pages/zonasocios/zonasocios";
 import { TeetimePage } from "../pages/teetime/teetime";
 import { ToastController } from "ionic-angular";
 import { ServiciosProvider } from "../providers/servicios/servicios";

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { TeetimePage } from "../teetime/teetime";
 
 /**
@@ -9,7 +9,7 @@ import { TeetimePage } from "../teetime/teetime";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-zonasocios",
   templateUrl: "zonasocios.html"

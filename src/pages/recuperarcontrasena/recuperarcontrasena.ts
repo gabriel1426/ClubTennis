@@ -1,17 +1,13 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
   NavController,
-  NavParams,
   LoadingController,
   AlertController,
-  ToastController,
   ModalController
 } from "ionic-angular";
 
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
-import { EventosPage } from "../eventos/eventos";
 
 /**
  * Generated class for the RecuperarcontrasenaPage page.
@@ -20,7 +16,7 @@ import { EventosPage } from "../eventos/eventos";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-recuperarcontrasena',
   templateUrl: 'recuperarcontrasena.html',

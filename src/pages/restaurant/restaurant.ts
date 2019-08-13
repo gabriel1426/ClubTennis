@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
   NavController,
   NavParams,
   ModalController
@@ -16,7 +15,7 @@ import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-restaurant",
   templateUrl: "restaurant.html"

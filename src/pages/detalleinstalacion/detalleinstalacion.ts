@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
+  
   NavController,
   NavParams,
   ViewController
@@ -15,7 +15,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-detalleinstalacion",
   templateUrl: "detalleinstalacion.html"

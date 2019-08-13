@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
   NavController,
   NavParams,
   ModalController,
@@ -16,7 +15,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-eventos",
   templateUrl: "eventos.html"

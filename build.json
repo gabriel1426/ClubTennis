@@ -1,0 +1,39 @@
+{ 
+  "android": {
+         "debug": {
+             "keystore": "my-release-key.keystore",
+             "storePassword": "tennisapp",
+             "alias": "apptennis",
+             "password" : "tennisapp",
+             "keystoreType": ""
+         },
+         "release": {
+             "keystore": "my-release-key.keystore",
+             "storePassword": "tennisapp",
+             "alias": "apptennis",
+             "password" : "tennisapp",
+             "keystoreType": ""
+         }
+     },
+
+    "ios": {
+        "debug": {
+            "codeSignIdentity": "iPhone Distribution",
+            "developmentTeam": "T6C7FGUN92",
+            "packageType": "app-store",
+            "provisioningProfile" : "comtennisgolfclubmyapp"
+            
+           
+        },
+        "release": {
+            "codeSignIdentity": "iPhone Distribution",
+            "developmentTeam": "T6C7FGUN92",
+            "packageType": "app-store",
+            "provisioningProfile" : "comtennisgolfclubmyapp"
+       
+        }
+    }
+}
+ 
+
+

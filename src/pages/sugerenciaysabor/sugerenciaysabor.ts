@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
   NavController,
   NavParams,
   ViewController
@@ -13,7 +12,7 @@ import {
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-sugerenciaysabor",
   templateUrl: "sugerenciaysabor.html"

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { NavController, NavParams } from "ionic-angular";
 import { CrearreservaPage } from "../crearreserva/crearreserva";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 
@@ -10,7 +10,6 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: "page-teetime",
   templateUrl: "teetime.html"

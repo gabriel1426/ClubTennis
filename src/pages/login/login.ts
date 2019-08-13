@@ -1,8 +1,6 @@
 import { Component } from "@angular/core";
 import {
-  IonicPage,
   NavController,
-  NavParams,
   LoadingController,
   AlertController,
   ToastController,
@@ -11,7 +9,6 @@ import {
 } from "ionic-angular";
 
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { User } from "../../classes/User";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 import { EventosPage } from "../eventos/eventos";
 import { RecuperarcontrasenaPage } from "../recuperarcontrasena/recuperarcontrasena";
@@ -24,7 +21,7 @@ import { TerminosPage } from "../terminos/terminos";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: "page-login",
   templateUrl: "login.html"

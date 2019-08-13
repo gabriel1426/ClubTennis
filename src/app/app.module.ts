@@ -3,9 +3,7 @@ import { ErrorHandler, NgModule } from "@angular/core";
 import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
-
 import { MyApp } from "./app.component";
-import { HomePage } from "../pages/home/home";
 import { DeportesPage } from "../pages/deportes/deportes";
 import { EventosPage } from "../pages/eventos/eventos";
 import { InstalacionesPage } from "../pages/instalaciones/instalaciones";
@@ -20,6 +18,7 @@ import { RecuperarcontrasenaPage } from "../pages/recuperarcontrasena/recuperarc
 import { DetalleinstalacionPage } from "../pages/detalleinstalacion/detalleinstalacion";
 import { DetalleeventoPage } from "../pages/detalleevento/detalleevento";
 import { CrearreservaPage } from "../pages/crearreserva/crearreserva";
+import { SeleccioninstalacionPage } from "../pages/seleccioninstalacion/seleccioninstalacion";
 
 //modales
 import { SugerenciaysaborPage } from "../pages/sugerenciaysabor/sugerenciaysabor";
@@ -37,7 +36,6 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     DeportesPage,
     EventosPage,
     InstalacionesPage,
@@ -53,7 +51,8 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
     CrearreservaPage,
-    TerminosPage
+    TerminosPage,
+    SeleccioninstalacionPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +63,6 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     DeportesPage,
     EventosPage,
     InstalacionesPage,
@@ -80,7 +78,8 @@ import { InAppBrowser } from "@ionic-native/in-app-browser";
     RecuperarcontrasenaPage,
     DetalleinstalacionPage,
     CrearreservaPage,
-    TerminosPage
+    TerminosPage,
+    SeleccioninstalacionPage
   ],
   providers: [
     StatusBar,
