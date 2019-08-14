@@ -25,6 +25,10 @@ page-teetime {
     background: transparent !important;
   }
   ion-label {
-    white-space: normal;
+    white-space: normal !important;
   }
+  .col{
+    padding: 0px !important;
+  }
+  
 }

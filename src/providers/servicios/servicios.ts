@@ -13,7 +13,7 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  public baseUrl: string = "http://26bf8ec2.ngrok.io";
+  public baseUrl: string = "http://api.tennisgolfclub.com.co";
 
   public restaurante;
   public tipoInstalacion = "";
@@ -138,8 +138,7 @@ export class ServiciosProvider {
     let token = this.getToken();
     console.log(token);
     return this.http.post(
-      this.baseUrl + "/api/auth/logout",
-
+      this.baseUrl + "/api/auth/logout",{"hola":"hola"},
       {
         headers: {
           Authorization: "Bearer " + token,
@@ -237,9 +236,6 @@ export class ServiciosProvider {
   ////// Metodo utilizado para registrar un turno en el tee-time
   registrarTurno(turnos: any, idturno: any): Observable<any> {
     //const headeres = new HttpHeaders({'Authorization':this.getToken+""});
-    console.log(turnos);
-    console.log(idturno);
-
     let token = this.getToken();
     return this.http.post(
       this.baseUrl + "/api/v1/tee-time/registrarTurno",
@@ -256,9 +252,10 @@ export class ServiciosProvider {
   ////// Metodo utilizado para listar las reservaciones en el tee-time
   listarRecervaciones(): Observable<any> {
     let token = this.getToken();
+    let codigo = this.getCodGolfista();
     return this.http.post(
       this.baseUrl + "/api/v1/tee-time/obtenerReservacionesGolfista",
-      { codigo_golfista: this.getCodGolfista },
+      { codigo_golfista: codigo },
       {
         headers: {
           Authorization: "Bearer " + token,

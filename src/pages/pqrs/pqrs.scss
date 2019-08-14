@@ -3,6 +3,10 @@ page-pqrs {
     contain: inherit !important;
     background: transparent !important;
   }
+  ion-label {
+    white-space: normal !important;
+  }
+  
   .scroll-content {
     padding-top: 0px !important;
   }

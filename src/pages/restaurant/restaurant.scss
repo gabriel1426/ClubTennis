@@ -9,9 +9,16 @@ page-restaurant {
   .scroll-content {
     padding-top: 0px !important;
   }
+  ion-label {
+    white-space: normal !important;
+  }
+  
   ion-img {
     contain: inherit !important;
     background: transparent !important;
+  }
+  .imagen {
+    display: block !important;
   }
   .sombra {
     -webkit-box-shadow: -8px -7px 48px -21px rgba(0, 0, 0, 0.75);

@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="100">
+<ion-header header-scroll-opacity [scrollArea]="mycontent" [scrollAmount]="1000">
   <ion-navbar color="primary">
     <button ion-button menuToggle="leftMenu" style="position: relative;">
       <ion-icon name="menu" class=""></ion-icon>
@@ -33,13 +33,13 @@
         style="text-align: center;"
         (click)="solicitarReserva()"
       >
-        Solicitar Recerva
+        Solicitar Reserva
       </button>
     </ion-col>
   </ion-row>
   <div *ngIf="!skeletor">
     <ion-grid
-      style="margin-top: -20px; padding:0px !important"
+      style="margin-top: -40px; padding:0px !important"
       *ngIf="longitud != 0; else other_content"
     >
       <ion-row>
@@ -57,6 +57,9 @@
               />
               <h2>
                 <b>Reservada por {{ item.jugador1.nombres }}</b>
+              </h2>
+              <h2>
+                Estado: <span style="color: #f53d3d"  *ngIf="item.estado == 'RESERVADO'">Por aprobación</span> <span style="color: #32db64"  *ngIf="item.estado != 'RESERVADO'">Aprobado</span>
               </h2>
               <ion-icon
                 *ngIf="item.estado == 'RESERVADO'"
@@ -87,9 +90,22 @@
                 </ion-col>
               </ion-row>
               <ion-row>
+                <ion-col style="text-align: center;">
+                  <h3>
+                    <ion-icon
+                      name="pin"
+                      item-start
+                      style="color:#3e71c9;"
+                    ></ion-icon
+                    >Escenario: {{ item.escenario.nombre }}
+                  </h3>
+                </ion-col>
+              </ion-row>
+              <ion-row>
                 <ion-col style="text-align: center;"> </ion-col>
               </ion-row>
               <div style="text-align: center;">
+                <hr />
                 <h3 style="color:#3e71c9; font-size: 16px; ">
                   Jugadores
                 </h3>
@@ -148,12 +164,14 @@
       </ion-row>
     </ion-grid>
 
-    <ng-template #other_content>
-      <img
-        src="../../assets/imgs/sinresultados.png"
-        style="display: block; height: 230px; width:230px ; margin-left: auto; margin-right: auto; margin-top: 50px;"
-      />
-      <H2>Sin Resultados</H2>
+    <ng-template #other_content style="text-align: center;">
+      <div style="margin-top:50px; text-align: center;">
+        <img
+          src="../../assets/imgs/sinresultados (1).jpg"
+          style="display: block;  margin-left: auto; margin-right: auto; margin-top: 0px;"
+        />
+        <H2 style="margin-top:-15px;">Sin Resultados</H2>
+      </div>
     </ng-template>
   </div>
 

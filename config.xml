@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.labco.clubtenis" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.tennisgolfclub.myapp" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Club Tennis 1</name>
     <description>Tennis Golf Club App</description>
     <author email="director@labco.com.co" href="https://labco.com.co">Labco Innovación</author>

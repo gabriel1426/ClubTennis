@@ -193,13 +193,28 @@ export class CrearreservaPage {
 
   saveData() {
     if (this.hora == "" || this.fecha == "") {
+    
       let alert = this.alertController.create({
         title: " Tennis Golf  Club",
         subTitle: "Es necesario que completes los campos requeridos",
         buttons: ["OK"]
       });
       alert.present();
-    }
+    }else if(this.proveedor.getCodGolfista==this.myForm.controls.jugador2.value ||
+            this.proveedor.getCodGolfista==this.myForm.controls.jugador3.value ||
+            this.proveedor.getCodGolfista==this.myForm.controls.jugador4.value ||
+            this.myForm.controls.jugador2.value==this.myForm.controls.jugador3.value ||
+            this.myForm.controls.jugador2.value==this.myForm.controls.jugador4.value ||
+            this.myForm.controls.jugador3.value==this.myForm.controls.jugador4.value){
+              let alert = this.alertController.create({
+                title: " Tennis Golf Club",
+                subTitle: "Codigos Reptetidos",
+                buttons: ["OK"]
+              });
+              alert.present();
+
+    }else {
+
     let loader = this.loadingController.create({
       content: "Cargando..."
     });
@@ -260,7 +275,18 @@ export class CrearreservaPage {
               data => {
                 if (data.status == "ok") {
                   loader.dismiss();
-                  this.navCtrl.setRoot(TeetimePage);
+                  let alert = this.alertController.create({
+                    title: " Tennis Golf  Club",
+                    subTitle: "Reserva Exitosa!!",
+                    buttons: [ {
+                      text: "OK",
+                      handler: data => {
+                        this.navCtrl.setRoot(TeetimePage);
+                      }
+                    }]
+                  });
+                  alert.present();
+                  
                 } else {
                   loader.dismiss();
                   let alert = this.alertController.create({
@@ -325,5 +351,6 @@ export class CrearreservaPage {
         }
       }
     );
+  }
   }
 }

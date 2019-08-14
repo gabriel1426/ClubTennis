@@ -6,6 +6,10 @@ page-instalaciones {
   .scroll-content {
     padding-top: 0px !important;
   }
+  ion-label {
+    white-space: normal !important;
+  }
+  
   .sombra {
     -webkit-box-shadow: 6px 7px 23px -14px rgba(0, 0, 0, 1);
     -moz-box-shadow: 6px 7px 23px -14px rgba(0, 0, 0, 1);

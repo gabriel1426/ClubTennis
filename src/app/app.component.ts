@@ -60,7 +60,7 @@ export class MyApp {
           icon: "ribbon",
           component: TeetimePage
         },
-        { title: "Pago en linea", icon: "card", component: PagoPage },
+        { title: "Pago en línea", icon: "card", component: PagoPage },
         { title: "Pqrs", icon: "mail", component: PqrsPage }
       ];
       this.pagest = [
