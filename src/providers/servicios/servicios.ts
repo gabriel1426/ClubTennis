@@ -5,7 +5,6 @@ import "rxjs/add/operator/do";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 
-
 /*
   Generated class for the ServiciosProvider provider.
 
@@ -14,9 +13,10 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  public baseUrl: string = "http://8dc9fb34.ngrok.io";
+  public baseUrl: string = "http://26bf8ec2.ngrok.io";
 
   public restaurante;
+  public tipoInstalacion = "";
   public deportes;
   public salon;
   public spa;
@@ -27,8 +27,17 @@ export class ServiciosProvider {
   public getUrlBase(): String {
     return this.baseUrl;
   }
+  public getTipoInstalacion(): String {
+    return this.tipoInstalacion;
+  }
+  public serTipoInstalacion(tipo: any) {
+    this.tipoInstalacion = tipo;
+  }
   public getCodGolfista(): String {
     return window.localStorage.getItem("codigo_golfista");
+  }
+  public getCodGolUsuario(): String {
+    return window.localStorage.getItem("codigo_usuario");
   }
 
   constructor(public http: HttpClient) {
@@ -63,6 +72,7 @@ export class ServiciosProvider {
       .subscribe(data => {
         console.log("usuario");
         window.localStorage.setItem("codigo_golfista", data["codigo_golfista"]);
+        window.localStorage.setItem("codigo_usuario", data["codigo_afiliado"]);
         this.codigoGolfista = data["codigo_golfista"];
         console.log(data);
       });
@@ -121,11 +131,22 @@ export class ServiciosProvider {
   }
 
   //Metodo que elimina los datos del usuario d ela memoria
-  logout() {
-    window.localStorage.removeItem("token");
-    window.localStorage.removeItem("codigo_golfista");
+  logout(): Observable<any> {
+    let ok = true;
+
     console.log("saliii");
-    return true;
+    let token = this.getToken();
+    console.log(token);
+    return this.http.post(
+      this.baseUrl + "/api/auth/logout",
+
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json"
+        }
+      }
+    );
   }
 
   ///// Fin de los metodos de sesion
@@ -234,12 +255,43 @@ export class ServiciosProvider {
 
   ////// Metodo utilizado para listar las reservaciones en el tee-time
   listarRecervaciones(): Observable<any> {
-    //const headeres = new HttpHeaders({'Authorization':this.getToken+""});
-
     let token = this.getToken();
     return this.http.post(
       this.baseUrl + "/api/v1/tee-time/obtenerReservacionesGolfista",
       { codigo_golfista: this.getCodGolfista },
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json"
+        }
+      }
+    );
+  }
+
+  ////Metod utilizado para traer el sabor gurtmet
+  getsabor() {
+    return this.http.get(this.baseUrl + "/api/v1/saborGourmet", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  ////Metod utilizado para traer el sabor gurtmet
+  getSugerencias() {
+    return this.http.get(this.baseUrl + "/api/v1/sugerenciasChef", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  savePqrs(form: any): Observable<any> {
+    let token = this.getToken();
+    let user = this.getCodGolUsuario();
+    return this.http.post(
+      this.baseUrl + "/api/v1/registrarPqrs",
+      {
+        codigo_afiliado: user,
+        asunto: form.controls.asunto.value,
+        mensaje: form.controls.mensaje.value
+      },
       {
         headers: {
           Authorization: "Bearer " + token,

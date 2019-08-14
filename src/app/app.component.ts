@@ -171,15 +171,44 @@ export class MyApp {
   }
 
   salir() {
-    if (this.proveedor.logout()) {
-      this.logeado = false;
-      this.nav.setRoot(LoginPage);
-    }
+    this.proveedor.logout().subscribe(
+      data => {
+        if (data["status"] == "ok") {
+          console.log("saliii");
+          console.log(data);
+          window.localStorage.removeItem("token");
+          window.localStorage.removeItem("codigo_golfista");
+          window.localStorage.removeItem("codigo_usuario");
+          this.logeado = false;
+          this.nav.setRoot(LoginPage);
+        } else {
+          window.localStorage.removeItem("token");
+          window.localStorage.removeItem("codigo_golfista");
+          window.localStorage.removeItem("codigo_usuario");
+          this.logeado = false;
+          this.nav.setRoot(LoginPage);
+        }
+      },
+      error => {
+        console.log(error);
+        window.localStorage.removeItem("token");
+        window.localStorage.removeItem("codigo_golfista");
+        window.localStorage.removeItem("codigo_usuario");
+        this.logeado = false;
+        this.nav.setRoot(LoginPage);
+      }
+    );
   }
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-
+    if (page.title == "Restaurante") {
+      this.proveedor.serTipoInstalacion(page.title);
+    } else if (page.title == "Instalaciones") {
+      this.proveedor.serTipoInstalacion(page.title);
+    } else if (page.title == "Deportes") {
+      this.proveedor.serTipoInstalacion(page.title);
+    }
     this.nav.setRoot(page.component);
   }
 

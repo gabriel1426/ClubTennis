@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  
-  NavController,
-  NavParams,
-  ViewController
-} from "ionic-angular";
+import { NavController, NavParams, ViewController } from "ionic-angular";
 import { GaleriaPage } from "../galeria/galeria";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 
@@ -15,7 +10,6 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-detalleinstalacion",
   templateUrl: "detalleinstalacion.html"
@@ -23,6 +17,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class DetalleinstalacionPage {
   data: any;
   public url;
+  public tipo;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,6 +25,7 @@ export class DetalleinstalacionPage {
     public proveedor: ServiciosProvider
   ) {
     this.data = navParams.data;
+    this.tipo = proveedor.getTipoInstalacion();
     this.url = proveedor.getUrlBase();
   }
 

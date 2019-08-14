@@ -1,120 +1,96 @@
 <ion-header class="saltar">
   <ion-navbar hideBackButton="true">
     <ion-buttons>
-      <button (click)="menuprincipal()" class="btnsaltar"> SALTAR <ion-icon name="ios-arrow-forward"></ion-icon>
+      <button (click)="menuprincipal()" class="btnsaltar">
+        SALTAR <ion-icon name="ios-arrow-forward"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding class="contenedor-principal-login">
+  <ion-row>
+    <ion-col col-12>
+      <img
+        src="../../assets/imgs/logo.png"
+        style="display: block; width: 35%; height: auto; margin-left: auto; margin-right: auto;"
+      />
+      <h2
+        class="tecolor"
+        style="font-family: MyriadProBold; color:white; text-align: center;"
+      >
+        <strong>Tennis Golf Club</strong>
+      </h2>
+    </ion-col>
+  </ion-row>
 
-    <ion-row>
-        <ion-col col-12>
-          <img
-            src="../../assets/imgs/logo.png"
-            style="display: block; width: 35%; height: auto; margin-left: auto; margin-right: auto;"
-          />
-          <h2
-          class="tecolor"
-          style="font-family: MyriadProBold; color:white; text-align: center;"
-        >
-          <strong>Tennis Golf Club</strong>
-        </h2>
-        </ion-col>
-      </ion-row>
-    
-
-      <div class="loginpart " style="position: relative;">
-
-          
-
-      
-  <form [formGroup]="LoginForm" style="margin-bottom: 0px !important;">
-    <ion-grid>
+  <div class="loginpart " style="position: relative;">
+    <form [formGroup]="LoginForm" style="margin-bottom: 0px !important;">
+      <ion-grid>
         <ion-row>
-            <ion-col col-12>
-              <p
-                class=""
-                style=" color:#3e71c9;; text-align: center;"
-              >
-                <strong>INICIO DE SESIÓN</strong>
-              </p>
-            </ion-col>
-          </ion-row>
-      <ion-row>
-        <ion-col col-12>
-          
-            <ion-item
-              class=" center"
-              style="width:90%;padding-left: 8px;"
-            >
+          <ion-col col-12>
+            <p class="" style=" color:#3e71c9;; text-align: center;">
+              <strong>INICIO DE SESIÓN</strong>
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <ion-item class=" center" style="width:90%;padding-left: 8px;">
               <ion-label style="border-right: 2px solid #3e71c9;">
                 <img src="../../assets/imgs/user.png" style="width: 60%; "
               /></ion-label>
               <ion-input
-              style="margin-left: 10px;"
+                style="margin-left: 10px;"
                 formControlName="Email"
-                type="text"
+                type="email"
                 placeholder="Correo Electronico"
                 [(ngModel)]="credentials.email"
                 required
               ></ion-input>
             </ion-item>
             <div style="height:10px;"></div>
-            <ion-item
-            class=" center"
-            style="width:90%;padding-left: 8px;"
+            <ion-item class=" center" style="width:90%;padding-left: 8px;">
+              <ion-label style="border-right: 2px solid #3e71c9;">
+                <img src="../../assets/imgs/key.png" style="width: 60%; "
+              /></ion-label>
+              <ion-input
+                style="margin-left: 10px;"
+                formControlName="Password"
+                type="password"
+                placeholder="Contraseña"
+                [(ngModel)]="credentials.password"
+                required
+              ></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+    <ion-grid style="padding-top: 0px;">
+      <ion-row>
+        <ion-col col-12 style="padding-top: 0px;">
+          <button ion-button class=" center" (click)="Login($event)">
+            Iniciar Sesión
+          </button>
+        </ion-col>
+
+        <ion-col>
+          <button
+            (click)="forgotPasswordPage()"
+            ion-button
+            block
+            clear
+            style=" color:#3e71c9;"
           >
-            <ion-label style="border-right: 2px solid #3e71c9;">
-              <img src="../../assets/imgs/key.png" style="width: 60%; "
-            /></ion-label>
-            <ion-input
-            style="margin-left: 10px;"
-              formControlName="Password"
-              type="password"
-              placeholder="Contraseña"
-              [(ngModel)]="credentials.password"
-              required
-            ></ion-input>
-          </ion-item>
-          
-           
-         
+            Olvidaste tú contraseña?
+          </button>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </form>
+  </div>
 
-  <ion-grid style="padding-top: 0px;">
-    <ion-row>
-      <ion-col col-12 style="padding-top: 0px;">
-        <button
-        ion-button
-          class=" center"
-          (click)="Login($event)"
-          
-        >
-          Iniciar Sesión
-        </button>
-      </ion-col>
-
-      <ion-col>
-        <button
-          (click)="forgotPasswordPage()"
-          ion-button
-          block
-          clear
-          style=" color:#3e71c9;"
-        >
-          Olvidaste tú contraseña?
-        </button>
-      </ion-col>
-    
-    </ion-row>
-  </ion-grid>
-</div>
-
-<ion-col col-12 style="margin-top: 35px;">
+  <ion-col col-12 style="margin-top: 35px;">
     <button
       style="color:white; ;"
       ion-button

@@ -1,9 +1,6 @@
 import { Component } from "@angular/core";
-import {
-  NavController,
-  NavParams,
-  ViewController
-} from "ionic-angular";
+import { NavController, NavParams, ViewController } from "ionic-angular";
+import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 /**
  * Generated class for the SugerenciaysaborPage page.
@@ -12,25 +9,37 @@ import {
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-sugerenciaysabor",
   templateUrl: "sugerenciaysabor.html"
 })
 export class SugerenciaysaborPage {
   public data;
+  public url;
+  public urlbase;
   constructor(
     public viewCtrl: ViewController,
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    public proveedor: ServiciosProvider
   ) {
-  
     this.data = navParams.data;
-    
-    if(this.data.tipo=="sugerencia"){
+    this.urlbase = this.proveedor.getUrlBase();
 
-    }else{
-
+    if (this.data.tipo == "sugerencia") {
+      this.proveedor.getsabor().subscribe(data => {
+        if (data["status"] == "ok") {
+          console.log(data["data"]["url"]);
+          this.url = data["data"]["url"];
+        }
+      });
+    } else {
+      this.proveedor.getSugerencias().subscribe(data => {
+        if (data["status"] == "ok") {
+          console.log(data["data"]["url"]);
+          this.url = data["data"]["url"];
+        }
+      });
     }
   }
 

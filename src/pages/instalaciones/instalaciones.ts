@@ -9,7 +9,6 @@ import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-instalaciones",
   templateUrl: "instalaciones.html"
@@ -70,6 +69,13 @@ export class InstalacionesPage {
   }
   abrirDetalle(item) {
     //console.log(evento);
+    if (item.tipo_instalacion_id == 1) {
+      this.proveedor.serTipoInstalacion("Zona Recreativa");
+    } else if (item.tipo_instalacion_id == 2) {
+      this.proveedor.serTipoInstalacion("Salones");
+    } else if (item.tipo_instalacion_id == 5) {
+      this.proveedor.serTipoInstalacion("SPA");
+    }
     this.navCtrl.push(DetalleinstalacionPage, item);
   }
 }

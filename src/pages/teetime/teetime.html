@@ -59,7 +59,7 @@
                 <b>Reservada por {{ item.jugador1.nombres }}</b>
               </h2>
               <ion-icon
-                *ngIf="item.estado == 'APROBADO'"
+                *ngIf="item.estado == 'RESERVADO'"
                 name="trash"
                 color="danger"
                 item-right
@@ -86,44 +86,61 @@
                   </h3>
                 </ion-col>
               </ion-row>
+              <ion-row>
+                <ion-col style="text-align: center;"> </ion-col>
+              </ion-row>
               <div style="text-align: center;">
                 <h3 style="color:#3e71c9; font-size: 16px; ">
                   Jugadores
                 </h3>
 
                 <hr />
-                <h3>
-                  <ion-icon
-                    name="checkbox"
-                    item-start
-                    style="color:#3e71c9;"
-                  ></ion-icon
-                  >{{ item.jugador1.nombres }}
-                </h3>
-                <h3>
-                  <ion-icon
-                    name="checkbox"
-                    item-start
-                    style="color:#3e71c9;"
-                  ></ion-icon
-                  >{{ item.jugador2.nombres }}
-                </h3>
-                <h3>
-                  <ion-icon
-                    name="checkbox"
-                    item-start
-                    style="color:#3e71c9;"
-                  ></ion-icon
-                  >{{ item.jugador3.nombres }}
-                </h3>
-                <h3 *ngIf="item.jugador3 != null">
-                  <ion-icon
-                    name="checkbox"
-                    item-start
-                    style="color:#3e71c9;"
-                  ></ion-icon>
-                  Cristian Gabriel Contreras
-                </h3>
+                <ion-grid style="text-align: left !important">
+                  <ion-row>
+                    <ion-col>
+                      <h3>
+                        <ion-icon
+                          name="checkbox"
+                          item-start
+                          style="color:#3e71c9;"
+                        ></ion-icon
+                        >{{ item.jugador1.nombres }}
+                      </h3>
+                    </ion-col>
+                    <ion-col>
+                      <h3>
+                        <ion-icon
+                          name="checkbox"
+                          item-start
+                          style="color:#3e71c9;"
+                        ></ion-icon
+                        >{{ item.jugador2.nombres }}
+                      </h3>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <h3>
+                        <ion-icon
+                          name="checkbox"
+                          item-start
+                          style="color:#3e71c9;"
+                        ></ion-icon
+                        >{{ item.jugador3.nombres }}
+                      </h3>
+                    </ion-col>
+                    <ion-col>
+                      <h3 *ngIf="item.jugador4 != null">
+                        <ion-icon
+                          name="checkbox"
+                          item-start
+                          style="color:#3e71c9;"
+                        ></ion-icon>
+                        {{ item.jugador4.nombres }}
+                      </h3>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
               </div>
             </ion-item>
           </ion-card>
