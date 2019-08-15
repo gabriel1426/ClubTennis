@@ -89,7 +89,9 @@ export class MyApp {
       let nav = this.app.getActiveNavs()[0];
       let activeView = nav.getActive();
       // Checks if can go back before show up the alert
-      if (activeView.name === "EventosPage") {
+      if(activeView.name === "LoginPage"){
+        platform.exitApp();
+      } else if (activeView.name === "EventosPage") {
         if (nav.canGoBack()) {
           nav.pop();
         } else {

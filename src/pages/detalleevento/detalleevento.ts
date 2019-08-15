@@ -23,6 +23,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class DetalleeventoPage {
   data: any;
   public url;
+  public cantidad=0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,6 +32,10 @@ export class DetalleeventoPage {
   ) {
     this.data = navParams.data;
     this.url = this.proveedor.getUrlBase();
+    this.cantidad= this.data.imagenes_eventos.length;
+    if(typeof this.cantidad === "undefined"){
+      this.cantidad=0;
+  }
   }
 
   ionViewDidLoad() {

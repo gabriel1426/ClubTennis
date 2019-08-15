@@ -32,7 +32,7 @@
   </ion-row>
   <div *ngIf="!skeletor">
     <div *ngIf="longitud != 0; else other_content">
-      <div *ngIf="longitudda2 != 1; else unevento" style="margin-top: -80px;">
+      <div *ngIf="longivarios; else unevento" style="margin-top: -80px;">
         <ion-slides
           class="image-slider"
           slidesPerView="1.1"
@@ -68,32 +68,36 @@
       </div>
 
       <ng-template #unevento>
-        <div
-          *ngFor="let item of da2"
-          style="margin-top: -50px; margin-left: 10px; margin-right: 10px;"
-        >
-          <ion-card
-            (click)="abrirtdetalleevento(item)"
-            style="border-radius: 5px;"
-            class="sombra"
-          >
-            <ion-item>
-              <img
-                style="max-height: 30px !important; max-width: 30px !important;"
-                src="../../assets/imgs/logo.png"
-                item-left
-              />
-              <h2 style="margin-top: 9px;">
-                <b>{{ item.nombre }}</b>
-              </h2>
-            </ion-item>
+          <div *ngIf="longitudda2 == 0; else ceroevento">
+          </div>
+          <ng-template #ceroevento>
+            <div
+              *ngFor="let item of da2"
+              style="margin-top: -50px; margin-left: 10px; margin-right: 10px;"
+            >
+              <ion-card
+                (click)="abrirtdetalleevento(item)"
+                style="border-radius: 5px;"
+                class="sombra"
+              >
+                <ion-item>
+                  <img
+                    style="max-height: 30px !important; max-width: 30px !important;"
+                    src="../../assets/imgs/logo.png"
+                    item-left
+                  />
+                  <h2 style="margin-top: 9px;">
+                    <b>{{ item.nombre }}</b>
+                  </h2>
+                </ion-item>
 
-            <img
-              class="cardimgdestacadas"
-              src="{{ url }}/{{ item.imagen_destacada }}"
-            />
-          </ion-card>
-        </div>
+                <img
+                  class="cardimgdestacadas"
+                  src="{{ url }}/{{ item.imagen_destacada }}"
+                />
+              </ion-card>
+            </div>
+        </ng-template>
       </ng-template>
 
       <div style="margin-top: 10px;">

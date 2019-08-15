@@ -65,7 +65,7 @@ export class LoginPage {
     if (!this.LoginForm.valid) {
       let alert = this.alertController.create({
         title: " Tennis Golf  Club",
-        subTitle: "Es necesario que completes los campos requeridos",
+        subTitle: "Es necesario que completes los campos requeridos.",
         buttons: ["OK"]
       });
       alert.present();
@@ -105,7 +105,7 @@ export class LoginPage {
             this.credentials.password = "";
             let alert = this.alertController.create({
               title: " Tennis Golf  Club",
-              subTitle: Error.error.message,
+              subTitle: Error.error.message+".",
               buttons: ["OK"]
             });
             alert.present();
@@ -113,7 +113,7 @@ export class LoginPage {
             loader.dismiss();
             let alert = this.alertController.create({
               title: " Tennis Golf  Club",
-              subTitle: "Fallo en la conexión",
+              subTitle: "Fallo en la conexión.",
               buttons: ["OK"]
             });
             alert.present();

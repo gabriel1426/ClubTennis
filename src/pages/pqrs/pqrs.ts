@@ -46,7 +46,7 @@ export class PqrsPage {
         loader.dismiss();
         let alert = this.alertController.create({
           title: " Tennis Golf  Club",
-          subTitle: "Mensaje enviado exitosamente",
+          subTitle: "Mensaje enviado exitosamente.",
           buttons: [
             {
               text: "OK",
@@ -67,7 +67,7 @@ export class PqrsPage {
       loader.dismiss();
       let alert = this.alertController.create({
         title: " Tennis Golf  Club",
-        subTitle: "Error en la conexión",
+        subTitle: "Error en la conexión.",
         buttons: [
           {
             text: "OK",

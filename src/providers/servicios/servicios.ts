@@ -13,7 +13,8 @@ import "rxjs/add/operator/catch";
 */
 @Injectable()
 export class ServiciosProvider {
-  public baseUrl: string = "http://api.tennisgolfclub.com.co";
+  public baseUrl: string = "https://appapi.tennisgolfclub.com.co";
+  public baseimg: String="https://appadministrador.tennisgolfclub.com.co";
 
   public restaurante;
   public tipoInstalacion = "";
@@ -25,7 +26,7 @@ export class ServiciosProvider {
   public codigoGolfista = "";
 
   public getUrlBase(): String {
-    return this.baseUrl;
+    return this.baseimg;
   }
   public getTipoInstalacion(): String {
     return this.tipoInstalacion;
@@ -52,6 +53,17 @@ export class ServiciosProvider {
       { headers: { "Content-Type": "application/json" } }
     );
   }
+
+  /////Metodo utilizado para recuperar contraseña
+  resetpassword(datos: any): Observable<any> {
+    console.log(datos.email)
+    return this.http.post(
+      this.baseUrl + "/api/v1/auth/resetPassword",
+      { email: datos.email },
+      { headers: { "Content-Type": "application/json" } }
+    );
+  }
+
 
   ////Metodo utilizado para saber los datos del usuario
 

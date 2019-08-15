@@ -51,12 +51,10 @@ export class TeetimePage {
 
   consultarReservas() {
 
-    
-
     if(this.proveedor.getCodGolfista()==null ||this.proveedor.getCodGolfista()==""  ){
        let alert = this.alertController.create({
         title: " Tennis Golf  Club",
-        subTitle: "Accion no permitida",
+        subTitle: "Accion no permitida.",
         buttons: ["OK"]
       });
       alert.present();

@@ -18,6 +18,7 @@ export class DetalleinstalacionPage {
   data: any;
   public url;
   public tipo;
+  public cantidad=0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -27,6 +28,10 @@ export class DetalleinstalacionPage {
     this.data = navParams.data;
     this.tipo = proveedor.getTipoInstalacion();
     this.url = proveedor.getUrlBase();
+    this.cantidad= this.data.imagenes_instalacions.length;
+    if(typeof this.cantidad === "undefined"){
+      this.cantidad=0;
+  }
   }
 
   abrirgaleria(galeria) {

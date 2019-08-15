@@ -32,9 +32,17 @@
   <div *ngIf="!skeletor">
     <div
       *ngIf="longitudsalones != 0"
-      style="margin-top: -60px !important; padding: 0px !important;"
+      style=" padding: 0px !important;"
     >
       <div *ngIf="longitudsalones != 1; else unsalon">
+
+          <h2
+          class="tecolor"
+          style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px;"
+        >
+          <strong>Salones</strong>
+        </h2>
+
         <ion-slides
           class="image-slider"
           slidesPerView="1.1"
@@ -70,6 +78,13 @@
       </div>
       <ng-template #unsalon>
         <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+            <h2
+            class="tecolor"
+            style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px; margin-top: 40px;"
+          >
+            <strong>Salones</strong>
+          </h2>
+          
           <div *ngFor="let item of salones">
             <ion-card
               (click)="abrirDetalle(item)"
@@ -100,6 +115,12 @@
       *ngIf="longitudzonas != 0"
       style="margin-top: -40px !important; padding: 0px !important;"
     >
+    <h2
+    class="tecolor"
+    style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px; margin-top: 40px;"
+  >
+    <strong>Zonas Recreativas</strong>
+  </h2>
       <div *ngIf="longitudzonas != 1; else unazona">
         <ion-slides
           class="image-slider"
@@ -137,6 +158,12 @@
 
       <ng-template #unazona>
         <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+            <h2
+            class="tecolor"
+            style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px; margin-top: 40px;"
+          >
+            <strong>Zonas Recreativas</strong>
+          </h2>
           <div *ngFor="let item of zonas">
             <ion-card
               (click)="abrirDetalle(item)"
@@ -167,6 +194,12 @@
       *ngIf="longitudspa != 0"
       style="margin-top: -40px !important; padding: 0px !important;"
     >
+    <h2
+    class="tecolor"
+    style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px; margin-top: 40px;"
+  >
+    <strong>SPA</strong>
+  </h2>
       <ion-row *ngIf="longitudspa != 1; else unspa">
         <ion-col col-12 style="padding: 0px !important;">
           <div>
@@ -207,6 +240,12 @@
       </ion-row>
       <ng-template #unspa>
         <div style="margin-top: -50px; margin-left: 10px; margin-right: 10px;">
+            <h2
+            class="tecolor"
+            style="font-family: MyriadProBold; color:black; text-align: center; margin-bottom: -30px; margin-top: 40px;"
+          >
+            <strong>SPA</strong>
+          </h2>
           <div *ngFor="let item of spa">
             <ion-card
               (click)="abrirDetalle(item)"

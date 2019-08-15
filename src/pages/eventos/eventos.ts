@@ -27,6 +27,7 @@ export class EventosPage {
   public url;
   public longitud;
   public longitudda2;
+  public longivarios=true;
   public skeletor = true;
   public fakeUsers: Array<any> = new Array(2);
 
@@ -64,13 +65,25 @@ export class EventosPage {
       data => {
         if (data.status == "ok") {
           this.da = data.data;
+          console.log(this.da);
           this.da.forEach(element => {
             if (element.prioridad_id == 2) {
               this.da2.push(element);
               this.longitudda2 = this.da2.length;
+            
             }
           });
+          if(typeof this.longitudda2 === "undefined"){
+              this.longitudda2=0;
+          }
+         
+          console.log(this.longitudda2);
+
+          console.log(this.da2);
           this.longitud = this.da.length;
+          if(this.longitudda2==1 || this.longitudda2==0 ){
+            this.longivarios=false;
+          }
           this.skeletor = false;
         } else {
           this.esperarInstalaciones();
