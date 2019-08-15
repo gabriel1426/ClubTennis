@@ -39,12 +39,14 @@ export class MyApp {
     platform.ready().then(() => {
       setTimeout(() => {
         this.splashScreen.hide();
+        splashScreen.hide();
       }, 100);
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+      //statusBar.styleDefault();
+      
+     
       // used for an example of ngFor and navigation
       this.pages = [
         { title: "Eventos", icon: "calendar", component: EventosPage },
