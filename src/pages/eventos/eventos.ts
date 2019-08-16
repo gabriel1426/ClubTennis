@@ -38,13 +38,15 @@ export class EventosPage {
     public proveedor: ServiciosProvider,
     private menu: MenuController
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "EventosPage");
     this.menu.enable(true);
     this.da = [];
     this.da2 = [];
     this.da3 = [];
 
     this.consultarEventos();
-    this.proveedor.listarInstalaciones();
+    
   }
 
   esperarInstalaciones() {
@@ -59,40 +61,74 @@ export class EventosPage {
   }
 
   consultarEventos() {
+
     this.url = this.proveedor.getUrlBase();
+    if(this.proveedor.isLogged()){
+      
+      this.da = this.proveedor.consultaEventos();
+    if (typeof this.da !== "undefined") {
+      console.log(this.da);
+        this.da.forEach(element => {
+          if (element.prioridad_id == 2) {
+            this.da2.push(element);
+            this.longitudda2 = this.da2.length;
+          
+          }
+        });
+        if(typeof this.longitudda2 === "undefined"){
+            this.longitudda2=0;
+        }
+       
+        console.log(this.longitudda2);
 
-    this.proveedor.consultaDeEventos().subscribe(
-      data => {
-        if (data.status == "ok") {
-          this.da = data.data;
-          console.log(this.da);
-          this.da.forEach(element => {
-            if (element.prioridad_id == 2) {
-              this.da2.push(element);
-              this.longitudda2 = this.da2.length;
-            
+        console.log(this.da2);
+        this.longitud = this.da.length;
+        if(this.longitudda2==1 || this.longitudda2==0 ){
+          this.longivarios=false;
+        }
+        this.skeletor = false;
+    }else {
+      this.esperarInstalaciones();
+    }
+      
+    }else{
+      this.proveedor.listarInstalaciones();
+      this.proveedor.consultaDeEventos().subscribe(
+        data => {
+          if (data.status == "ok") {
+            this.da = data.data;
+            console.log(this.da);
+            this.da.forEach(element => {
+              if (element.prioridad_id == 2) {
+                this.da2.push(element);
+                this.longitudda2 = this.da2.length;
+              
+              }
+            });
+            if(typeof this.longitudda2 === "undefined"){
+                this.longitudda2=0;
             }
-          });
-          if(typeof this.longitudda2 === "undefined"){
-              this.longitudda2=0;
+           
+            console.log(this.longitudda2);
+  
+            console.log(this.da2);
+            this.longitud = this.da.length;
+            if(this.longitudda2==1 || this.longitudda2==0 ){
+              this.longivarios=false;
+            }
+            this.skeletor = false;
+          } else {
+            this.esperarInstalaciones();
           }
-         
-          console.log(this.longitudda2);
-
-          console.log(this.da2);
-          this.longitud = this.da.length;
-          if(this.longitudda2==1 || this.longitudda2==0 ){
-            this.longivarios=false;
-          }
-          this.skeletor = false;
-        } else {
+        },
+        Error => {
           this.esperarInstalaciones();
         }
-      },
-      Error => {
-        this.esperarInstalaciones();
-      }
-    );
+      );
+    }
+    
+
+    
   }
 
   abrirtdetalleevento(evento) {

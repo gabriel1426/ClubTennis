@@ -30,6 +30,8 @@ export class InstalacionesPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "InstalacionesPage");
     this.salones = this.proveedor.consultaDeSalones();
     this.zonas = this.proveedor.getconsultaDeZonaRecreativa();
     this.spa = this.proveedor.consultaDeSpa();

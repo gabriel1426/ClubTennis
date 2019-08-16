@@ -22,6 +22,7 @@ export class MyApp {
   rootPage: any = LoginPage;
   backPressed = false;
   public logeado: any;
+  public pagina;
   pages: Array<{ title: string; component: any; icon: string }>;
   pagest: Array<{ title: string; component: any; icon: string }>;
   // luisjordan.net - Declaramos una nueva variable para controlar el texto mostrado
@@ -85,13 +86,14 @@ export class MyApp {
       console.log("Entre aqui");
     }
     platform.registerBackButtonAction(() => {
-      // Catches the active view
+     
+      
       let nav = this.app.getActiveNavs()[0];
-      let activeView = nav.getActive();
+      let activeView = localStorage["nav"];
       // Checks if can go back before show up the alert
-      if(activeView.name === "LoginPage"){
+      if(activeView === "LoginPage"){
         platform.exitApp();
-      } else if (activeView.name === "EventosPage") {
+      } else if (activeView === "EventosPage") {
         if (nav.canGoBack()) {
           nav.pop();
         } else {
@@ -122,12 +124,12 @@ export class MyApp {
           }
         }
       } else if (
-        activeView.name === "RestaurantPage" ||
-        activeView.name === "InstalacionesPage" ||
-        activeView.name === "DeportesPage" ||
-        activeView.name === "TeetimePage" ||
-        activeView.name === "PagoPage" ||
-        activeView.name === "PqrsPage"
+        activeView === "RestaurantPage" ||
+        activeView === "InstalacionesPage" ||
+        activeView === "DeportesPage" ||
+        activeView === "TeetimePage" ||
+        activeView === "PagoPage" ||
+        activeView === "PqrsPage"
       ) {
         this.nav.setRoot(EventosPage);
       } else {
@@ -135,13 +137,17 @@ export class MyApp {
           nav.pop();
         }
       }
+      
     });
+
   }
 
   ngAfterViewInit() {
     this.nav.viewDidEnter.subscribe(data => {
       console.log("ladsdahdkahdkasdksahdka");
       var view = data.component.name;
+      this.pagina=data.component.name;
+     
 
       if (
         view != "LoginPage" &&

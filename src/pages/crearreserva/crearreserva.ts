@@ -40,6 +40,8 @@ export class CrearreservaPage {
     private alertController: AlertController,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "CrearreservaPage");
     this.obtenerFechas();
     this.resultados = true;
     this.myForm = this.fb.group({

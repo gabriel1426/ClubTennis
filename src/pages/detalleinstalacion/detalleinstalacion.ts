@@ -25,6 +25,8 @@ export class DetalleinstalacionPage {
     public viewCtrol: ViewController,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "DetalleinstalacionPage");
     this.data = navParams.data;
     this.tipo = proveedor.getTipoInstalacion();
     this.url = proveedor.getUrlBase();

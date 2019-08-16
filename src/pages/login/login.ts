@@ -43,6 +43,8 @@ export class LoginPage {
     private toastCtrl: ToastController,
     private menu: MenuController
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "LoginPage");
     this.menu.enable(false);
     this.LoginForm = formBuilder.group({
       Email: [
@@ -86,9 +88,40 @@ export class LoginPage {
           if (data.status == "ok") {
             this.proveedor.guardarData(data.data.access_token);
             this.proveedor.datosUsuario();
+            this.proveedor.consultaDeEventosLogin().subscribe(
+              data => {
+                if (data['status'] == "ok") {
+                  this.proveedor.eventos = data['data'];
+                  console.log(this.proveedor.eventos);
+                
+              }
+              this.proveedor.listarInstalaciones().subscribe(data => {
+                if (data["status"] == "ok") {
+                  console.log("Si entro");
+                  data["data"].forEach(element => {
+                    if (element.id == 1) {
+                      window.localStorage.setItem ('zonas', JSON.stringify ( element.instalacions));
+                    } else if (element.id == 2) {
+                      window.localStorage.setItem ('salon', JSON.stringify ( element.instalacions));
+                    } else if (element.id == 3) {
+                      window.localStorage.setItem ('deportes', JSON.stringify ( element.instalacions));
+                    } else if (element.id == 4) {
+                      window.localStorage.setItem ('otros', JSON.stringify ( element.instalacions));
+                    } else if (element.id == 5) {
+                      window.localStorage.setItem ('spa', JSON.stringify ( element.instalacions));
+                    } else {
+                      window.localStorage.setItem ('restaurante', JSON.stringify ( element.instalacions));
+                    }
+                  });
+                }
+              });
+              loader.dismiss();
+              this.navCtrl.setRoot(EventosPage);
+              }
+            );
+            
 
-            loader.dismiss();
-            this.navCtrl.setRoot(EventosPage);
+           
           } else {
             loader.dismiss();
             const toast = this.toastCtrl.create({

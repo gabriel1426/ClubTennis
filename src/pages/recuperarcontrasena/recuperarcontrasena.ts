@@ -39,6 +39,8 @@ export class RecuperarcontrasenaPage {
     private loadingController: LoadingController,
     
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "RecuperarcontrasenaPage");
     this.LoginForm = formBuilder.group({
       Email: [
         "",

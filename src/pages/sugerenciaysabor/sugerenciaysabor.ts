@@ -23,6 +23,8 @@ export class SugerenciaysaborPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "SugerenciaysaborPage");
     this.data = navParams.data;
     this.urlbase = this.proveedor.getUrlBase();
 

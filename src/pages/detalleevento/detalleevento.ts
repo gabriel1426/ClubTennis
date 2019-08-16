@@ -30,6 +30,8 @@ export class DetalleeventoPage {
     public viewCtrol: ViewController,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "DetalleeventoPage");
     this.data = navParams.data;
     this.url = this.proveedor.getUrlBase();
     this.cantidad= this.data.imagenes_eventos.length;

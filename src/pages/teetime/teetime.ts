@@ -26,7 +26,8 @@ export class TeetimePage {
     public proveedor: ServiciosProvider,
     private alertController: AlertController
   ) {
-    
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "TeetimePage");
     this.consultarReservas();
   }
 

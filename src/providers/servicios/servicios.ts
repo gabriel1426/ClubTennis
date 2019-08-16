@@ -23,6 +23,7 @@ export class ServiciosProvider {
   public spa;
   public zonas;
   public otros;
+  public eventos
   public codigoGolfista = "";
 
   public getUrlBase(): String {
@@ -90,37 +91,14 @@ export class ServiciosProvider {
       });
   }
 
+
+  ////Metodo utilizado para listar las instalaciones de club tennis
   listarInstalaciones() {
-    this.http
+    return this.http
       .get(this.baseUrl + "/api/v1/tipoInstalacion", {
         headers: { "Content-Type": "application/json" }
-      })
-      .subscribe(data => {
-        if (data["status"] == "ok") {
-          console.log("Si entro");
-          data["data"].forEach(element => {
-            if (element.id == 1) {
-              this.zonas = element.instalacions;
-              console.log(this.zonas);
-            } else if (element.id == 2) {
-              this.salon = element.instalacions;
-              console.log(this.salon);
-            } else if (element.id == 3) {
-              this.deportes = element.instalacions;
-              console.log(this.deportes);
-            } else if (element.id == 4) {
-              this.otros = element.instalacions;
-              console.log(this.otros);
-            } else if (element.id == 5) {
-              this.spa = element.instalacions;
-              console.log(this.spa);
-            } else {
-              this.restaurante = element.instalacions;
-              console.log(this.restaurante);
-            }
-          });
-        }
       });
+      
   }
 
   /////////////Metodos para guardar y obtener los datos almacenados en la memoria del cell
@@ -136,8 +114,10 @@ export class ServiciosProvider {
   //Metodo que valida que haya un registro de usuario
   isLogged() {
     if (window.localStorage.getItem("token")) {
+      console.log("Entre");
       return true;
     } else {
+      console.log("No Entre");
       return false;
     }
   }
@@ -164,6 +144,14 @@ export class ServiciosProvider {
 
   //////Consultar Eventos
   consultaDeEventos(): Observable<any> {
+    return this.http.get(this.baseUrl + "/api/v1/eventos", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+
+   //////Consultar Eventos
+   consultaDeEventosLogin(): Observable<any> {
     return this.http.get(this.baseUrl + "/api/v1/eventos", {
       headers: { "Content-Type": "application/json" }
     });
@@ -198,6 +186,12 @@ export class ServiciosProvider {
   consultaDeOtro(): any {
     return this.otros;
   }
+
+  //////Consultar spa
+  consultaEventos(): any {
+    return this.eventos;
+  }
+
 
   ////// Metodo utilizado para solicitar las fechas dispobibles en el tee-time
   obtenerFechas(): Observable<any> {

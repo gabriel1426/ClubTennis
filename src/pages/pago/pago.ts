@@ -18,7 +18,10 @@ export class PagoPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public iap: InAppBrowser
-  ) {}
+  ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "PagoPage");
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad PagoPage");

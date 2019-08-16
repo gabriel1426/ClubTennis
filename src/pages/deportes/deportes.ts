@@ -27,6 +27,8 @@ export class DeportesPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "DeportesPage");
     this.deportes = this.proveedor.consultaDeDeportes();
 
     if (typeof this.deportes !== "undefined") {

@@ -32,6 +32,8 @@ export class RestaurantPage {
     public modalCtrl: ModalController,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "RestaurantPage");
     this.restaurantes = this.proveedor.getconsultaDeRestaurantes();
     if (typeof this.restaurantes !== "undefined") {
       this.longitud = this.restaurantes.length;

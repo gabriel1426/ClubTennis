@@ -15,7 +15,10 @@ import { TeetimePage } from "../teetime/teetime";
   templateUrl: "zonasocios.html"
 })
 export class ZonasociosPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "ZonasociosPage");
+  }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad ZonasociosPage");

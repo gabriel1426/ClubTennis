@@ -24,6 +24,8 @@ export class PqrsPage {
     private alertController: AlertController,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "PqrsPage");
     this.myForm = this.fb.group({
       asunto: ["", [Validators.required]],
       mensaje: ["", [Validators.required]]

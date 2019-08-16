@@ -16,6 +16,8 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SeleccioninstalacionPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "SeleccioninstalacionPage");
   }
 
   ionViewDidLoad() {

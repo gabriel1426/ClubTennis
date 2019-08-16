@@ -22,6 +22,8 @@ export class GaleriaPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
+    window.localStorage.removeItem("nav");
+    window.localStorage.setItem("nav", "GaleriaPage");
     this.url = this.proveedor.getUrlBase();
     this.data = navParams.data;
 
