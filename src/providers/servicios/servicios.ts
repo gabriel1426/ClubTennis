@@ -14,7 +14,7 @@ import "rxjs/add/operator/catch";
 @Injectable()
 export class ServiciosProvider {
   public baseUrl: string = "https://appapi.tennisgolfclub.com.co";
-  public baseimg: String="https://appadministrador.tennisgolfclub.com.co";
+  public baseimg: String = "https://appadministrador.tennisgolfclub.com.co";
 
   public restaurante;
   public tipoInstalacion = "";
@@ -23,7 +23,7 @@ export class ServiciosProvider {
   public spa;
   public zonas;
   public otros;
-  public eventos
+  public eventos;
   public codigoGolfista = "";
 
   public getUrlBase(): String {
@@ -57,14 +57,13 @@ export class ServiciosProvider {
 
   /////Metodo utilizado para recuperar contraseña
   resetpassword(datos: any): Observable<any> {
-    console.log(datos.email)
+    console.log(datos.email);
     return this.http.post(
       this.baseUrl + "/api/v1/auth/resetPassword",
       { email: datos.email },
       { headers: { "Content-Type": "application/json" } }
     );
   }
-
 
   ////Metodo utilizado para saber los datos del usuario
 
@@ -91,14 +90,62 @@ export class ServiciosProvider {
       });
   }
 
-
   ////Metodo utilizado para listar las instalaciones de club tennis
   listarInstalaciones() {
+    return this.http.get(this.baseUrl + "/api/v1/tipoInstalacion", {
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+  ////Metodo utilizado para listar las instalaciones de club tennis
+  listarInstalacionesNoLogin() {
     return this.http
       .get(this.baseUrl + "/api/v1/tipoInstalacion", {
         headers: { "Content-Type": "application/json" }
+      })
+      .subscribe(data => {
+        if (data["status"] == "ok") {
+          console.log("Si entro");
+          data["data"].forEach(element => {
+            if (element.id == 1) {
+              window.localStorage.removeItem("zonas");
+              window.localStorage.setItem(
+                "zonas",
+                JSON.stringify(element.instalacions)
+              );
+            } else if (element.id == 2) {
+              window.localStorage.removeItem("salon");
+              window.localStorage.setItem(
+                "salon",
+                JSON.stringify(element.instalacions)
+              );
+            } else if (element.id == 3) {
+              window.localStorage.removeItem("deportes");
+              window.localStorage.setItem(
+                "deportes",
+                JSON.stringify(element.instalacions)
+              );
+            } else if (element.id == 4) {
+              window.localStorage.removeItem("otros");
+              window.localStorage.setItem(
+                "otros",
+                JSON.stringify(element.instalacions)
+              );
+            } else if (element.id == 5) {
+              window.localStorage.removeItem("spa");
+              window.localStorage.setItem(
+                "spa",
+                JSON.stringify(element.instalacions)
+              );
+            } else {
+              window.localStorage.removeItem("restaurante");
+              window.localStorage.setItem(
+                "restaurante",
+                JSON.stringify(element.instalacions)
+              );
+            }
+          });
+        }
       });
-      
   }
 
   /////////////Metodos para guardar y obtener los datos almacenados en la memoria del cell
@@ -130,7 +177,8 @@ export class ServiciosProvider {
     let token = this.getToken();
     console.log(token);
     return this.http.post(
-      this.baseUrl + "/api/auth/logout",{"hola":"hola"},
+      this.baseUrl + "/api/auth/logout",
+      { hola: "hola" },
       {
         headers: {
           Authorization: "Bearer " + token,
@@ -149,9 +197,8 @@ export class ServiciosProvider {
     });
   }
 
-
-   //////Consultar Eventos
-   consultaDeEventosLogin(): Observable<any> {
+  //////Consultar Eventos
+  consultaDeEventosLogin(): Observable<any> {
     return this.http.get(this.baseUrl + "/api/v1/eventos", {
       headers: { "Content-Type": "application/json" }
     });
@@ -159,39 +206,38 @@ export class ServiciosProvider {
 
   //////Consultar Salones
   consultaDeSalones(): any {
-    return this.salon;
+    return window.localStorage.getItem("salon");
   }
 
   //////Consultar Deportes
   consultaDeDeportes(): any {
-    return this.deportes;
+    return window.localStorage.getItem("deportes");
   }
 
   //////Consultar spa
   consultaDeSpa(): any {
-    return this.spa;
+    return window.localStorage.getItem("spa");
   }
 
   //////Consultar spa
   getconsultaDeZonaRecreativa(): any {
-    return this.zonas;
+    return window.localStorage.getItem("zonas");
   }
 
   //////Consultar restaurantes
   getconsultaDeRestaurantes(): any {
-    return this.restaurante;
+    return window.localStorage.getItem("restaurante");
   }
 
   //////Consultar spa
   consultaDeOtro(): any {
-    return this.otros;
+    return window.localStorage.getItem("otros");
   }
 
   //////Consultar spa
   consultaEventos(): any {
-    return this.eventos;
+    return window.localStorage.getItem("eventos");
   }
-
 
   ////// Metodo utilizado para solicitar las fechas dispobibles en el tee-time
   obtenerFechas(): Observable<any> {

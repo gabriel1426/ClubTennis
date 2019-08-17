@@ -15,7 +15,6 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-eventos",
   templateUrl: "eventos.html"
@@ -27,7 +26,7 @@ export class EventosPage {
   public url;
   public longitud;
   public longitudda2;
-  public longivarios=true;
+  public longivarios = true;
   public skeletor = true;
   public fakeUsers: Array<any> = new Array(2);
 
@@ -38,15 +37,13 @@ export class EventosPage {
     public proveedor: ServiciosProvider,
     private menu: MenuController
   ) {
-    window.localStorage.removeItem("nav");
-    window.localStorage.setItem("nav", "EventosPage");
+   
     this.menu.enable(true);
     this.da = [];
     this.da2 = [];
     this.da3 = [];
 
     this.consultarEventos();
-    
   }
 
   esperarInstalaciones() {
@@ -61,38 +58,37 @@ export class EventosPage {
   }
 
   consultarEventos() {
-
     this.url = this.proveedor.getUrlBase();
-    if(this.proveedor.isLogged()){
-      
-      this.da = this.proveedor.consultaEventos();
-    if (typeof this.da !== "undefined") {
-      console.log(this.da);
+    if (this.proveedor.isLogged()) {
+      this.da = JSON.parse(this.proveedor.consultaEventos());
+      if (typeof this.da !== "undefined" && this.da !== null) {
+        console.log(this.da);
         this.da.forEach(element => {
           if (element.prioridad_id == 2) {
             this.da2.push(element);
             this.longitudda2 = this.da2.length;
-          
           }
         });
-        if(typeof this.longitudda2 === "undefined"){
-            this.longitudda2=0;
+        if (typeof this.longitudda2 === "undefined") {
+          this.longitudda2 = 0;
         }
-       
+
         console.log(this.longitudda2);
 
         console.log(this.da2);
         this.longitud = this.da.length;
-        if(this.longitudda2==1 || this.longitudda2==0 ){
-          this.longivarios=false;
+        if (this.longitudda2 == 1 || this.longitudda2 == 0) {
+          this.longivarios = false;
         }
         this.skeletor = false;
-    }else {
-      this.esperarInstalaciones();
-    }
-      
-    }else{
-      this.proveedor.listarInstalaciones();
+      } else {
+        this.esperarInstalaciones();
+      }
+    } else {
+      if (localStorage["salon"] == null || localStorage["salon"] == undefined) {
+        this.proveedor.listarInstalacionesNoLogin();
+      }
+
       this.proveedor.consultaDeEventos().subscribe(
         data => {
           if (data.status == "ok") {
@@ -102,19 +98,18 @@ export class EventosPage {
               if (element.prioridad_id == 2) {
                 this.da2.push(element);
                 this.longitudda2 = this.da2.length;
-              
               }
             });
-            if(typeof this.longitudda2 === "undefined"){
-                this.longitudda2=0;
+            if (typeof this.longitudda2 === "undefined") {
+              this.longitudda2 = 0;
             }
-           
+
             console.log(this.longitudda2);
-  
+
             console.log(this.da2);
             this.longitud = this.da.length;
-            if(this.longitudda2==1 || this.longitudda2==0 ){
-              this.longivarios=false;
+            if (this.longitudda2 == 1 || this.longitudda2 == 0) {
+              this.longivarios = false;
             }
             this.skeletor = false;
           } else {
@@ -126,9 +121,6 @@ export class EventosPage {
         }
       );
     }
-    
-
-    
   }
 
   abrirtdetalleevento(evento) {

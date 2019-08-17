@@ -46,8 +46,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       //statusBar.styleDefault();
-      
-     
+
       // used for an example of ngFor and navigation
       this.pages = [
         { title: "Eventos", icon: "calendar", component: EventosPage },
@@ -86,14 +85,22 @@ export class MyApp {
       console.log("Entre aqui");
     }
     platform.registerBackButtonAction(() => {
-     
-      
       let nav = this.app.getActiveNavs()[0];
-      let activeView = localStorage["nav"];
+      let view = this.nav.getActive();
+      let page = view ? this.nav.getActive().instance : null;
+      if (page && page instanceof LoginPage) {
+      }
+
+      // let activeView = localStorage["nav"];
       // Checks if can go back before show up the alert
-      if(activeView === "LoginPage"){
-        platform.exitApp();
-      } else if (activeView === "EventosPage") {
+      if (page && page instanceof LoginPage) {
+        if (
+          localStorage["terminos"] == null ||
+          localStorage["terminos"] == undefined
+        ) {
+          platform.exitApp();
+        }
+      } else if (page && page instanceof EventosPage) {
         if (nav.canGoBack()) {
           nav.pop();
         } else {
@@ -124,12 +131,12 @@ export class MyApp {
           }
         }
       } else if (
-        activeView === "RestaurantPage" ||
-        activeView === "InstalacionesPage" ||
-        activeView === "DeportesPage" ||
-        activeView === "TeetimePage" ||
-        activeView === "PagoPage" ||
-        activeView === "PqrsPage"
+        (page && page instanceof RestaurantPage) ||
+        (page && page instanceof InstalacionesPage) ||
+        (page && page instanceof DeportesPage) ||
+        (page && page instanceof TeetimePage) ||
+        (page && page instanceof PagoPage) ||
+        (page && page instanceof PqrsPage)
       ) {
         this.nav.setRoot(EventosPage);
       } else {
@@ -137,17 +144,14 @@ export class MyApp {
           nav.pop();
         }
       }
-      
     });
-
   }
 
   ngAfterViewInit() {
     this.nav.viewDidEnter.subscribe(data => {
       console.log("ladsdahdkahdkasdksahdka");
       var view = data.component.name;
-      this.pagina=data.component.name;
-     
+      this.pagina = data.component.name;
 
       if (
         view != "LoginPage" &&

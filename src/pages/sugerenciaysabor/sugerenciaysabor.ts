@@ -28,7 +28,7 @@ export class SugerenciaysaborPage {
     this.data = navParams.data;
     this.urlbase = this.proveedor.getUrlBase();
 
-    if (this.data.tipo == "sugerencia") {
+    if (this.data.tipo != "sugerencia") {
       this.proveedor.getsabor().subscribe(data => {
         if (data["status"] == "ok") {
           console.log(data["data"]["url"]);

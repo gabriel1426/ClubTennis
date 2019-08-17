@@ -27,8 +27,36 @@ page-teetime {
   ion-label {
     white-space: normal !important;
   }
-  .col{
+  .col {
     padding: 0px !important;
   }
-  
+
+  .elementToFadeInAndOut {
+    -webkit-animation: fadeinout 2s linear 1 forwards;
+    animation: fadeinout 2s linear 1 forwards;
+    animation-iteration-count: 10000;
+  }
+
+  @-webkit-keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeinout {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }

@@ -1,9 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  NavController,
-  NavParams,
-  ModalController
-} from "ionic-angular";
+import { NavController, NavParams, ModalController } from "ionic-angular";
 import { SugerenciaysaborPage } from "../sugerenciaysabor/sugerenciaysabor";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion";
@@ -14,7 +10,6 @@ import { DetalleinstalacionPage } from "../detalleinstalacion/detalleinstalacion
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-
 
 @Component({
   selector: "page-restaurant",
@@ -32,10 +27,12 @@ export class RestaurantPage {
     public modalCtrl: ModalController,
     public proveedor: ServiciosProvider
   ) {
-    window.localStorage.removeItem("nav");
-    window.localStorage.setItem("nav", "RestaurantPage");
-    this.restaurantes = this.proveedor.getconsultaDeRestaurantes();
-    if (typeof this.restaurantes !== "undefined") {
+    
+    this.restaurantes = JSON.parse(this.proveedor.getconsultaDeRestaurantes());
+    if (
+      typeof this.restaurantes !== "undefined" &&
+      this.restaurantes !== null
+    ) {
       this.longitud = this.restaurantes.length;
       this.url = this.proveedor.getUrlBase();
       this.skeletor = false;
@@ -58,11 +55,13 @@ export class RestaurantPage {
   }
 
   sugerenciaModal() {
-    let modal1 = this.modalCtrl.create(SugerenciaysaborPage,{"tipo":"sugerencia"});
+    let modal1 = this.modalCtrl.create(SugerenciaysaborPage, {
+      tipo: "sugerencia"
+    });
     modal1.present();
   }
   saborModal() {
-    let modal1 = this.modalCtrl.create(SugerenciaysaborPage, {"tipo":"sabor"});
+    let modal1 = this.modalCtrl.create(SugerenciaysaborPage, { tipo: "sabor" });
     modal1.present();
   }
   abrirDetalle(item) {

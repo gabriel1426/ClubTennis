@@ -30,12 +30,10 @@ export class InstalacionesPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
-    window.localStorage.removeItem("nav");
-    window.localStorage.setItem("nav", "InstalacionesPage");
-    this.salones = this.proveedor.consultaDeSalones();
-    this.zonas = this.proveedor.getconsultaDeZonaRecreativa();
-    this.spa = this.proveedor.consultaDeSpa();
-    if (typeof this.salones !== "undefined") {
+    this.salones = JSON.parse(this.proveedor.consultaDeSalones());
+    this.zonas = JSON.parse(this.proveedor.getconsultaDeZonaRecreativa());
+    this.spa = JSON.parse(this.proveedor.consultaDeSpa());
+    if (typeof this.salones !== "undefined" && this.salones !== null) {
       this.url = this.proveedor.getUrlBase();
       this.longitudsalones = this.salones.length;
       console.log(this.longitudsalones + "longitud");

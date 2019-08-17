@@ -21,7 +21,6 @@ import { TerminosPage } from "../terminos/terminos";
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-login",
   templateUrl: "login.html"
@@ -59,6 +58,8 @@ export class LoginPage {
   }
 
   abrirterminos() {
+    window.localStorage.removeItem("terminos");
+    window.localStorage.setItem("terminos", "si");
     let profileModal = this.modalCtrl.create(TerminosPage);
     profileModal.present();
   }
@@ -88,40 +89,63 @@ export class LoginPage {
           if (data.status == "ok") {
             this.proveedor.guardarData(data.data.access_token);
             this.proveedor.datosUsuario();
-            this.proveedor.consultaDeEventosLogin().subscribe(
-              data => {
-                if (data['status'] == "ok") {
-                  this.proveedor.eventos = data['data'];
-                  console.log(this.proveedor.eventos);
-                
+            this.proveedor.consultaDeEventosLogin().subscribe(data => {
+              if (data["status"] == "ok") {
+                this.proveedor.eventos = data["data"];
+                window.localStorage.removeItem("eventos");
+                window.localStorage.setItem(
+                  "eventos",
+                  JSON.stringify(data["data"])
+                );
+                console.log(this.proveedor.eventos);
               }
               this.proveedor.listarInstalaciones().subscribe(data => {
                 if (data["status"] == "ok") {
                   console.log("Si entro");
                   data["data"].forEach(element => {
                     if (element.id == 1) {
-                      window.localStorage.setItem ('zonas', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("zonas");
+                      window.localStorage.setItem(
+                        "zonas",
+                        JSON.stringify(element.instalacions)
+                      );
                     } else if (element.id == 2) {
-                      window.localStorage.setItem ('salon', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("salon");
+                      window.localStorage.setItem(
+                        "salon",
+                        JSON.stringify(element.instalacions)
+                      );
                     } else if (element.id == 3) {
-                      window.localStorage.setItem ('deportes', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("deportes");
+                      window.localStorage.setItem(
+                        "deportes",
+                        JSON.stringify(element.instalacions)
+                      );
                     } else if (element.id == 4) {
-                      window.localStorage.setItem ('otros', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("otros");
+                      window.localStorage.setItem(
+                        "otros",
+                        JSON.stringify(element.instalacions)
+                      );
                     } else if (element.id == 5) {
-                      window.localStorage.setItem ('spa', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("spa");
+                      window.localStorage.setItem(
+                        "spa",
+                        JSON.stringify(element.instalacions)
+                      );
                     } else {
-                      window.localStorage.setItem ('restaurante', JSON.stringify ( element.instalacions));
+                      window.localStorage.removeItem("restaurante");
+                      window.localStorage.setItem(
+                        "restaurante",
+                        JSON.stringify(element.instalacions)
+                      );
                     }
                   });
                 }
               });
               loader.dismiss();
               this.navCtrl.setRoot(EventosPage);
-              }
-            );
-            
-
-           
+            });
           } else {
             loader.dismiss();
             const toast = this.toastCtrl.create({
@@ -138,7 +162,7 @@ export class LoginPage {
             this.credentials.password = "";
             let alert = this.alertController.create({
               title: " Tennis Golf  Club",
-              subTitle: Error.error.message+".",
+              subTitle: Error.error.message + ".",
               buttons: ["OK"]
             });
             alert.present();

@@ -1,10 +1,5 @@
 import { Component } from "@angular/core";
-import {
-  
-  NavController,
-  NavParams,
-  ViewController
-} from "ionic-angular";
+import { NavController, NavParams, ViewController } from "ionic-angular";
 import { GaleriaPage } from "../galeria/galeria";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 
@@ -15,7 +10,6 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
  * Ionic pages and navigation.
  */
 
-
 @Component({
   selector: "page-detalleevento",
   templateUrl: "detalleevento.html"
@@ -23,27 +17,27 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 export class DetalleeventoPage {
   data: any;
   public url;
-  public cantidad=0;
+  public cantidad = 0;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrol: ViewController,
     public proveedor: ServiciosProvider
   ) {
-    window.localStorage.removeItem("nav");
-    window.localStorage.setItem("nav", "DetalleeventoPage");
     this.data = navParams.data;
     this.url = this.proveedor.getUrlBase();
-    this.cantidad= this.data.imagenes_eventos.length;
-    if(typeof this.cantidad === "undefined"){
-      this.cantidad=0;
-  }
+    this.cantidad = this.data.imagenes_eventos.length;
+    if (typeof this.cantidad === "undefined") {
+      this.cantidad = 0;
+    }
   }
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad DetalleeventoPage");
   }
   abrirgaleria(galeria) {
-    this.navCtrl.push(GaleriaPage, galeria);
+    if (this.cantidad > 0) {
+      this.navCtrl.push(GaleriaPage, galeria);
+    }
   }
 }

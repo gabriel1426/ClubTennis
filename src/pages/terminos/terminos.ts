@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams,ViewController } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { NavController, NavParams, ViewController } from "ionic-angular";
 
 /**
  * Generated class for the TerminosPage page.
@@ -8,22 +8,23 @@ import { NavController, NavParams,ViewController } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-
 @Component({
-  selector: 'page-terminos',
-  templateUrl: 'terminos.html',
+  selector: "page-terminos",
+  templateUrl: "terminos.html"
 })
 export class TerminosPage {
-
-  constructor(public viewCtrol: ViewController,public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public viewCtrol: ViewController,
+    public navCtrl: NavController,
+    public navParams: NavParams
+  ) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TerminosPage');
+    console.log("ionViewDidLoad TerminosPage");
   }
 
-  dismiss(){
+  dismiss() {
+    window.localStorage.removeItem("terminos");
     this.viewCtrol.dismiss();
-   }
-
+  }
 }
