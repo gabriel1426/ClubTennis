@@ -61,12 +61,7 @@
               <h2>
                 Estado: <span style="color: #f53d3d"  *ngIf="item.estado == 'RESERVADO'">Por aprobación</span> <span style="color: #32db64"  *ngIf="item.estado != 'RESERVADO'">Aprobado</span>
               </h2>
-              <ion-icon
-                *ngIf="item.estado == 'RESERVADO'"
-                name="trash"
-                color="danger"
-                item-right
-              ></ion-icon>
+              
             </ion-item>
 
             <ion-item>
@@ -114,7 +109,7 @@
                 <ion-grid style="text-align: left !important">
                   <ion-row>
                     <ion-col>
-                      <h3>
+                      <h3  *ngIf="item.jugador1 != null">
                         <ion-icon
                           name="checkbox"
                           item-start
@@ -124,7 +119,7 @@
                       </h3>
                     </ion-col>
                     <ion-col>
-                      <h3>
+                      <h3  *ngIf="item.jugador2 != null">
                         <ion-icon
                           name="checkbox"
                           item-start
@@ -136,7 +131,7 @@
                   </ion-row>
                   <ion-row>
                     <ion-col>
-                      <h3>
+                      <h3  *ngIf="item.jugador3 != null">
                         <ion-icon
                           name="checkbox"
                           item-start

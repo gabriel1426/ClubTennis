@@ -95,7 +95,7 @@ export class EventosPage {
             this.da = data.data;
             console.log(this.da);
             this.da.forEach(element => {
-              if (element.prioridad_id == 2) {
+              if (element.prioridad_id == 1) {
                 this.da2.push(element);
                 this.longitudda2 = this.da2.length;
               }
