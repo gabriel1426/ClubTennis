@@ -171,8 +171,7 @@ export class ServiciosProvider {
 
   //Metodo que elimina los datos del usuario d ela memoria
   logout(): Observable<any> {
-    let ok = true;
-
+    
     console.log("saliii");
     let token = this.getToken();
     console.log(token);

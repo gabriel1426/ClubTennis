@@ -13,6 +13,7 @@ import { ServiciosProvider } from "../../providers/servicios/servicios";
 import { EventosPage } from "../eventos/eventos";
 import { RecuperarcontrasenaPage } from "../recuperarcontrasena/recuperarcontrasena";
 import { TerminosPage } from "../terminos/terminos";
+import { InAppBrowser } from "@ionic-native/in-app-browser";
 
 /**
  * Generated class for the LoginPage page.
@@ -40,7 +41,8 @@ export class LoginPage {
     public proveedor: ServiciosProvider,
     private loadingController: LoadingController,
     private toastCtrl: ToastController,
-    private menu: MenuController
+    private menu: MenuController,
+    public iap: InAppBrowser
   ) {
     window.localStorage.removeItem("nav");
     window.localStorage.setItem("nav", "LoginPage");
@@ -188,7 +190,10 @@ export class LoginPage {
     console.log("ionViewDidLoad UserloginPage");
   }
 
-  forgotPasswordPage() {
+  forgotPasswordPagefaiil() {
     this.navCtrl.push(RecuperarcontrasenaPage);
+  }
+  forgotPasswordPage() {
+    this.iap.create("https://appadministrador.tennisgolfclub.com.co/password/reset", "_blank");
   }
 }
