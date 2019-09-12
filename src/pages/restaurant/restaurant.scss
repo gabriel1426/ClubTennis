@@ -2,7 +2,7 @@ page-restaurant {
   .fondorestaurant {
     width: 100% !important;
     height: 250px;
-    background-image: url("../../assets/imgs/1.png");
+    background-image: url("../assets/imgs/1.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -67,5 +67,11 @@ page-restaurant {
     100% {
       opacity: 0;
     }
+  }
+  .classRestaurant{
+    background-image: url('../assets/imgs/2.jpg');
+    background-repeat: no-repeat;
+    height: 280px;
+    background-size: cover;
   }
 }

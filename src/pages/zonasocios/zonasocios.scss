@@ -9,8 +9,6 @@ page-zonasocios {
   ion-label {
     white-space: normal !important;
   }
-  
-
   ion-card {
     position: relative;
     text-align: center;
@@ -34,5 +32,12 @@ page-zonasocios {
   }
   .header-md::after {
     background: transparent !important;
+  }
+
+  .classZona{
+    background-image: url('../assets/imgs/2.jpg');
+     background-repeat: no-repeat; 
+     height: 280px;  
+     background-size: cover;
   }
 }

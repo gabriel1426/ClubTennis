@@ -2,7 +2,7 @@ page-deportes {
   .fondodeportes {
     width: 100% !important;
     height: 250px;
-    background-image: url("../../assets/imgs/15.png");
+    background-image: url("../assets/imgs/15.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -93,5 +93,12 @@ page-deportes {
     100% {
       opacity: 0;
     }
+  }
+
+  .classDeporte{
+    background-image: url('../assets/imgs/2.jpg'); 
+    background-repeat: no-repeat; 
+    height: 280px; 
+    background-size: cover;
   }
 }

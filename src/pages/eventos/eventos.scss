@@ -46,7 +46,7 @@ page-eventos {
   .fondoeventos {
     width: 100% !important;
     height: 250px;
-    background-image: url("../../assets/imgs/1.png");
+    background-image: url("../assets/imgs/1.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -168,4 +168,13 @@ page-eventos {
       opacity: 0;
     }
   }
+  
+  .classEvento{
+    background-image: url('../assets/imgs/2.jpg');
+     height: 280px; 
+      width: 100%; 
+      background-repeat: no-repeat; 
+      background-size: cover;
+  }
+  
 }
