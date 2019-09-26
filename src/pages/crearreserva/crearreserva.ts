@@ -7,6 +7,7 @@ import {
 } from "ionic-angular";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { TeetimePage } from "../teetime/teetime";
+import { LoginPage } from "../login/login";
 import { ServiciosProvider } from "../../providers/servicios/servicios";
 
 /**
@@ -175,25 +176,55 @@ export class CrearreservaPage {
         }
       },
       error => {
+        console.log(error.error.error);
         loader.dismiss();
-        let alert = this.alertController.create({
-          title: " Tennis Golf  Club",
-          subTitle: "Error en la conexión",
-          buttons: [
-            {
-              text: "OK",
-              handler: data => {
-                this.navCtrl.pop();
+        if(error.error.error=="token is invalid"){
+          this.proveedor.logout().subscribe(
+            data => {
+              if (data["status"] == "ok") {
+                console.log("saliii");
+                console.log(data);
+                window.localStorage.removeItem("token");
+                window.localStorage.removeItem("codigo_golfista");
+                window.localStorage.removeItem("codigo_usuario");
+                this.navCtrl.setRoot(LoginPage);
+              } else {
+                window.localStorage.removeItem("token");
+                window.localStorage.removeItem("codigo_golfista");
+                window.localStorage.removeItem("codigo_usuario");
+                this.navCtrl.setRoot(LoginPage);
               }
+            },
+            error => {
+              console.log(error);
+              window.localStorage.removeItem("token");
+              window.localStorage.removeItem("codigo_golfista");
+              window.localStorage.removeItem("codigo_usuario");
+              this.navCtrl.setRoot(LoginPage);
             }
-          ]
-        });
-        alert.present();
+          );
+
+      } else{
+          let alert = this.alertController.create({
+            title: " Tennis Golf  Club",
+            subTitle: "Fallo inesperado",
+            buttons: [
+              {
+                text: "OK",
+                handler: data => {
+                  this.navCtrl.pop();
+                }
+              }
+            ]
+          });
+          alert.present();
+        }
       }
     );
   }
 
   saveData() {
+    this.jugadores = [];
     if (this.hora == "" || this.fecha == "") {
     
       let alert = this.alertController.create({
@@ -302,19 +333,19 @@ export class CrearreservaPage {
               error => {
                 console.log("error");
                 console.log(error.error.data.jugadores);
-
+                jugadoresMostrar=""
                 this.jugadores.forEach(element => {
                   error.error.data.jugadores.forEach(element1 => {
                     if (element1 == element.codigo) {
                       console.log(element.codigo);
-                      jugadoresMostrar += element.nombre + "," + "\n";
+                      jugadoresMostrar += element.nombre + "," ;
                     }
                   });
                 });
                 loader.dismiss();
                 let alert = this.alertController.create({
                   title: " Tennis Golf  Club",
-                  subTitle: error.error.message + ": \n " + jugadoresMostrar,
+                  subTitle: "Los jugadores " + jugadoresMostrar+" ya se encuentran en otra reserva. Por favor intente con otros jugadores.",
                   buttons: ["OK"]
                 });
                 alert.present();

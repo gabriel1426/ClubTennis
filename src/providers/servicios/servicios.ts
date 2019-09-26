@@ -101,8 +101,8 @@ export class ServiciosProvider {
     return this.http
       .get(this.baseUrl + "/api/v1/tipoInstalacion", {
         headers: { "Content-Type": "application/json" }
-      })
-      .subscribe(data => {
+      });
+      /*.subscribe(data => {
         if (data["status"] == "ok") {
           console.log("Si entro");
           data["data"].forEach(element => {
@@ -145,7 +145,7 @@ export class ServiciosProvider {
             }
           });
         }
-      });
+      });*/
   }
 
   /////////////Metodos para guardar y obtener los datos almacenados en la memoria del cell
@@ -177,7 +177,7 @@ export class ServiciosProvider {
     console.log(token);
     return this.http.post(
       this.baseUrl + "/api/auth/logout",
-      { hola: "hola" },
+      { },
       {
         headers: {
           Authorization: "Bearer " + token,

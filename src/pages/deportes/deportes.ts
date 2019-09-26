@@ -26,16 +26,28 @@ export class DeportesPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
-    this.deportes = JSON.parse(this.proveedor.consultaDeDeportes());
+    this.consultar();
+  }
 
-    if (typeof this.deportes !== "undefined" && this.deportes !== null) {
-      this.longitud = this.deportes.length;
-      this.url = this.proveedor.getUrlBase();
-      this.skeletor = false;
-    } else {
-      this.skeletor = true;
-      this.esperarInstalaciones();
-    }
+  consultar(){
+    this.proveedor.listarInstalacionesNoLogin().subscribe(data => {
+      if (data["status"] == "ok") {
+        console.log("Si entro");
+        data["data"].forEach(element => {
+          if (element.id == 3) {
+            this.deportes=element.instalacions;
+          }
+        });
+        if (typeof this.deportes !== "undefined" && this.deportes !== null) {
+          this.longitud = this.deportes.length;
+          this.url = this.proveedor.getUrlBase();
+          this.skeletor = false;
+        } else {
+          this.skeletor = true;
+          this.esperarInstalaciones();
+        }
+      }
+    });
   }
 
   esperarInstalaciones() {

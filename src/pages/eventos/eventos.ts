@@ -59,36 +59,6 @@ export class EventosPage {
 
   consultarEventos() {
     this.url = this.proveedor.getUrlBase();
-    if (this.proveedor.isLogged()) {
-      this.da = JSON.parse(this.proveedor.consultaEventos());
-      if (typeof this.da !== "undefined" && this.da !== null) {
-        console.log(this.da);
-        this.da.forEach(element => {
-          if (element.prioridad_id == 1) {
-            this.da2.push(element);
-            this.longitudda2 = this.da2.length;
-          }
-        });
-        if (typeof this.longitudda2 === "undefined") {
-          this.longitudda2 = 0;
-        }
-
-        console.log(this.longitudda2);
-
-        console.log(this.da2);
-        this.longitud = this.da.length;
-        if (this.longitudda2 == 1 || this.longitudda2 == 0) {
-          this.longivarios = false;
-        }
-        this.skeletor = false;
-      } else {
-        this.esperarInstalaciones();
-      }
-    } else {
-      if (localStorage["salon"] == null || localStorage["salon"] == undefined) {
-        this.proveedor.listarInstalacionesNoLogin();
-      }
-
       this.proveedor.consultaDeEventos().subscribe(
         data => {
           if (data.status == "ok") {
@@ -103,9 +73,7 @@ export class EventosPage {
             if (typeof this.longitudda2 === "undefined") {
               this.longitudda2 = 0;
             }
-
             console.log(this.longitudda2);
-
             console.log(this.da2);
             this.longitud = this.da.length;
             if (this.longitudda2 == 1 || this.longitudda2 == 0) {
@@ -120,7 +88,8 @@ export class EventosPage {
           this.esperarInstalaciones();
         }
       );
-    }
+     
+    
   }
 
   abrirtdetalleevento(evento) {

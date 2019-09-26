@@ -28,18 +28,30 @@ export class RestaurantPage {
     public proveedor: ServiciosProvider
   ) {
     
-    this.restaurantes = JSON.parse(this.proveedor.getconsultaDeRestaurantes());
-    if (
-      typeof this.restaurantes !== "undefined" &&
-      this.restaurantes !== null
-    ) {
-      this.longitud = this.restaurantes.length;
-      this.url = this.proveedor.getUrlBase();
-      this.skeletor = false;
-    } else {
-      this.skeletor = true;
-      this.esperarInstalaciones();
-    }
+    this.consultar();
+  }
+  consultar(){
+    this.proveedor.listarInstalacionesNoLogin().subscribe(data => {
+      if (data["status"] == "ok") {
+        console.log("Si entro");
+        data["data"].forEach(element => {
+          if (element.id == 6) {
+            this.restaurantes=element.instalacions;
+          }
+        });
+        if (
+          typeof this.restaurantes !== "undefined" &&
+          this.restaurantes !== null
+        ) {
+          this.longitud = this.restaurantes.length;
+          this.url = this.proveedor.getUrlBase();
+          this.skeletor = false;
+        } else {
+          this.skeletor = true;
+          this.esperarInstalaciones();
+        }
+      }
+    });
   }
 
   esperarInstalaciones() {

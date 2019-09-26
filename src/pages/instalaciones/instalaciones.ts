@@ -30,27 +30,44 @@ export class InstalacionesPage {
     public navParams: NavParams,
     public proveedor: ServiciosProvider
   ) {
-    this.salones = JSON.parse(this.proveedor.consultaDeSalones());
-    this.zonas = JSON.parse(this.proveedor.getconsultaDeZonaRecreativa());
-    this.spa = JSON.parse(this.proveedor.consultaDeSpa());
-    if (typeof this.salones !== "undefined" && this.salones !== null) {
-      this.url = this.proveedor.getUrlBase();
-      this.longitudsalones = this.salones.length;
-      console.log(this.longitudsalones + "longitud");
-      this.longitudzonas = this.spa.length;
-      this.longitudspa = this.zonas.length;
-      this.skeletor = false;
-      if (
-        this.longitudsalones == 0 &&
-        this.longitudzonas == 0 &&
-        this.longitudspa == 0
-      ) {
-        this.banderaglobal = true;
+   this.consultar();
+  }
+
+  consultar(){
+    this.proveedor.listarInstalacionesNoLogin().subscribe(data => {
+      if (data["status"] == "ok") {
+        console.log("Si entro");
+        data["data"].forEach(element => {
+          if (element.id == 1) {
+            this.zonas=element.instalacions;
+          } else if (element.id == 2) {
+            this.salones =element.instalacions;
+          }else if (element.id == 5) {
+            this.spa =element.instalacions;
+          } 
+        });
+
+        if (typeof this.salones !== "undefined" && this.salones !== null) {
+          this.url = this.proveedor.getUrlBase();
+          this.longitudsalones = this.salones.length;
+          console.log(this.longitudsalones + "longitud");
+          this.longitudzonas = this.spa.length;
+          this.longitudspa = this.zonas.length;
+          this.skeletor = false;
+          if (
+            this.longitudsalones == 0 &&
+            this.longitudzonas == 0 &&
+            this.longitudspa == 0
+          ) {
+            this.banderaglobal = true;
+          }
+        } else {
+          this.skeletor = true;
+          this.esperarInstalaciones();
+        }
+
       }
-    } else {
-      this.skeletor = true;
-      this.esperarInstalaciones();
-    }
+    });
   }
 
   esperarInstalaciones() {
